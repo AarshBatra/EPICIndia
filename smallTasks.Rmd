@@ -1,21 +1,27 @@
 ---
-title: "EPIC India Small Tasks Scripts"
+title: "Small Tasks"
 author: "Aarsh Batra"
-date:  `r paste0("Last updated: ", Sys.Date())`
+date:  "2021/11/19"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(cache = TRUE, cache.lazy = FALSE, warning = FALSE, 
-                      message =FALSE, echo = TRUE, dpi = 180, 
-                      fig.width = 8, fig.height = 5)
-
-theme_minimal()
-update_geom_defaults("rect", list(fill = "midnightblue", alpha = 0.8))
+knitr::opts_chunk$set(
+	fig.height = 5,
+	fig.width = 8,
+	message = FALSE,
+	warning = FALSE,
+	cache = TRUE,
+	cache.lazy = FALSE,
+	dpi = 180,
+	include = FALSE
+)
+ggplot2::theme_minimal()
+ggplot2::update_geom_defaults("rect", list(fill = "midnightblue", alpha = 0.8))
 
 ```
 
-```{r libraries}
+```{r libraries, include=FALSE}
 library(tidyverse)
 library(roxygen2)
 library(envnames)
@@ -40,25 +46,58 @@ library(RColorBrewer)
 library(psych)
 library(lubridate)
 library(janitor)
+library(tidyselect)
+```
 
+## Document Structure
+
+* This document is a single reference source for all small R data tasks (and their corresponding report generation).
+ 
+* The task that is marked  **Active** is the current task at hand.
+ 
+* The tasks that is marked **Inactive** (written in front of it) means that they were completed at some point but now lay dormant and can be reactivated later if needed. The code chunks for these tasks will remain inactive until they are reactivated. 
+
+<hr>
+
+### Task 1 (Inactive chunk): Filter data for the names in the [PUC Order](https://drive.google.com/file/d/1NWQHUx85j_rCRd1qZHzHEf08FgTP-7mg/view?usp=sharing).
+
+
+## Read Raw Data
+
+```{r PUCOrderFilterData-read-data}
+pucc_data_raw <- readr::read_csv("data-raw/PUCC Checking by CDVs in Petrol Pumps.csv")
+```
+
+## Clean raw data
+
+```{r clean-raw-data}
+
+## cleaning steps (in order as they are performed)
+# 1. clean column names
+# 2. create a "date_only" column from timestamp column
+# 3. create a "time_only" column (24 hr format) from timestamp column
+# 4. convert "civil_defence_volunteer_name" column to lowercase
+# 5. convert "petrol_pump_location" column to lowercase
+# 6. coerce "vehicle_category", "vehicle_pucc_valid"
+#    , "civil_defence_volunteer_name" columns to class "factor"
+
+pucc_data_cleaned <- pucc_data_raw %>%
+  janitor::clean_names() %>%
+  dplyr::mutate(date_only = lubridate::date(timestamp), 
+                time_only = readr::parse_time(stringr::str_extract(timestamp, "(.:..:.. ..)| (..:..:.. ..)")), civil_defence_volunteer_name = stringr::str_to_lower(civil_defence_volunteer_name), 
+                petrol_pump_location = stringr::str_to_lower(petrol_pump_location), 
+                vehicle_category = haven::as_factor(vehicle_category), 
+                vehicle_pucc_valid = haven::as_factor(vehicle_pucc_valid), 
+                civil_defence_volunteer_name = haven::as_factor(civil_defence_volunteer_name)) %>%
+  dplyr::select(timestamp, date_only, time_only, tidyselect::everything())
 
 ```
 
 
-
-## Task 1: Filter data for the names in the [PUC Order](https://drive.google.com/file/d/1NWQHUx85j_rCRd1qZHzHEf08FgTP-7mg/view?usp=sharing).
-
-```{r task1-PUCOrderFilterData-read-data}
-pucc_data <- read_csv("PUCC Checking by CDVs in Petrol Pumps.csv")
-pucc_data <- pucc_data %>%
-  clean_names()
-
-```
-
-```{r task1-PUCOrderFilterData-cleaning-data}
+```{r task1-PUCOrderFilterData-cleaning-data, echo=TRUE}
 
 
-# Enter Nodal officers names list mentioned in the PUC Order PDF above
+## Enter Nodal officers names list mentioned in the PUC Order PDF above
 name_list <- c("nikhil", "yogesh kumar", "keshav", "dusyant yadav", 
                "saju p sharma", "kuldeep garg", "sunil kumar", 
                "yogesh", "jagdish jumar", "avinash", "angad pratab singh", 
@@ -69,17 +108,30 @@ name_list <- c("nikhil", "yogesh kumar", "keshav", "dusyant yadav",
                "sunil kumar", "sachin sharan", "vishal rana", 
                "naresh", "jag mohan")
 
-# enter date range for filtering PUC data
-date_range <- lubridate::as_date(lubridate::ymd("2021-11-15") : lubridate::ymd("2021-11-19"))
+## enter date range for filtering PUC data
 
-# filtered_dataset
-pucc_data_filtered <- pucc_data %>%
-  dplyr::mutate(dateOnly = lubridate::ymd(unlist(str_extract_all(timestamp, "..../../.."))), civil_defence_volunteer_name = stringr::str_to_lower(civil_defence_volunteer_name)) %>%
-  dplyr::filter(dateOnly  %in% date_range) %>%
+lower_limit_date <- c("2021-11-15")
+upper_limit_date <- c("2021-11-19") 
+
+date_range <- lubridate::as_date(lubridate::ymd(lower_limit_date) : lubridate::ymd(upper_limit_date))
+
+## filtered_dataset
+pucc_data_filtered <- pucc_data_cleaned %>%
+  dplyr::filter(date_only  %in% date_range) %>%
   dplyr::filter(civil_defence_volunteer_name %in% name_list)
 
-# save puc filtered dataset
-write_csv(pucc_data_filtered, "pucc_data_filtered_nov152021Onwards_namesInPUCOrderList.csv")
+## save puc filtered dataset
+
+# enter other (other than date) filters used to be used to create the name 
+# of the file to be exported.
+
+filters_other <- c("namelist")
+
+file_name <- str_c("pucc_data", lower_limit_date, "to", upper_limit_date, filters_other, ".csv", sep = "_")
+
+file_name <- str_c("smallTasksRmdScriptOutputFiles", file_name, sep = "/")
+
+readr::write_csv(pucc_data_filtered, file_name)
 
 ```
 
