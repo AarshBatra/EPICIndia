@@ -107,6 +107,54 @@ summarise_df_by_colname <- function(df, col_to_grp_by){
     dplyr::group_by(across(col_to_grp_by)) %>%
     dplyr::summarise(count = n()) %>%
     ungroup() %>%
-    mutate(percentage = (count/sum(count)*100)) %>%
-    knitr::kable()
+    mutate(percentage = (count/sum(count)*100))
+}
+
+
+#' time hms formatter for creating labels for \code{time_only} values in graphs
+#'
+#' Generates custom labels for \code{time_only} column. Once generated these can
+#' be plotted on a graph.
+#'
+#' @importFrom stringr str_c
+#'
+#' @param num_seconds_since_12am this takes in a time value in seconds (with the reference
+#'                               starting point being 00:00:00) in seconds. So,
+#'                               for example 1 am in the morning would be equal
+#'                               to 3600 seconds. So, entering "3600" in
+#'                               \code{num_seconds_since_12am} will output
+#'                               "01:00:00" which is 1 am in the morning. The outputs
+#'                               will be in 24 hr time format.
+#'
+#' @return a string representing time in "hh:mm:ss" format
+#'
+#' @examples
+#'
+#' time_hms_formatter(3600) # This outputs: "01:00:00" which is 3600 seconds past from
+#' "00:00:00"
+#'
+#' time_hms_formatter(7200) # This outputs: "02:00:00" which is 7200 seconds past from
+#' "00:00:00"
+#'
+#'
+#' @export
+#'
+
+time_hms_formatter <- function(num_seconds_since_12am){
+
+ # calculating values of hours, minutes and seconds in separate parts
+ h_orig <- num_seconds_since_12am/3600
+ h_floor <- floor(num_seconds_since_12am/3600)
+ h_resid <- h_orig - h_floor
+ h_resid_sec <- h_resid * 3600
+
+ m_orig <- h_resid_sec/60
+ m_floor <- floor(m_orig)
+ m_resid <- m_orig - m_floor
+ m_resid_sec <- m_resid * 60
+ m_resid_sec_floor <- floor(m_resid_sec)
+
+ # combining the separate hours, minutes and seconds value in a string
+ lab <- stringr::str_c(h_floor, m_floor, m_resid_sec_floor, sep = ":")
+ return(lab)
 }

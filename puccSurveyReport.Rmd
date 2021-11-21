@@ -6,8 +6,8 @@ author: "Project Management Unit"
 date:  "`r Sys.Date()`"
 output: 
    prettydoc::html_pretty:
-    theme: tactile
-    highlight: vignette
+    theme: cayman
+    highlight: gitub
 params:
   data: 
     label: "Input Survey dataset:"
@@ -29,6 +29,15 @@ params:
     value: percentage
     input: select
     choices: [percentage, count]  
+    
+  time_gap:
+    label: "Time Gap (in seconds)"
+    value: 7200
+    input: slider
+    min: 1800
+    max: 21600
+    step: 600
+    sep: "" 
 ---
 
 ```{r setup, include=FALSE}
@@ -70,6 +79,7 @@ library(RColorBrewer)
 library(psych)
 library(lubridate)
 library(janitor)
+library(ggthemes)
 ```
 
 
@@ -77,8 +87,8 @@ library(janitor)
 ```{r PUCOrderFilterData-read-data, include=FALSE}
 
 #> Read raw data---------------------------------------------------------------
-
 pucc_data_raw <- readr::read_csv(params$data)
+
 ```
 
 
@@ -124,39 +134,71 @@ pucc_data_filtered <- pucc_data_cleaned %>%
 
 &nbsp;
 
+<hr>
 
-## Reporting Summary Statistics from: `r params$date_range_ll` to `r params$date_range_ul`
+<h1> Reporting Summary Statistics from: `r params$date_range_ll` to `r params$date_range_ul` </h1>
 
 <hr>
 
 &nbsp;
 
-## Is PUCC Valid?
+&nbsp;
+
+&nbsp;
+
+## Total number of surveys completed per day
+
+```{r num-surveys-per-day, echo=FALSE, message=FALSE, warning=FALSE}
+
+pucc_data_filtered %>%
+  dplyr::group_by(date_only) %>%
+  dplyr::summarise(total_surveys_completed = n()) %>%
+  ungroup() %>%
+  ggplot() + 
+  geom_col(mapping = aes(x = date_only, y = total_surveys_completed)) +
+  coord_flip()
+
+
+```
+
+
+
+
+
+
+
+\newpage
+
+## Validity of Pollution Under Check Certificate (PUCC)
+
+<hr>
 
 
 ```{r is_pucc_valid, echo=FALSE}
 
 ## Is pucc valid? question bar graph
 
-plot_bargraph(df = pucc_data_filtered, col_to_plot = "vehicle_pucc_valid", type_of_graph = params$plot_type  , xlab = "Is Pollution Certificate Valid?", ylab = params$plot_type, title = "PUCC certificate validity", facet = FALSE, facet_by = "vehicle_category")
+plot_bargraph(df = pucc_data_filtered, col_to_plot = "vehicle_pucc_valid", type_of_graph = params$plot_type  , xlab = "Is Pollution Certificate Valid?", ylab = params$plot_type, title = "PUCC certificate validity", facet = FALSE, facet_by = "vehicle_category") 
 
 
 ## Is pucc valid? summary table (groups: vehicle_pucc_valid)
 
-summarise_df_by_colname(
-  df = pucc_data_filtered, col_to_grp_by = "vehicle_pucc_valid"
-)
+summarise_df_by_colname(df = pucc_data_filtered, col_to_grp_by = "vehicle_pucc_valid") %>%
+  dplyr::rename("Is pollution certificate valid?" = vehicle_pucc_valid) %>%
+  knitr::kable()
 ```
 
 
-&nbsp;
+\newpage
 
 &nbsp;
 
-<hr>
+&nbsp;
+
 
 ## PUCC Validity across vehicle groups
 
+<hr>
 
 ```{r is_pucc_valid_facetted, echo=FALSE}
 
@@ -169,10 +211,159 @@ plot_bargraph(df = pucc_data_filtered, col_to_plot = "vehicle_pucc_valid", type_
 
 summarise_df_by_colname(
   df = pucc_data_filtered, col_to_grp_by = c("vehicle_pucc_valid", 
-                                             "vehicle_category")
-)
+                                             "vehicle_category")) %>%
+    dplyr::rename("Is Pollution certificate valid?" = vehicle_pucc_valid,
+                  "Vehicle Category" = vehicle_category) %>%
+  knitr::kable()
 
 
 
 ```
+
+\newpage
+
+&nbsp;
+
+&nbsp;
+
+
+## Time distributions for surveys submitted
+
+<hr>
+
+&nbsp;
+
+### Time distribution for all surveys
+
+```{r time-intervals-dist-all, echo=FALSE, message=FALSE, warning=FALSE}
+
+if(params$plot_type == "percentage"){
+ ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = as.numeric(time_only), y = (..count../sum(..count..))*100), color = "white", bins = 60) +
+  scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  coord_flip() +
+  ggthemes::theme_fivethirtyeight()
+ 
+} else if (params$plot_type == "count"){
+  ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = as.numeric(time_only)), color = "white", bins = 60) +
+  scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  coord_flip() +
+  ggthemes::theme_fivethirtyeight()
+
+}
+
+
+```
+
+&nbsp;
+
+&nbsp;
+
+### Time distribution for all surveys (grouped by PUCC Validity)
+
+```{r time-intervals-dist-grp-puccval, echo=FALSE, message=FALSE, warning=FALSE}
+
+if(params$plot_type == "percentage"){
+  ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = time_only, y = (..count../sum(..count..)) * 100), color = "white", bins = 60) +
+      scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  facet_grid(~vehicle_pucc_valid) + coord_flip()
+} else if(params$plot_type == "count"){
+  ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = time_only), color = "white", bins = 60) +  scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  facet_grid(~vehicle_pucc_valid) + coord_flip()
+}
+```
+
+&nbsp;
+
+&nbsp;
+
+### Time distribution for all surveys (grouped by vehicle category)
+
+```{r time-intervals-dist-grp-vehcat, echo=FALSE, message=FALSE, warning=FALSE}
+if(params$plot_type == "percentage"){
+ ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = time_only, y = (..count../sum(..count..)) * 100), color = "white", bins = 60) +
+      scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  facet_grid(~vehicle_category) + coord_flip()
+} else if(params$plot_type == "count"){
+  ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = time_only), color = "white", bins = 60) +
+      scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  facet_grid(~vehicle_category) + coord_flip()
+}
+```
+
+&nbsp;
+
+&nbsp;
+
+
+### Time distribution of all surveys (grouped by vehicle category and PUCC validity)
+
+```{r time-intervals-dist-grp-pucval_vehcat, echo=FALSE, message=FALSE, warning=FALSE}
+
+if(params$plot_type == "percentage"){
+  ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = time_only, y = (..count../sum(..count..)) * 100), color = "white", bins = 60) +
+      scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  facet_grid(vehicle_category~vehicle_pucc_valid) + coord_flip()
+} else if(params$plot_type == "count"){
+  ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = time_only), color = "white", bins = 60) +
+      scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  facet_grid(vehicle_category~vehicle_pucc_valid) + coord_flip()
+
+}
+```
+
+
+\newpage
+
+&nbsp;
+
+&nbsp;
+
+
+
+
+
+
+
+
+
 
