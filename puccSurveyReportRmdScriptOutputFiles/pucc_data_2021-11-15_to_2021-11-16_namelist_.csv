@@ -1,0 +1,619 @@
+timestamp,date_only,time_only,civil_defence_volunteer_name,petrol_pump_location,vehicle_registration_no,vehicle_category,vehicle_pucc_valid
+2021/11/15 9:30:58 AM GMT+5:30,2021-11-15,09:30:58,yogesh,walia service station,Dl 9S AC 6210,Two Wheeler,Yes
+2021/11/15 9:31:11 AM GMT+5:30,2021-11-15,09:31:11,yogesh,walia service station,Dl 9S AC 6210,Two Wheeler,Yes
+2021/11/15 9:32:29 AM GMT+5:30,2021-11-15,09:32:29,yogesh,walia service station,DL 3S DF 2036,Two Wheeler,No
+2021/11/15 9:34:02 AM GMT+5:30,2021-11-15,09:34:02,yogesh,walia service station,DL 3S DG 8018,Two Wheeler,Yes
+2021/11/15 9:41:59 AM GMT+5:30,2021-11-15,09:41:59,yogesh,walia service station,Dl 3S EM 6239,Two Wheeler,Yes
+2021/11/15 9:46:28 AM GMT+5:30,2021-11-15,09:46:28,sunil kumar,"wazirabad road (near loni flyover), gokulpur. delhi-110094",(NT),Two Wheeler,Yes
+2021/11/15 9:55:48 AM GMT+5:30,2021-11-15,09:55:48,sunil kumar,"wazirabad road (near loni flyover), gokulpur. delhi-110094",DL2CBC4950,Two Wheeler,Yes
+2021/11/15 9:57:25 AM GMT+5:30,2021-11-15,09:57:25,sunil kumar,indian oil mangolpuri ph1,DL8s bb 5829,Two Wheeler,Yes
+2021/11/15 9:58:50 AM GMT+5:30,2021-11-15,09:58:50,sunil kumar,"wazirabad road (near loni flyover), gokulpur. delhi-110094",DL5SCM8372,Two Wheeler,Yes
+2021/11/15 10:02:43 AM GMT+5:30,2021-11-15,10:02:43,yogesh,walia service station,DL 3SBJ 7046,Two Wheeler,No
+2021/11/15 10:05:24 AM GMT+5:30,2021-11-15,10:05:24,sunil kumar,"wazirabad road (near loni flyover), gokulpur. delhi-110094",DL5SLE2996,Two Wheeler,Yes
+2021/11/15 10:07:21 AM GMT+5:30,2021-11-15,10:07:21,sunil kumar,indian oil mangolpuri ph1,Dl1la7734,Three Wheeler,No
+2021/11/15 10:07:28 AM GMT+5:30,2021-11-15,10:07:28,sunil kumar,"wazirabad road (near loni flyover), gokulpur. delhi-110094",DL6SAW7584,Two Wheeler,Yes
+2021/11/15 10:20:17 AM GMT+5:30,2021-11-15,10:20:17,sunil kumar,indian oil mangolpuri fh1,Hr22s1090,LGV/Pvt.,No
+2021/11/15 10:27:32 AM GMT+5:30,2021-11-15,10:27:32,sunil kumar,indian oil mangolpuri ph1,Dl2w2511,Three Wheeler,Yes
+2021/11/15 10:41:41 AM GMT+5:30,2021-11-15,10:41:41,rajesh kumar,shivan auto centre,Dl1zc3409,HGV,No
+2021/11/15 10:51:20 AM GMT+5:30,2021-11-15,10:51:20,sunil kumar,indian oil mangolpuri ph1,Dl4sdd2124,Two Wheeler,Yes
+2021/11/15 11:01:12 AM GMT+5:30,2021-11-15,11:01:12,rajesh kumar,shivan auto centre,Dl 7s BR5522,Two Wheeler,Yes
+2021/11/15 11:03:33 AM GMT+5:30,2021-11-15,11:03:33,rajesh kumar,shivan auto centre,Dl5S Bu6134,Two Wheeler,No
+2021/11/15 11:17:00 AM GMT+5:30,2021-11-15,11:17:00,rajesh kumar,shivan auto centre,Dl 1rt b5377,HGV,Yes
+2021/11/15 11:21:53 AM GMT+5:30,2021-11-15,11:21:53,rajesh kumar,shivan auto centre,Dl 7s bz0367,Two Wheeler,Yes
+2021/11/15 11:24:43 AM GMT+5:30,2021-11-15,11:24:43,rajesh kumar,shivan auto centre.,Dl 12c j5162,LGV,Yes
+2021/11/15 11:27:36 AM GMT+5:30,2021-11-15,11:27:36,rajesh kumar,shivan auto centre,Up14cr6920,HGV,Yes
+2021/11/15 11:30:58 AM GMT+5:30,2021-11-15,11:30:58,rajesh kumar,shivan auto centre,Dl1yv8013,HGV,Yes
+2021/11/15 11:36:45 AM GMT+5:30,2021-11-15,11:36:45,rajesh kumar,shivan auto centre,Dl3cak8956,LGV,Yes
+2021/11/15 11:38:24 AM GMT+5:30,2021-11-15,11:38:24,rajesh kumar,shivan auto centre,Dl1rta5847,HGV,No
+2021/11/15 11:39:43 AM GMT+5:30,2021-11-15,11:39:43,rajesh kumar,shivan auto centre,Up16bt2054,HGV,Yes
+2021/11/15 11:43:06 AM GMT+5:30,2021-11-15,11:43:06,rajesh kumar,shivan auto centre,Up15au6353,LGV/Pvt.,Yes
+2021/11/15 11:44:22 AM GMT+5:30,2021-11-15,11:44:22,rajesh kumar,shivan auto centre,Dl1Lr9279,HGV,Yes
+2021/11/15 11:45:38 AM GMT+5:30,2021-11-15,11:45:38,rajesh kumar,shivan auto centre,Dl3ccr7436,LGV,Yes
+2021/11/15 11:46:53 AM GMT+5:30,2021-11-15,11:46:53,rajesh kumar,shivan auto centre,Up32kx2699,LGV,Yes
+2021/11/15 11:54:24 AM GMT+5:30,2021-11-15,11:54:24,rajesh kumar,shivan auto centre,Dl13ca3652,LGV,Yes
+2021/11/15 12:19:38 PM GMT+5:30,2021-11-15,12:19:38,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl scr 6446,LGV,Yes
+2021/11/15 12:21:08 PM GMT+5:30,2021-11-15,12:21:08,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl3ccu8406,LGV,Yes
+2021/11/15 12:22:25 PM GMT+5:30,2021-11-15,12:22:25,rajesh kumar,shivan auto centre nh 24 mayur vhr,Up16bz2296,LGV,Yes
+2021/11/15 12:24:00 PM GMT+5:30,2021-11-15,12:24:00,sunil kumar,indian oil mangolpuri ph1,Up16bw1930,Two Wheeler,Yes
+2021/11/15 12:24:08 PM GMT+5:30,2021-11-15,12:24:08,rajesh kumar,shivan auto centre.nh 24 mayur vhr,Dl3cbm1221,LGV,Yes
+2021/11/15 12:25:31 PM GMT+5:30,2021-11-15,12:25:31,rajesh kumar,shivan auto centre nh 24,Dk1caa0686,LGV,Declined to show certificate
+2021/11/15 12:25:57 PM GMT+5:30,2021-11-15,12:25:57,sunil kumar,indian oil mangolpuri ph1,Dl8cal9835,LGV/Pvt.,Yes
+2021/11/15 12:27:02 PM GMT+5:30,2021-11-15,12:27:02,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl10cg6966,LGV,Yes
+2021/11/15 12:27:39 PM GMT+5:30,2021-11-15,12:27:39,sunil kumar,indian oil mangolpuri ph1,Dl1rt8167,LGV,Yes
+2021/11/15 12:29:35 PM GMT+5:30,2021-11-15,12:29:35,sunil kumar,indian oil mangolpuri ph1,Dl1lx9808,LGV,Yes
+2021/11/15 12:31:11 PM GMT+5:30,2021-11-15,12:31:11,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dk5s bv8437,Two Wheeler,No
+2021/11/15 12:31:48 PM GMT+5:30,2021-11-15,12:31:48,sunil kumar,indian oil mangolpuri ph1,Dl1zb0412,LGV/Pvt.,No
+2021/11/15 12:32:39 PM GMT+5:30,2021-11-15,12:32:39,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl14cd8943,LGV,Yes
+2021/11/15 12:33:54 PM GMT+5:30,2021-11-15,12:33:54,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl2cal2640,LGV,Yes
+2021/11/15 12:38:22 PM GMT+5:30,2021-11-15,12:38:22,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl13ca6622,LGV,Yes
+2021/11/15 12:39:37 PM GMT+5:30,2021-11-15,12:39:37,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl1zb4409,HGV,Yes
+2021/11/15 12:40:55 PM GMT+5:30,2021-11-15,12:40:55,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl1rq1088,Three Wheeler,Yes
+2021/11/15 12:42:18 PM GMT+5:30,2021-11-15,12:42:18,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl7scl0489,Two Wheeler,Yes
+2021/11/15 12:43:57 PM GMT+5:30,2021-11-15,12:43:57,rajesh kumar,shivan auto centre nh 24.mayur.vhr,Dl7sc L5620,Two Wheeler,Yes
+2021/11/15 12:45:14 PM GMT+5:30,2021-11-15,12:45:14,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl5cd7079,LGV,Yes
+2021/11/15 12:49:53 PM GMT+5:30,2021-11-15,12:49:53,sunil kumar,indian oil mangolpuri ph1,Dl8scw8724,Two Wheeler,No
+2021/11/15 12:50:32 PM GMT+5:30,2021-11-15,12:50:32,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl9sr8588,Two Wheeler,No
+2021/11/15 12:51:29 PM GMT+5:30,2021-11-15,12:51:29,sunil kumar,indian oil mangolpuri ph1,Dl11sp5941,Two Wheeler,No
+2021/11/15 12:57:27 PM GMT+5:30,2021-11-15,12:57:27,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl1rn5190,Three Wheeler,Yes
+2021/11/15 12:59:40 PM GMT+5:30,2021-11-15,12:59:40,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl6cr3435,LGV,Yes
+2021/11/15 1:02:21 PM GMT+5:30,2021-11-15,13:02:21,rajesh kumar,shivan auto centre nh 24.mayur vhr,Dl 3ck2340,Two Wheeler,Declined to show certificate
+2021/11/15 1:08:04 PM GMT+5:30,2021-11-15,13:08:04,sunil kumar,indian oil mangolpuri ph1,Dl1lu7617,Three Wheeler,No
+2021/11/15 1:09:23 PM GMT+5:30,2021-11-15,13:09:23,sunil kumar,indian oil mangolpuri ph1,Dl11d9065,Two Wheeler,No
+2021/11/15 1:10:39 PM GMT+5:30,2021-11-15,13:10:39,rajesh kumar,shivan auto centrenh  nh 24 mayur vhr,Dl7sca2441,Two Wheeler,Yes
+2021/11/15 1:12:33 PM GMT+5:30,2021-11-15,13:12:33,sunil kumar,indian oil mangolpuri ph1,Dl11ca7734,Two Wheeler,Yes
+2021/11/15 1:15:07 PM GMT+5:30,2021-11-15,13:15:07,rajesh kumar,shivan auto centre nh 24 mayur vhr,Dl5scb3355,Two Wheeler,Yes
+2021/11/15 1:26:02 PM GMT+5:30,2021-11-15,13:26:02,rajesh kumar,shivan auto centre nh 24 mayur vhr,Up14ed1282,Two Wheeler,Declined to show certificate
+2021/11/15 1:28:13 PM GMT+5:30,2021-11-15,13:28:13,rajesh kumar,shuvan auto centre,Dl7sck0519,Two Wheeler,Yes
+2021/11/15 1:29:25 PM GMT+5:30,2021-11-15,13:29:25,rajesh kumar,shivan auto centre,Up14gt0339,HGV,Yes
+2021/11/15 2:17:23 PM GMT+5:30,2021-11-15,14:17:23,rajesh kumar,rama service station,Upft8781,LGV,Yes
+2021/11/15 2:21:58 PM GMT+5:30,2021-11-15,14:21:58,rajesh kumar,rama krishna,DL- ir-w5381,Three Wheeler,Yes
+2021/11/15 2:25:07 PM GMT+5:30,2021-11-15,14:25:07,rajesh kumar,rama krishna,DL-1c1175,LGV/Pvt.,No
+2021/11/15 2:27:49 PM GMT+5:30,2021-11-15,14:27:49,rajesh kumar,rama krishna,Up16ct9854,Two Wheeler,Yes
+2021/11/15 2:29:21 PM GMT+5:30,2021-11-15,14:29:21,rajesh kumar,rama krishna,Hr55y8373,Two Wheeler,Yes
+2021/11/15 2:31:56 PM GMT+5:30,2021-11-15,14:31:56,sunil kumar,bharat petrol pump,Dl6sbb5173,Two Wheeler,Declined to show certificate
+2021/11/15 2:34:13 PM GMT+5:30,2021-11-15,14:34:13,sunil kumar,bharat petroleum new freinds clony,Dl11sl1308,Two Wheeler,Yes
+2021/11/15 2:35:34 PM GMT+5:30,2021-11-15,14:35:34,rajesh kumar,rama krishna,Up16dt0403,Three Wheeler,Yes
+2021/11/15 2:37:19 PM GMT+5:30,2021-11-15,14:37:19,rajesh kumar,rama krishna,Dlirv6888,Two Wheeler,Yes
+2021/11/15 2:38:55 PM GMT+5:30,2021-11-15,14:38:55,rajesh kumar,rama krishna,Dlirs0251,Three Wheeler,Yes
+2021/11/15 2:40:44 PM GMT+5:30,2021-11-15,14:40:44,rajesh kumar,rama service station,Upi5cp5356,LGV/Pvt.,Yes
+2021/11/15 2:44:12 PM GMT+5:30,2021-11-15,14:44:12,rajesh kumar,rama service station,Hr69c4835,LGV,Yes
+2021/11/15 2:44:15 PM GMT+5:30,2021-11-15,14:44:15,yogesh kumar,qutub service station,5624,Two Wheeler,Yes
+2021/11/15 2:50:17 PM GMT+5:30,2021-11-15,14:50:17,yogesh kumar,qutub service station,2938,Two Wheeler,Declined to show certificate
+2021/11/15 2:52:13 PM GMT+5:30,2021-11-15,14:52:13,sunil kumar,bharat petroleum new friends colony,Hr29ae3616,LGV,Declined to show certificate
+2021/11/15 2:53:26 PM GMT+5:30,2021-11-15,14:53:26,yogesh kumar,n block cp circle,Dl1st5148,Two Wheeler,Yes
+2021/11/15 2:54:33 PM GMT+5:30,2021-11-15,14:54:33,yogesh kumar,qutub service station,2946,Two Wheeler,Yes
+2021/11/15 2:55:13 PM GMT+5:30,2021-11-15,14:55:13,sunil kumar,bharat petroleum new friends colony,Dl3scf7886,Two Wheeler,Declined to show certificate
+2021/11/15 2:56:12 PM GMT+5:30,2021-11-15,14:56:12,yogesh kumar,qutub service station,1348,LGV/Pvt.,Yes
+2021/11/15 2:56:14 PM GMT+5:30,2021-11-15,14:56:14,rajesh kumar,rama service station,Dlirv2970,Three Wheeler,Yes
+2021/11/15 2:57:39 PM GMT+5:30,2021-11-15,14:57:39,sunil kumar,bharat petroleum new friends colony,Dl3sdk5222,Two Wheeler,No
+2021/11/15 2:58:19 PM GMT+5:30,2021-11-15,14:58:19,yogesh kumar,qutub service station,1547,LGV/Pvt.,Yes
+2021/11/15 2:58:42 PM GMT+5:30,2021-11-15,14:58:42,rajesh kumar,rama service station,Dl1rn8748,Three Wheeler,Yes
+2021/11/15 3:00:12 PM GMT+5:30,2021-11-15,15:00:12,yogesh kumar,qutub service station,1831,LGV/Pvt.,Yes
+2021/11/15 3:01:00 PM GMT+5:30,2021-11-15,15:01:00,sunil kumar,bharat petroleum new friends colony,Dl1cac2793,LGV,Declined to show certificate
+2021/11/15 3:02:36 PM GMT+5:30,2021-11-15,15:02:36,rajesh kumar,rama service station,Dl1zd0334,LGV,Yes
+2021/11/15 3:03:00 PM GMT+5:30,2021-11-15,15:03:00,sunil kumar,bharat petroleum new friends colony,Dl4sch8183,Two Wheeler,Declined to show certificate
+2021/11/15 3:04:12 PM GMT+5:30,2021-11-15,15:04:12,rajesh kumar,rama service station,Dl1caa6126,LGV/Pvt.,Declined to show certificate
+2021/11/15 3:04:57 PM GMT+5:30,2021-11-15,15:04:57,sunil kumar,bharat petroleum new friends colony,Dl5cn2017,LGV,Yes
+2021/11/15 3:05:43 PM GMT+5:30,2021-11-15,15:05:43,rajesh kumar,rama service station,Dl3cah3115,LGV/Pvt.,Yes
+2021/11/15 3:07:42 PM GMT+5:30,2021-11-15,15:07:42,sunil kumar,bharat petroleum new friends colony,Dl1cn1903,LGV/Pvt.,Yes
+2021/11/15 3:08:01 PM GMT+5:30,2021-11-15,15:08:01,rajesh kumar,rama service station,Dl1rq3572,Two Wheeler,Yes
+2021/11/15 3:08:09 PM GMT+5:30,2021-11-15,15:08:09,manish,jawan service station,DL 7CQ 3468,LGV/Pvt.,No
+2021/11/15 3:10:36 PM GMT+5:30,2021-11-15,15:10:36,sunil kumar,bawana dariya pua,DL 8SCX 3942,Two Wheeler,Yes
+2021/11/15 3:11:31 PM GMT+5:30,2021-11-15,15:11:31,yogesh kumar,n block cp circle,DL6SAA3088,Two Wheeler,No
+2021/11/15 3:11:33 PM GMT+5:30,2021-11-15,15:11:33,rajesh kumar,rama service station,Dl1rn2501,Three Wheeler,Yes
+2021/11/15 3:11:35 PM GMT+5:30,2021-11-15,15:11:35,manish,sunder nagar,DL3S CV1267,Two Wheeler,No
+2021/11/15 3:13:32 PM GMT+5:30,2021-11-15,15:13:32,manish,jawan service station,DL6SAC4315,Two Wheeler,Yes
+2021/11/15 3:17:13 PM GMT+5:30,2021-11-15,15:17:13,manish,jiwan service station,UP 70CD 8315,Two Wheeler,Yes
+2021/11/15 3:19:03 PM GMT+5:30,2021-11-15,15:19:03,nikhil,jindal service station,Dl 1sad5246,Two Wheeler,Yes
+2021/11/15 3:21:43 PM GMT+5:30,2021-11-15,15:21:43,nikhil,jindal service station,Dl3sdv7116,Two Wheeler,No
+2021/11/15 3:22:49 PM GMT+5:30,2021-11-15,15:22:49,rajesh kumar,rama service station,Dl1rq0888,Three Wheeler,Yes
+2021/11/15 3:23:55 PM GMT+5:30,2021-11-15,15:23:55,yogesh kumar,qutub service station,3083,LGV/Pvt.,Yes
+2021/11/15 3:25:14 PM GMT+5:30,2021-11-15,15:25:14,rajesh kumar,rama service station,Dl1rw6753,Three Wheeler,Yes
+2021/11/15 3:25:20 PM GMT+5:30,2021-11-15,15:25:20,manish,jiwan service station,DL3SDZ9216,Two Wheeler,Yes
+2021/11/15 3:26:33 PM GMT+5:30,2021-11-15,15:26:33,yogesh kumar,qutub service station,0564,LGV/Pvt.,Yes
+2021/11/15 3:27:01 PM GMT+5:30,2021-11-15,15:27:01,sunil kumar,bharat petroleum new friends colony,Dl1caa 0025,LGV/Pvt.,Declined to show certificate
+2021/11/15 3:28:40 PM GMT+5:30,2021-11-15,15:28:40,manish,jiwan service station,DL3SCQ4830,Two Wheeler,Yes
+2021/11/15 3:28:40 PM GMT+5:30,2021-11-15,15:28:40,nikhil,jindal service station,Dl3sbr9731,Two Wheeler,Yes
+2021/11/15 3:30:10 PM GMT+5:30,2021-11-15,15:30:10,nikhil,jindal service station,Dl5say729,Two Wheeler,Yes
+2021/11/15 3:33:48 PM GMT+5:30,2021-11-15,15:33:48,nikhil,jindal service station,Dl3sex2117,Two Wheeler,Yes
+2021/11/15 3:33:58 PM GMT+5:30,2021-11-15,15:33:58,sunil kumar,bharat petroleum new friends colony,Rj16cc5630,LGV/Pvt.,Declined to show certificate
+2021/11/15 3:34:47 PM GMT+5:30,2021-11-15,15:34:47,sunil kumar,bharat petroleum new friends colony,Up16e2289,Two Wheeler,No
+2021/11/15 3:35:36 PM GMT+5:30,2021-11-15,15:35:36,nikhil,jindal service station,Dl3scn3436,Two Wheeler,Yes
+2021/11/15 3:35:48 PM GMT+5:30,2021-11-15,15:35:48,sunil kumar,bharat petroleum new friends colony,Dl3sae 0459,Two Wheeler,Declined to show certificate
+2021/11/15 3:38:01 PM GMT+5:30,2021-11-15,15:38:01,nikhil,jindal service station,Hr29au7980,Two Wheeler,Yes
+2021/11/15 3:40:28 PM GMT+5:30,2021-11-15,15:40:28,rajesh kumar,rama service station,Hr55y1407,LGV,Yes
+2021/11/15 3:40:36 PM GMT+5:30,2021-11-15,15:40:36,manish,mahendra cbd gound surajmal vihar,DL8SLX8991,LGV/Pvt.,Yes
+2021/11/15 3:40:42 PM GMT+5:30,2021-11-15,15:40:42,nikhil,jindal service station,Dl3sek7300,Two Wheeler,Yes
+2021/11/15 3:41:21 PM GMT+5:30,2021-11-15,15:41:21,rajesh kumar,rama service station,Dl1ru2974,Three Wheeler,Yes
+2021/11/15 3:42:22 PM GMT+5:30,2021-11-15,15:42:22,nikhil,jindal service station,Dl3scs8993,Two Wheeler,No
+2021/11/15 3:44:37 PM GMT+5:30,2021-11-15,15:44:37,nikhil,jindal service station,Dl12cc8405,HGV,Yes
+2021/11/15 3:49:51 PM GMT+5:30,2021-11-15,15:49:51,nikhil,jindal service station,Dl1lu7251,Three Wheeler,Yes
+2021/11/15 3:50:25 PM GMT+5:30,2021-11-15,15:50:25,rajesh kumar,rama service station,Dl1rn5120,Three Wheeler,No
+2021/11/15 3:52:30 PM GMT+5:30,2021-11-15,15:52:30,rajesh kumar,rama service station,Up16dt4609,Three Wheeler,Yes
+2021/11/15 3:53:36 PM GMT+5:30,2021-11-15,15:53:36,rajesh kumar,rama service station,Dl1rv5752,Three Wheeler,No
+2021/11/15 3:54:51 PM GMT+5:30,2021-11-15,15:54:51,rajesh kumar,rama service station,Dl1lu5760,LGV/Pvt.,Yes
+2021/11/15 3:56:14 PM GMT+5:30,2021-11-15,15:56:14,rajesh kumar,rama service station,Dl1ncr0426,Three Wheeler,Declined to show certificate
+2021/11/15 4:01:52 PM GMT+5:30,2021-11-15,16:01:52,rajesh kumar,rama service station,Up14et7079,Three Wheeler,Yes
+2021/11/15 4:02:31 PM GMT+5:30,2021-11-15,16:02:31,nikhil,jindal service station,Dl5sbp1721,Two Wheeler,Yes
+2021/11/15 4:02:47 PM GMT+5:30,2021-11-15,16:02:47,sunil kumar,bawana dariya pur,DL4CAV4184,LGV/Pvt.,Yes
+2021/11/15 4:03:00 PM GMT+5:30,2021-11-15,16:03:00,yogesh kumar,qutub service station,4605,LGV/Pvt.,Yes
+2021/11/15 4:04:01 PM GMT+5:30,2021-11-15,16:04:01,rajesh kumar,rama service station,Dl7ct3869,LGV/Pvt.,Yes
+2021/11/15 4:04:15 PM GMT+5:30,2021-11-15,16:04:15,nikhil,jindal service station,Dl3seb3026,Two Wheeler,Yes
+2021/11/15 4:04:46 PM GMT+5:30,2021-11-15,16:04:46,yogesh kumar,n block cp circle,Up32dt2053,Two Wheeler,No
+2021/11/15 4:07:16 PM GMT+5:30,2021-11-15,16:07:16,yogesh kumar,qutub service station,6483,Two Wheeler,Yes
+2021/11/15 4:07:49 PM GMT+5:30,2021-11-15,16:07:49,rajesh kumar,rama service station,Up14dl1891,LGV,Yes
+2021/11/15 4:09:02 PM GMT+5:30,2021-11-15,16:09:02,yogesh kumar,qutub service station,8626,Two Wheeler,Yes
+2021/11/15 4:09:46 PM GMT+5:30,2021-11-15,16:09:46,rajesh kumar,rama service station,Up16dt3823,Three Wheeler,Yes
+2021/11/15 4:12:15 PM GMT+5:30,2021-11-15,16:12:15,rajesh kumar,rama service station,Up14jt4229,LGV,Yes
+2021/11/15 4:12:28 PM GMT+5:30,2021-11-15,16:12:28,yogesh kumar,qutub service station,1752,Two Wheeler,Yes
+2021/11/15 4:13:11 PM GMT+5:30,2021-11-15,16:13:11,rajesh kumar,rama service station,Hr69c0642,LGV,Yes
+2021/11/15 4:13:42 PM GMT+5:30,2021-11-15,16:13:42,yogesh kumar,qutub service station,5985,LGV/Pvt.,Declined to show certificate
+2021/11/15 4:14:15 PM GMT+5:30,2021-11-15,16:14:15,rajesh kumar,rama service station,Up81cs1422,LGV/Pvt.,No
+2021/11/15 4:14:52 PM GMT+5:30,2021-11-15,16:14:52,yogesh kumar,qutub service station,4882,Two Wheeler,Declined to show certificate
+2021/11/15 4:16:16 PM GMT+5:30,2021-11-15,16:16:16,rajesh kumar,rama service station,Dl1rv4582,Three Wheeler,Yes
+2021/11/15 4:16:19 PM GMT+5:30,2021-11-15,16:16:19,yogesh kumar,qutub service station,4444,Two Wheeler,Yes
+2021/11/15 4:17:45 PM GMT+5:30,2021-11-15,16:17:45,yogesh kumar,qutub service station,2969,Two Wheeler,Declined to show certificate
+2021/11/15 4:22:57 PM GMT+5:30,2021-11-15,16:22:57,yogesh kumar,qutub service station,2469,Two Wheeler,Yes
+2021/11/15 4:23:55 PM GMT+5:30,2021-11-15,16:23:55,rajesh kumar,rama service station,Up16dt0332,Three Wheeler,Yes
+2021/11/15 4:27:13 PM GMT+5:30,2021-11-15,16:27:13,rajesh kumar,rama service station,Dl1ru2029,Three Wheeler,Yes
+2021/11/15 4:27:34 PM GMT+5:30,2021-11-15,16:27:34,nikhil,jindal service station,Dl3saq9273,Two Wheeler,No
+2021/11/15 4:28:34 PM GMT+5:30,2021-11-15,16:28:34,nikhil,jindal service station,Dl3ses3886,Two Wheeler,Yes
+2021/11/15 4:29:00 PM GMT+5:30,2021-11-15,16:29:00,rajesh kumar,rama service station,Dl1rz7672,Three Wheeler,No
+2021/11/15 4:30:36 PM GMT+5:30,2021-11-15,16:30:36,nikhil,jindal service station,Dl8sam5661,Two Wheeler,No
+2021/11/15 4:32:27 PM GMT+5:30,2021-11-15,16:32:27,nikhil,jindal service station,Dl3sbr9616,Two Wheeler,Yes
+2021/11/15 4:33:30 PM GMT+5:30,2021-11-15,16:33:30,nikhil,jindal service station,Dl3sba2656,Two Wheeler,Yes
+2021/11/15 4:33:51 PM GMT+5:30,2021-11-15,16:33:51,yogesh kumar,qutub service station,1450,Two Wheeler,Yes
+2021/11/15 4:34:49 PM GMT+5:30,2021-11-15,16:34:49,nikhil,jindal service station,Dl3sba0981,Two Wheeler,No
+2021/11/15 4:36:31 PM GMT+5:30,2021-11-15,16:36:31,nikhil,jindal service station,Dl3sdf9212,Two Wheeler,No
+2021/11/15 4:36:52 PM GMT+5:30,2021-11-15,16:36:52,rajesh kumar,rama service station,Hr55ac4373,LGV,No
+2021/11/15 4:38:18 PM GMT+5:30,2021-11-15,16:38:18,nikhil,jindal service station,Dl2sn943,Two Wheeler,No
+2021/11/15 4:38:25 PM GMT+5:30,2021-11-15,16:38:25,yogesh kumar,qutub service station,8075,Two Wheeler,Declined to show certificate
+2021/11/15 4:38:31 PM GMT+5:30,2021-11-15,16:38:31,rajesh kumar,rama service station,Dl1zc3602,LGV,Yes
+2021/11/15 4:39:26 PM GMT+5:30,2021-11-15,16:39:26,nikhil,jindal service station,Dl11sy2105,Two Wheeler,Yes
+2021/11/15 4:40:19 PM GMT+5:30,2021-11-15,16:40:19,yogesh kumar,qutub service station,8727,Two Wheeler,Yes
+2021/11/15 4:40:20 PM GMT+5:30,2021-11-15,16:40:20,rajesh kumar,rama service station,Dl1zc7736,LGV,No
+2021/11/15 4:41:47 PM GMT+5:30,2021-11-15,16:41:47,rajesh kumar,rama service station ko,Up16bn7373,LGV,Yes
+2021/11/15 4:42:00 PM GMT+5:30,2021-11-15,16:42:00,yogesh kumar,qutub service station,8484,LGV/Pvt.,Yes
+2021/11/15 4:42:54 PM GMT+5:30,2021-11-15,16:42:54,nikhil,jindal service station,Dl3sbz2193,Two Wheeler,No
+2021/11/15 4:43:49 PM GMT+5:30,2021-11-15,16:43:49,rajesh kumar,rama service station,Hr55aj8977,LGV,Yes
+2021/11/15 4:50:52 PM GMT+5:30,2021-11-15,16:50:52,nikhil,jindal service station,Hr51al3453,Two Wheeler,Yes
+2021/11/15 4:51:50 PM GMT+5:30,2021-11-15,16:51:50,nikhil,jindal service station,Dl5scd5643,Two Wheeler,Yes
+2021/11/15 4:56:26 PM GMT+5:30,2021-11-15,16:56:26,nikhil,jindal service station,Dl5sbk4438,Two Wheeler,Yes
+2021/11/15 4:57:22 PM GMT+5:30,2021-11-15,16:57:22,nikhil,jindal service station,Dl3sdp6676,Two Wheeler,No
+2021/11/15 4:58:17 PM GMT+5:30,2021-11-15,16:58:17,nikhil,jindal service station,Dl3sde7699,Two Wheeler,No
+2021/11/15 4:59:24 PM GMT+5:30,2021-11-15,16:59:24,nikhil,jindal service station,Dl3scj7396,Two Wheeler,No
+2021/11/15 5:01:39 PM GMT+5:30,2021-11-15,17:01:39,nikhil,jindal service station,Dl9sbl9718,Two Wheeler,Declined to show certificate
+2021/11/15 5:03:14 PM GMT+5:30,2021-11-15,17:03:14,nikhil,jindal service station,Dl3sea5888,Two Wheeler,No
+2021/11/15 5:04:31 PM GMT+5:30,2021-11-15,17:04:31,yogesh kumar,bcc  n block cp circle 110001,DL5SBK4658,Two Wheeler,Declined to show certificate
+2021/11/15 5:04:34 PM GMT+5:30,2021-11-15,17:04:34,nikhil,jindal service station,Dl3seb9478,Two Wheeler,Yes
+2021/11/15 5:08:47 PM GMT+5:30,2021-11-15,17:08:47,nikhil,jindal service station,Hr51b09250,Two Wheeler,Yes
+2021/11/15 5:10:56 PM GMT+5:30,2021-11-15,17:10:56,rajesh kumar,rama service station,Dl2w5140,LGV/Pvt.,Yes
+2021/11/15 5:11:17 PM GMT+5:30,2021-11-15,17:11:17,yogesh kumar,bcc n block cp circle 110001,DL2CAP3797,LGV/Pvt.,Declined to show certificate
+2021/11/15 5:13:51 PM GMT+5:30,2021-11-15,17:13:51,rajesh kumar,rama service station,Dl1raa1578,LGV/Pvt.,Yes
+2021/11/15 5:13:55 PM GMT+5:30,2021-11-15,17:13:55,nikhil,jindal service station,Dl3?scq9554,Two Wheeler,Yes
+2021/11/15 5:16:42 PM GMT+5:30,2021-11-15,17:16:42,nikhil,jindal service station,Dl3sav7228,Two Wheeler,No
+2021/11/15 5:20:37 PM GMT+5:30,2021-11-15,17:20:37,nikhil,jindal service station,Dl3seh4557,Two Wheeler,Yes
+2021/11/15 5:22:17 PM GMT+5:30,2021-11-15,17:22:17,nikhil,jindal service station,Dl3seh3618,Two Wheeler,Yes
+2021/11/15 5:23:30 PM GMT+5:30,2021-11-15,17:23:30,nikhil,jindal service station,Dl3sbs9629,Two Wheeler,Yes
+2021/11/15 5:25:43 PM GMT+5:30,2021-11-15,17:25:43,nikhil,jindal service station,Dl3sae0496,Two Wheeler,No
+2021/11/15 5:26:36 PM GMT+5:30,2021-11-15,17:26:36,nikhil,jindal service station,Rj020s2492,Two Wheeler,Declined to show certificate
+2021/11/15 5:28:00 PM GMT+5:30,2021-11-15,17:28:00,nikhil,jindal service station,Dl3sej9687,Two Wheeler,Yes
+2021/11/15 5:29:30 PM GMT+5:30,2021-11-15,17:29:30,nikhil,jindal service station,Dl13sm1780,Two Wheeler,Yes
+2021/11/15 5:31:31 PM GMT+5:30,2021-11-15,17:31:31,nikhil,jindal service station,Dl3sbg4375,Two Wheeler,Yes
+2021/11/15 5:32:46 PM GMT+5:30,2021-11-15,17:32:46,nikhil,jindal service station,Dl 3scn977,Two Wheeler,Yes
+2021/11/15 5:33:14 PM GMT+5:30,2021-11-15,17:33:14,rajesh kumar,rama service station,Dl1ru7654,Three Wheeler,Yes
+2021/11/15 5:34:34 PM GMT+5:30,2021-11-15,17:34:34,rajesh kumar,rama service station,Dl12cc7388,LGV/Pvt.,Yes
+2021/11/15 5:35:14 PM GMT+5:30,2021-11-15,17:35:14,nikhil,jindal service station,Dl7sbl8348,Two Wheeler,No
+2021/11/15 5:36:59 PM GMT+5:30,2021-11-15,17:36:59,rajesh kumar,rama service station,UP16dt8703,LGV,Yes
+2021/11/15 5:37:38 PM GMT+5:30,2021-11-15,17:37:38,nikhil,jindal service station,Dl4sc05965,HGV,Declined to show certificate
+2021/11/15 5:38:25 PM GMT+5:30,2021-11-15,17:38:25,rajesh kumar,rama service station,Dl7Sbw7013,LGV,Yes
+2021/11/15 5:38:43 PM GMT+5:30,2021-11-15,17:38:43,nikhil,jindal service station,Dl9sx7190,Two Wheeler,No
+2021/11/15 5:39:59 PM GMT+5:30,2021-11-15,17:39:59,nikhil,jindal service station,Up13aj7217,Two Wheeler,Yes
+2021/11/15 5:40:05 PM GMT+5:30,2021-11-15,17:40:05,rajesh kumar,rama service station,UP14et8785,LGV,Yes
+2021/11/15 5:42:49 PM GMT+5:30,2021-11-15,17:42:49,nikhil,jindal service station,Dl3sEj8928,Two Wheeler,No
+2021/11/15 5:43:13 PM GMT+5:30,2021-11-15,17:43:13,rajesh kumar,rama service station,Dl4caz3772,LGV,Yes
+2021/11/15 5:44:40 PM GMT+5:30,2021-11-15,17:44:40,nikhil,jindal service station,Dl3scb7418,Two Wheeler,Yes
+2021/11/15 5:45:16 PM GMT+5:30,2021-11-15,17:45:16,nikhil,jindal service station,Dl3sdu0314,Two Wheeler,No
+2021/11/15 5:47:01 PM GMT+5:30,2021-11-15,17:47:01,nikhil,jindal service station,Dl3see8617,Two Wheeler,No
+2021/11/15 5:47:41 PM GMT+5:30,2021-11-15,17:47:41,nikhil,jindal service station,Dl3sec8587,Two Wheeler,No
+2021/11/15 5:51:37 PM GMT+5:30,2021-11-15,17:51:37,nikhil,jindal service station,Dl8scp8417,Two Wheeler,Yes
+2021/11/15 5:52:28 PM GMT+5:30,2021-11-15,17:52:28,nikhil,jindal service station,Dl7sbp4902,Two Wheeler,No
+2021/11/15 5:56:04 PM GMT+5:30,2021-11-15,17:56:04,nikhil,jindal service station,Up37a3633,Two Wheeler,Yes
+2021/11/15 5:58:06 PM GMT+5:30,2021-11-15,17:58:06,nikhil,jindal service station,Dl3sdm7794,LGV,Yes
+2021/11/15 5:59:33 PM GMT+5:30,2021-11-15,17:59:33,nikhil,jindal service station,Dl3san2942,LGV,Declined to show certificate
+2021/11/15 6:01:46 PM GMT+5:30,2021-11-15,18:01:46,nikhil,jindal service station,Dl6say0746,Two Wheeler,Yes
+2021/11/15 6:03:26 PM GMT+5:30,2021-11-15,18:03:26,nikhil,jindal service station,Dl3see0427,Two Wheeler,Declined to show certificate
+2021/11/15 6:06:03 PM GMT+5:30,2021-11-15,18:06:03,nikhil,jindal service station,Dl3scy5690,Two Wheeler,No
+2021/11/15 6:08:19 PM GMT+5:30,2021-11-15,18:08:19,nikhil,jindal service station,Dl3sdt0990,Two Wheeler,No
+2021/11/15 6:09:34 PM GMT+5:30,2021-11-15,18:09:34,nikhil,jindal service station,Dl3sdb4372,Two Wheeler,Yes
+2021/11/15 6:11:38 PM GMT+5:30,2021-11-15,18:11:38,nikhil,jindal service station,Dl3sbw2274,Two Wheeler,Declined to show certificate
+2021/11/15 6:17:20 PM GMT+5:30,2021-11-15,18:17:20,nikhil,jindal service station,Dl3scf0288,Two Wheeler,Yes
+2021/11/15 6:20:08 PM GMT+5:30,2021-11-15,18:20:08,nikhil,jindal service station,Hr51at8337,Two Wheeler,Declined to show certificate
+2021/11/15 6:31:53 PM GMT+5:30,2021-11-15,18:31:53,nikhil,jindal service station,Dl3sex3112,Two Wheeler,Yes
+2021/11/15 6:34:14 PM GMT+5:30,2021-11-15,18:34:14,nikhil,jindal service station,Dl7sbe9807,Two Wheeler,No
+2021/11/15 6:35:19 PM GMT+5:30,2021-11-15,18:35:19,rajesh kumar,rama service station,Dl1ru2194,Three Wheeler,Yes
+2021/11/15 6:35:45 PM GMT+5:30,2021-11-15,18:35:45,nikhil,jindal service station,Dl3sdc2788,Two Wheeler,Declined to show certificate
+2021/11/15 6:37:25 PM GMT+5:30,2021-11-15,18:37:25,rajesh kumar,rama service station,UP16dt9184,LGV,Yes
+2021/11/15 6:38:41 PM GMT+5:30,2021-11-15,18:38:41,yogesh kumar,bcc n block cp 110001,DL5SCJ0999,Two Wheeler,Declined to show certificate
+2021/11/15 6:40:40 PM GMT+5:30,2021-11-15,18:40:40,yogesh kumar,bcc n block cp,DL11SB6415,Two Wheeler,Declined to show certificate
+2021/11/15 6:46:46 PM GMT+5:30,2021-11-15,18:46:46,nikhil,jindal service station,Dl3sds9409,Two Wheeler,Declined to show certificate
+2021/11/15 6:48:13 PM GMT+5:30,2021-11-15,18:48:13,nikhil,jindal service station,Dl3sw7846,Two Wheeler,No
+2021/11/15 6:50:39 PM GMT+5:30,2021-11-15,18:50:39,nikhil,jindal service station,Dl5scb7997,Two Wheeler,Yes
+2021/11/15 6:52:09 PM GMT+5:30,2021-11-15,18:52:09,nikhil,jindal service station,Dl3seb7556,Two Wheeler,No
+2021/11/15 6:54:09 PM GMT+5:30,2021-11-15,18:54:09,nikhil,jindal service station,Dl12sa0962,Two Wheeler,Yes
+2021/11/15 6:56:12 PM GMT+5:30,2021-11-15,18:56:12,nikhil,jindal service station,Dl5sbr2815,Two Wheeler,Yes
+2021/11/15 6:58:26 PM GMT+5:30,2021-11-15,18:58:26,rajesh kumar,rama service station,UP14jt4830,LGV,Yes
+2021/11/15 6:59:32 PM GMT+5:30,2021-11-15,18:59:32,nikhil,jindal service station,Dl3scy0755,Two Wheeler,Yes
+2021/11/15 7:00:38 PM GMT+5:30,2021-11-15,19:00:38,nikhil,jindal service station,Dl14sc1680,Two Wheeler,Declined to show certificate
+2021/11/15 7:01:29 PM GMT+5:30,2021-11-15,19:01:29,nikhil,jindal service station,Dl8scj1491,Two Wheeler,Declined to show certificate
+2021/11/15 7:16:37 PM GMT+5:30,2021-11-15,19:16:37,manish,jiwan service station,DL 11H6082,Two Wheeler,Yes
+2021/11/15 7:18:13 PM GMT+5:30,2021-11-15,19:18:13,yogesh kumar,qutub service station,8675,LGV/Pvt.,Yes
+2021/11/15 7:20:39 PM GMT+5:30,2021-11-15,19:20:39,yogesh kumar,qutub service station,9506,Two Wheeler,No
+2021/11/15 7:48:21 PM GMT+5:30,2021-11-15,19:48:21,yogesh kumar,bcc n block cp,DL3SCE7479,Two Wheeler,Declined to show certificate
+2021/11/15 8:27:07 PM GMT+5:30,2021-11-15,20:27:07,yogesh kumar,bcc n block cp circle,DL5SCE9026,Two Wheeler,Declined to show certificate
+2021/11/16 7:44:11 AM GMT+5:30,2021-11-16,07:44:11,rajesh kumar,shivan auto centre nh24 mayur vhr,Up14br5536,LGV,Yes
+2021/11/16 7:50:52 AM GMT+5:30,2021-11-16,07:50:52,rajesh kumar,shivan auto centre nh 24,Dl7sbw5950,Two Wheeler,Yes
+2021/11/16 7:52:14 AM GMT+5:30,2021-11-16,07:52:14,rajesh kumar,shivan auto centre nh 24,Dl7sbx8080,Two Wheeler,Yes
+2021/11/16 8:08:14 AM GMT+5:30,2021-11-16,08:08:14,rajesh kumar,shivan auto centre nh 24,Hr55x0138,HGV,Yes
+2021/11/16 8:12:27 AM GMT+5:30,2021-11-16,08:12:27,rajesh kumar,shivan auto centre nh 24,Gj09cn2262,Two Wheeler,Yes
+2021/11/16 8:17:42 AM GMT+5:30,2021-11-16,08:17:42,rajesh kumar,shivan auto centre nh 24,Dl1zb1071,HGV,Yes
+2021/11/16 8:30:53 AM GMT+5:30,2021-11-16,08:30:53,rajesh kumar,shivan auto centre nh 24,Dl1za5715,HGV,No
+2021/11/16 8:36:55 AM GMT+5:30,2021-11-16,08:36:55,rajesh kumar,shivan auto centrenh 24,Hr55ag0983,HGV,Yes
+2021/11/16 8:39:30 AM GMT+5:30,2021-11-16,08:39:30,rajesh kumar,shivan auto centre nh 24,Dl7cl5448,LGV,Yes
+2021/11/16 8:42:58 AM GMT+5:30,2021-11-16,08:42:58,sunil kumar,indian oil mangolpuri ph1,Dl1gc7596,HGV,Yes
+2021/11/16 8:51:18 AM GMT+5:30,2021-11-16,08:51:18,nikhil,devsena service station,Dl4scl3703,Two Wheeler,Yes
+2021/11/16 8:51:22 AM GMT+5:30,2021-11-16,08:51:22,sunil kumar,indian oil mangolpuri ph1,Dl4scz6211,Two Wheeler,Yes
+2021/11/16 8:53:09 AM GMT+5:30,2021-11-16,08:53:09,sunil kumar,indian oil mangolpuri ph1,Dl7cp1659,LGV/Pvt.,Yes
+2021/11/16 8:54:45 AM GMT+5:30,2021-11-16,08:54:45,nikhil,devsena service station,Dl3sef0389,Two Wheeler,Yes
+2021/11/16 9:06:46 AM GMT+5:30,2021-11-16,09:06:46,nikhil,devsena service station,Dl3scn0764,Two Wheeler,No
+2021/11/16 9:10:42 AM GMT+5:30,2021-11-16,09:10:42,sunil kumar,indian oil mangolpuri ph1,Dl8sbp2227,Two Wheeler,Yes
+2021/11/16 9:13:37 AM GMT+5:30,2021-11-16,09:13:37,rajesh kumar,shivan auto centre nh 24,Dl13ss1023,Two Wheeler,Yes
+2021/11/16 9:19:13 AM GMT+5:30,2021-11-16,09:19:13,rajesh kumar,shivan auto centre nh 24,Hr55y8534,HGV,Yes
+2021/11/16 9:23:09 AM GMT+5:30,2021-11-16,09:23:09,rajesh kumar,shivan auto centre nh 24,Hr55af3731,HGV,Yes
+2021/11/16 9:24:49 AM GMT+5:30,2021-11-16,09:24:49,rajesh kumar,shivan auto centre nh 24,Up14br4989,LGV,Yes
+2021/11/16 9:26:07 AM GMT+5:30,2021-11-16,09:26:07,rajesh kumar,shivan auto centre nh24,Dl4sch3555,Two Wheeler,Declined to show certificate
+2021/11/16 9:27:34 AM GMT+5:30,2021-11-16,09:27:34,rajesh kumar,shivan auto centre nh 24,Up14af7499,LGV,Declined to show certificate
+2021/11/16 9:28:56 AM GMT+5:30,2021-11-16,09:28:56,nikhil,devsena service station,Dl3sau7705,Two Wheeler,Declined to show certificate
+2021/11/16 9:29:33 AM GMT+5:30,2021-11-16,09:29:33,rajesh kumar,shivan auto centre nh 24,Dl3seu7803,Two Wheeler,Yes
+2021/11/16 9:29:53 AM GMT+5:30,2021-11-16,09:29:53,nikhil,devsena service station,Dl6saw7788,Two Wheeler,Yes
+2021/11/16 9:31:11 AM GMT+5:30,2021-11-16,09:31:11,rajesh kumar,shivan auto centre nh 24,Dl3cba2391,LGV,No
+2021/11/16 9:31:53 AM GMT+5:30,2021-11-16,09:31:53,nikhil,devsena service station,As01an7340,Two Wheeler,Yes
+2021/11/16 9:33:56 AM GMT+5:30,2021-11-16,09:33:56,nikhil,devsena service station,Dl3sdu4887,Two Wheeler,Yes
+2021/11/16 9:35:26 AM GMT+5:30,2021-11-16,09:35:26,rajesh kumar,shivan auto centre nh 24,Dl1rtb1950,HGV,Yes
+2021/11/16 9:36:09 AM GMT+5:30,2021-11-16,09:36:09,nikhil,devsena service station,Dl12sd4643,Two Wheeler,No
+2021/11/16 9:37:11 AM GMT+5:30,2021-11-16,09:37:11,rajesh kumar,shivan auto centre nh 24,Dl8cat5195,LGV,Yes
+2021/11/16 9:37:36 AM GMT+5:30,2021-11-16,09:37:36,nikhil,devsena service station,Dl3sby2641,Two Wheeler,Declined to show certificate
+2021/11/16 9:38:15 AM GMT+5:30,2021-11-16,09:38:15,rajesh kumar,shivan auto centre nh 24,Dl7cp2501,LGV,Yes
+2021/11/16 9:38:48 AM GMT+5:30,2021-11-16,09:38:48,nikhil,devsena service station,Dl3scz7121,Two Wheeler,No
+2021/11/16 9:39:57 AM GMT+5:30,2021-11-16,09:39:57,rajesh kumar,shivan auto centre nh 24,Up14da4174,Two Wheeler,No
+2021/11/16 9:40:28 AM GMT+5:30,2021-11-16,09:40:28,nikhil,devsena service station,Dl3sdk8616,Two Wheeler,No
+2021/11/16 9:41:27 AM GMT+5:30,2021-11-16,09:41:27,nikhil,devsena service station,Dl3sdx8901,Two Wheeler,Declined to show certificate
+2021/11/16 9:41:46 AM GMT+5:30,2021-11-16,09:41:46,rajesh kumar,shivan auto.centre nh 24,Dl7cp0125,LGV,Yes
+2021/11/16 9:44:00 AM GMT+5:30,2021-11-16,09:44:00,rajesh kumar,shivan auto centre nh 24,Dl7cf4530,LGV,No
+2021/11/16 9:44:54 AM GMT+5:30,2021-11-16,09:44:54,nikhil,devsena service station,Dl3sem2777,Two Wheeler,Yes
+2021/11/16 9:45:33 AM GMT+5:30,2021-11-16,09:45:33,nikhil,devsena service station,Dl3scr8095,Two Wheeler,No
+2021/11/16 9:45:55 AM GMT+5:30,2021-11-16,09:45:55,rajesh kumar,shivan auto centre nh 24,Dl 2cau4317,LGV,Yes
+2021/11/16 9:47:04 AM GMT+5:30,2021-11-16,09:47:04,nikhil,devsena service station,Dl3seu2902,Two Wheeler,Yes
+2021/11/16 9:48:25 AM GMT+5:30,2021-11-16,09:48:25,nikhil,devsena service station,Dl3sbw4119,Two Wheeler,Yes
+2021/11/16 9:49:08 AM GMT+5:30,2021-11-16,09:49:08,rajesh kumar,shivan auto centre nh 24,Up14ht0102,HGV,Yes
+2021/11/16 9:49:35 AM GMT+5:30,2021-11-16,09:49:35,nikhil,devsena service station,Dl3sbq4604,Two Wheeler,Declined to show certificate
+2021/11/16 9:50:31 AM GMT+5:30,2021-11-16,09:50:31,rajesh kumar,shivan auto centre nh 24,Dl7cr8184,LGV,Yes
+2021/11/16 9:51:31 AM GMT+5:30,2021-11-16,09:51:31,nikhil,devsena service station,Dl3sau155,Two Wheeler,Declined to show certificate
+2021/11/16 9:51:57 AM GMT+5:30,2021-11-16,09:51:57,rajesh kumar,shivan auto centre nh 24,Dl5scd5818,Two Wheeler,Yes
+2021/11/16 9:53:43 AM GMT+5:30,2021-11-16,09:53:43,nikhil,devsena service station,Dl3sdy8014,Two Wheeler,Yes
+2021/11/16 9:53:51 AM GMT+5:30,2021-11-16,09:53:51,rajesh kumar,shivan auto centre nh 24,Up14cm1912,LGV,Yes
+2021/11/16 9:54:32 AM GMT+5:30,2021-11-16,09:54:32,nikhil,devsena service station,Dl3scz3484,Two Wheeler,Yes
+2021/11/16 9:56:08 AM GMT+5:30,2021-11-16,09:56:08,nikhil,devsena service station,Dl3see4425,Two Wheeler,Yes
+2021/11/16 9:57:06 AM GMT+5:30,2021-11-16,09:57:06,rajesh kumar,shivan auto centre nh 24,Up16bm9635,Two Wheeler,Yes
+2021/11/16 9:57:22 AM GMT+5:30,2021-11-16,09:57:22,nikhil,devsena service station,Dl9st6179,Two Wheeler,No
+2021/11/16 9:58:21 AM GMT+5:30,2021-11-16,09:58:21,nikhil,devsena service station,Dl3scq6250,Two Wheeler,Declined to show certificate
+2021/11/16 9:59:34 AM GMT+5:30,2021-11-16,09:59:34,nikhil,devsena service station,Dl12sc6691,Two Wheeler,Yes
+2021/11/16 9:59:57 AM GMT+5:30,2021-11-16,09:59:57,rajesh kumar,shivan auto centre nh 24,Up16dt7264,Three Wheeler,Yes
+2021/11/16 10:01:11 AM GMT+5:30,2021-11-16,10:01:11,nikhil,devsena service station,Dl9sbr5928,Two Wheeler,Yes
+2021/11/16 10:02:21 AM GMT+5:30,2021-11-16,10:02:21,nikhil,devsena service station,Pb06an8631,Two Wheeler,No
+2021/11/16 10:05:13 AM GMT+5:30,2021-11-16,10:05:13,nikhil,devsena service station,Dl3see3635,Two Wheeler,Declined to show certificate
+2021/11/16 10:10:24 AM GMT+5:30,2021-11-16,10:10:24,sunil kumar,indian oil mangolpuri ph1,Dl9caj2244,LGV/Pvt.,No
+2021/11/16 10:11:43 AM GMT+5:30,2021-11-16,10:11:43,sunil kumar,indian oil mangolpuri ph1,Dl1pc4058,HGV,No
+2021/11/16 10:12:26 AM GMT+5:30,2021-11-16,10:12:26,rajesh kumar,shivan auto centre nh 24,Dl7scd5736,Two Wheeler,Yes
+2021/11/16 10:14:47 AM GMT+5:30,2021-11-16,10:14:47,rajesh kumar,shivan auto centre nh 24,Dl1za4838,HGV,Yes
+2021/11/16 10:18:41 AM GMT+5:30,2021-11-16,10:18:41,rajesh kumar,shivan auto centre nh 24,Dl12sk3570,Two Wheeler,Yes
+2021/11/16 10:20:29 AM GMT+5:30,2021-11-16,10:20:29,rajesh kumar,shivan auto.centre nh 24,Up12at1822,HGV,Yes
+2021/11/16 10:26:05 AM GMT+5:30,2021-11-16,10:26:05,rajesh kumar,shivan auto centre nh 24,Dl12cg3755,LGV,Yes
+2021/11/16 10:33:03 AM GMT+5:30,2021-11-16,10:33:03,rajesh kumar,shivan auto centre nh 24,Dl1zb5963,HGV,Yes
+2021/11/16 10:36:25 AM GMT+5:30,2021-11-16,10:36:25,rajesh kumar,shivan auto centre nh 24,Dl7cn2163,LGV,Yes
+2021/11/16 10:38:05 AM GMT+5:30,2021-11-16,10:38:05,rajesh kumar,shivan auto centre nh 24,Dl1ye5670,HGV,Yes
+2021/11/16 10:42:28 AM GMT+5:30,2021-11-16,10:42:28,rajesh kumar,shivan auto centre nh 24,Hr26bl8401,LGV,Yes
+2021/11/16 10:45:51 AM GMT+5:30,2021-11-16,10:45:51,sunil kumar,indian oil mangolpuri ph1,Hr13h9877,LGV/Pvt.,Yes
+2021/11/16 10:47:02 AM GMT+5:30,2021-11-16,10:47:02,sunil kumar,indian oil mangolpuri ph1,Dl1cx0887,LGV/Pvt.,Yes
+2021/11/16 10:48:45 AM GMT+5:30,2021-11-16,10:48:45,sunil kumar,indian oil mangolpuri ph1,Dl11sf6881,Two Wheeler,Yes
+2021/11/16 10:49:11 AM GMT+5:30,2021-11-16,10:49:11,rajesh kumar,shivan auto centre nh 24,Dl13sa5300,Two Wheeler,Yes
+2021/11/16 10:52:09 AM GMT+5:30,2021-11-16,10:52:09,nikhil,devsena service station,Dl8sau4496,Two Wheeler,Yes
+2021/11/16 10:54:00 AM GMT+5:30,2021-11-16,10:54:00,nikhil,devsena service station,Up13bc0631,Two Wheeler,No
+2021/11/16 10:55:36 AM GMT+5:30,2021-11-16,10:55:36,nikhil,devsena service station,Dl3sau2798,Two Wheeler,Yes
+2021/11/16 10:57:36 AM GMT+5:30,2021-11-16,10:57:36,rajesh kumar,shivan auto centre nh 24,Dl13cc1638,LGV,Yes
+2021/11/16 10:57:37 AM GMT+5:30,2021-11-16,10:57:37,nikhil,devsena service station,Dl5sy2622,Two Wheeler,No
+2021/11/16 11:05:10 AM GMT+5:30,2021-11-16,11:05:10,nikhil,devsena service station,Dl3saz243,Two Wheeler,Yes
+2021/11/16 11:08:00 AM GMT+5:30,2021-11-16,11:08:00,nikhil,devsena service station,Dl3sbf2144,Two Wheeler,Yes
+2021/11/16 11:09:11 AM GMT+5:30,2021-11-16,11:09:11,nikhil,devsena service station,Dl3scy2036,Two Wheeler,Yes
+2021/11/16 11:10:58 AM GMT+5:30,2021-11-16,11:10:58,nikhil,devsena service station,Dl3sde0329,Two Wheeler,Yes
+2021/11/16 11:12:16 AM GMT+5:30,2021-11-16,11:12:16,nikhil,devsena service station,Dl3sck6332,Two Wheeler,No
+2021/11/16 11:12:32 AM GMT+5:30,2021-11-16,11:12:32,sunil kumar,indian oil mangolpuri ph1,Dl11e8462,Two Wheeler,Yes
+2021/11/16 11:14:19 AM GMT+5:30,2021-11-16,11:14:19,nikhil,devsena service station,Dl3sel7492,Two Wheeler,Yes
+2021/11/16 11:14:31 AM GMT+5:30,2021-11-16,11:14:31,sunil kumar,indian oil mangolpuri ph1,Dl8sby0324,Two Wheeler,Yes
+2021/11/16 11:17:29 AM GMT+5:30,2021-11-16,11:17:29,nikhil,devsena service station,Dl5sbl3810,Two Wheeler,No
+2021/11/16 11:17:39 AM GMT+5:30,2021-11-16,11:17:39,rajesh kumar,shivan auto centre nh 24,Dl13sw7192,Two Wheeler,Yes
+2021/11/16 11:18:30 AM GMT+5:30,2021-11-16,11:18:30,nikhil,devsena service station,Dl12sd6904,Two Wheeler,Declined to show certificate
+2021/11/16 11:20:37 AM GMT+5:30,2021-11-16,11:20:37,nikhil,devsena service station,Dl3sby5732,Two Wheeler,Yes
+2021/11/16 11:21:19 AM GMT+5:30,2021-11-16,11:21:19,nikhil,devsena service station,Dl5scm4174,Two Wheeler,Yes
+2021/11/16 11:23:10 AM GMT+5:30,2021-11-16,11:23:10,nikhil,devsena service station,Dl6saq2188,Two Wheeler,Declined to show certificate
+2021/11/16 11:23:45 AM GMT+5:30,2021-11-16,11:23:45,nikhil,devsena service station,Dl3sdv9668,Two Wheeler,No
+2021/11/16 11:24:25 AM GMT+5:30,2021-11-16,11:24:25,nikhil,devsena service station,Dl3san3622,Two Wheeler,No
+2021/11/16 11:24:35 AM GMT+5:30,2021-11-16,11:24:35,rajesh kumar,shivan auto centre nh 24,Dl7sbz7478,Two Wheeler,Yes
+2021/11/16 11:25:44 AM GMT+5:30,2021-11-16,11:25:44,nikhil,devsena service station,Dl3sdw1146,Two Wheeler,No
+2021/11/16 11:26:35 AM GMT+5:30,2021-11-16,11:26:35,nikhil,devsena service station,Dl3ser4465,Two Wheeler,Declined to show certificate
+2021/11/16 11:27:21 AM GMT+5:30,2021-11-16,11:27:21,nikhil,devsena service station,Dl3seg3820,Two Wheeler,Declined to show certificate
+2021/11/16 11:29:42 AM GMT+5:30,2021-11-16,11:29:42,nikhil,devsena service station,Dl5scf4472,Two Wheeler,Yes
+2021/11/16 11:30:54 AM GMT+5:30,2021-11-16,11:30:54,nikhil,devsena service station,Dl6sal6037,Two Wheeler,Declined to show certificate
+2021/11/16 11:32:01 AM GMT+5:30,2021-11-16,11:32:01,nikhil,nikhil,Dl3sep6679,Two Wheeler,No
+2021/11/16 11:32:18 AM GMT+5:30,2021-11-16,11:32:18,rajesh kumar,shivan auto centre nh 24,Dl1cac7549,LGV,Yes
+2021/11/16 11:33:34 AM GMT+5:30,2021-11-16,11:33:34,nikhil,devsena service station,Dl3sej2027,Two Wheeler,Yes
+2021/11/16 11:34:48 AM GMT+5:30,2021-11-16,11:34:48,nikhil,devsena service station,Dl3sbj4621,Two Wheeler,Yes
+2021/11/16 11:35:46 AM GMT+5:30,2021-11-16,11:35:46,sunil kumar,indian oil mangolpuri ph1,Dl8caz2239,LGV/Pvt.,Yes
+2021/11/16 11:37:06 AM GMT+5:30,2021-11-16,11:37:06,nikhil,devsena service station,Dl3sdp7385,Two Wheeler,No
+2021/11/16 11:37:25 AM GMT+5:30,2021-11-16,11:37:25,sunil kumar,indian oil mangolpuri ph1,DL 1Lp4160,LGV/Pvt.,Yes
+2021/11/16 11:37:50 AM GMT+5:30,2021-11-16,11:37:50,nikhil,devsena service station,Dl3seu8399,Two Wheeler,Yes
+2021/11/16 11:39:33 AM GMT+5:30,2021-11-16,11:39:33,nikhil,devsena service station,Dl3sdm8075,Two Wheeler,Yes
+2021/11/16 11:39:46 AM GMT+5:30,2021-11-16,11:39:46,rajesh kumar,shivan auto centre nh 24,Dl 7ch3969,LGV,Yes
+2021/11/16 11:40:36 AM GMT+5:30,2021-11-16,11:40:36,nikhil,devsena service station,Dl3scv7312,Two Wheeler,Yes
+2021/11/16 11:41:42 AM GMT+5:30,2021-11-16,11:41:42,nikhil,devsena service station,Dl3sea7712,Two Wheeler,Yes
+2021/11/16 11:42:46 AM GMT+5:30,2021-11-16,11:42:46,nikhil,devsena service station,Dl3sed0263,Two Wheeler,Yes
+2021/11/16 11:44:10 AM GMT+5:30,2021-11-16,11:44:10,nikhil,devsena service station,Dl3seg8877,Two Wheeler,Declined to show certificate
+2021/11/16 11:45:30 AM GMT+5:30,2021-11-16,11:45:30,nikhil,devsena service station,Up16cb6178,Two Wheeler,Yes
+2021/11/16 11:45:35 AM GMT+5:30,2021-11-16,11:45:35,rajesh kumar,shivan auto centre nh 24,Up.37f9627,LGV,Yes
+2021/11/16 11:46:33 AM GMT+5:30,2021-11-16,11:46:33,nikhil,devsena service station,Dl3sbm1054,Two Wheeler,No
+2021/11/16 11:47:23 AM GMT+5:30,2021-11-16,11:47:23,nikhil,devsena service station,Dl3sed9889,Two Wheeler,No
+2021/11/16 11:48:11 AM GMT+5:30,2021-11-16,11:48:11,nikhil,devsena service station,Up15am7852,Two Wheeler,Yes
+2021/11/16 11:49:01 AM GMT+5:30,2021-11-16,11:49:01,rajesh kumar,shivan auto centre nh 24,Dl7scg0662,Two Wheeler,Yes
+2021/11/16 11:49:46 AM GMT+5:30,2021-11-16,11:49:46,nikhil,devsena service station,Dl3cc2333,Two Wheeler,No
+2021/11/16 11:51:02 AM GMT+5:30,2021-11-16,11:51:02,rajesh kumar,shivan auto centre nh 24,Dl10sh6956,Two Wheeler,Yes
+2021/11/16 11:51:40 AM GMT+5:30,2021-11-16,11:51:40,nikhil,devsena service station,Dl3set0551,Two Wheeler,Declined to show certificate
+2021/11/16 11:52:38 AM GMT+5:30,2021-11-16,11:52:38,rajesh kumar,shivan auto centre nh 24,Dl1ru2900,Three Wheeler,Yes
+2021/11/16 11:52:52 AM GMT+5:30,2021-11-16,11:52:52,nikhil,devsena service station,Dl3scq8101,Two Wheeler,Declined to show certificate
+2021/11/16 11:53:26 AM GMT+5:30,2021-11-16,11:53:26,nikhil,devsena service station,Dl3sdc4840,Two Wheeler,Declined to show certificate
+2021/11/16 11:56:00 AM GMT+5:30,2021-11-16,11:56:00,rajesh kumar,shivan auto centre.nh.24,Dl1rn7079,Three Wheeler,Declined to show certificate
+2021/11/16 11:56:47 AM GMT+5:30,2021-11-16,11:56:47,sunil kumar,indian oil mangolpuri ph1,Dl1lm3656,LGV,No
+2021/11/16 11:57:37 AM GMT+5:30,2021-11-16,11:57:37,rajesh kumar,shivan auto centre nh 24,Up22aj7079,Two Wheeler,No
+2021/11/16 11:58:46 AM GMT+5:30,2021-11-16,11:58:46,rajesh kumar,shivan auto centre nh 24,Upft0710,LGV,Yes
+2021/11/16 12:00:54 PM GMT+5:30,2021-11-16,12:00:54,rajesh kumar,shivan auto centre nh 24,Dl7scg0610,Two Wheeler,Yes
+2021/11/16 12:09:00 PM GMT+5:30,2021-11-16,12:09:00,rajesh kumar,shivan auto centre nh 24,Dl3cbc5637,LGV,Yes
+2021/11/16 12:09:07 PM GMT+5:30,2021-11-16,12:09:07,sunil kumar,indian oil mangolpuri ph1,Dl4sdb5077,Two Wheeler,Yes
+2021/11/16 12:10:32 PM GMT+5:30,2021-11-16,12:10:32,sunil kumar,indian oil mangolpuri ph1,Dl4scs2529,Two Wheeler,Yes
+2021/11/16 12:10:34 PM GMT+5:30,2021-11-16,12:10:34,rajesh kumar,shivan auto centre nh 24,Dl1zc2394,HGV,Yes
+2021/11/16 12:11:32 PM GMT+5:30,2021-11-16,12:11:32,sunil kumar,indian oil mangolpuri ph1,Dl1rp5668,Three Wheeler,Declined to show certificate
+2021/11/16 12:12:32 PM GMT+5:30,2021-11-16,12:12:32,sunil kumar,indian oil mangolpuri ph1,Dl9cap7697,LGV/Pvt.,Yes
+2021/11/16 12:13:40 PM GMT+5:30,2021-11-16,12:13:40,sunil kumar,indian oil mangolpuri ph1,Dl8cas9635,LGV/Pvt.,Declined to show certificate
+2021/11/16 12:16:01 PM GMT+5:30,2021-11-16,12:16:01,nikhil,devsena service station,Dl 7sba1817,Two Wheeler,No
+2021/11/16 12:16:45 PM GMT+5:30,2021-11-16,12:16:45,rajesh kumar,shivan auto centre.nh 24,Dl1lu6670,Three Wheeler,Yes
+2021/11/16 12:17:25 PM GMT+5:30,2021-11-16,12:17:25,nikhil,devsena service station,Dl8sch394,Two Wheeler,No
+2021/11/16 12:18:56 PM GMT+5:30,2021-11-16,12:18:56,nikhil,devsena service station,Dl3sdu9618,Two Wheeler,No
+2021/11/16 12:19:57 PM GMT+5:30,2021-11-16,12:19:57,nikhil,devsena service station,Dl12sj6228,Two Wheeler,No
+2021/11/16 12:21:31 PM GMT+5:30,2021-11-16,12:21:31,nikhil,devsena service station,Up24z7212,Two Wheeler,Yes
+2021/11/16 12:22:58 PM GMT+5:30,2021-11-16,12:22:58,nikhil,devsena service station,Dl3sed2888,Two Wheeler,Declined to show certificate
+2021/11/16 12:24:10 PM GMT+5:30,2021-11-16,12:24:10,nikhil,devsena service station,Dl3scs7528,Two Wheeler,No
+2021/11/16 12:26:51 PM GMT+5:30,2021-11-16,12:26:51,nikhil,devsena service station,Dl3see6095,Two Wheeler,Yes
+2021/11/16 12:28:32 PM GMT+5:30,2021-11-16,12:28:32,nikhil,devsena service station,Dl3seg1161,Two Wheeler,Declined to show certificate
+2021/11/16 12:29:49 PM GMT+5:30,2021-11-16,12:29:49,nikhil,devsena service station,Dl3scy1417,Two Wheeler,Yes
+2021/11/16 12:32:02 PM GMT+5:30,2021-11-16,12:32:02,nikhil,devsena service station,Dl3sdz8877,Two Wheeler,Declined to show certificate
+2021/11/16 12:33:20 PM GMT+5:30,2021-11-16,12:33:20,nikhil,devsena service station,Dl3sdb1962,Two Wheeler,No
+2021/11/16 12:35:24 PM GMT+5:30,2021-11-16,12:35:24,nikhil,devsena service station,Dl3scc1210,Two Wheeler,Declined to show certificate
+2021/11/16 12:55:28 PM GMT+5:30,2021-11-16,12:55:28,keshav,ch aishi ram batra & co,DL 5S AS 2622,Two Wheeler,Yes
+2021/11/16 12:58:11 PM GMT+5:30,2021-11-16,12:58:11,keshav,ch aishi ram batra & co,DL 14 S M 1521,Two Wheeler,Yes
+2021/11/16 12:59:28 PM GMT+5:30,2021-11-16,12:59:28,keshav,ch aishi ram batra & co,DL 5 S BB 4981,Two Wheeler,Declined to show certificate
+2021/11/16 1:00:41 PM GMT+5:30,2021-11-16,13:00:41,keshav,ch aishi ram batra & co,DL 5S BG 1438,Two Wheeler,Yes
+2021/11/16 1:05:31 PM GMT+5:30,2021-11-16,13:05:31,rajesh kumar,shivan auto centre nh 24,Dl 5ck5712,LGV,Yes
+2021/11/16 1:06:35 PM GMT+5:30,2021-11-16,13:06:35,rajesh kumar,shivam auto centre nh24,Dl13sv9417,Two Wheeler,Yes
+2021/11/16 1:07:37 PM GMT+5:30,2021-11-16,13:07:37,rajesh kumar,shivam auto centre nh 24,Dl8sdu2968,Two Wheeler,Yes
+2021/11/16 1:08:34 PM GMT+5:30,2021-11-16,13:08:34,rajesh kumar,shivam auto centre nh 24,Dl1sab6865,Two Wheeler,Yes
+2021/11/16 1:09:10 PM GMT+5:30,2021-11-16,13:09:10,keshav,ch aishi ram batra & co,DL 14 EJ 8136,Two Wheeler,Yes
+2021/11/16 1:09:25 PM GMT+5:30,2021-11-16,13:09:25,rajesh kumar,shivam auto centre nh 24,Dl1rn0545,Three Wheeler,Yes
+2021/11/16 1:10:36 PM GMT+5:30,2021-11-16,13:10:36,rajesh kumar,shivam auto centre nh 24,Dl10sx6611,Two Wheeler,Yes
+2021/11/16 1:11:37 PM GMT+5:30,2021-11-16,13:11:37,rajesh kumar,shivam auto centre nh 24,Dl3cbr4010,LGV,Yes
+2021/11/16 1:12:08 PM GMT+5:30,2021-11-16,13:12:08,rajesh kumar,shivam auto centre nh 24,Dl7sal8027,Two Wheeler,Yes
+2021/11/16 1:12:54 PM GMT+5:30,2021-11-16,13:12:54,rajesh kumar,shivam auto centre nh 24,Dl6ct0572,LGV,Yes
+2021/11/16 1:13:34 PM GMT+5:30,2021-11-16,13:13:34,rajesh kumar,shivam auto centre nh 24,Dl14cd8566,LGV,Yes
+2021/11/16 1:14:18 PM GMT+5:30,2021-11-16,13:14:18,keshav,ch aishi ram batra & co,DL 5S AC 4923,Two Wheeler,Yes
+2021/11/16 1:29:11 PM GMT+5:30,2021-11-16,13:29:11,keshav,ch aishi ram batra & co,DL 7S BM 5619,Two Wheeler,Yes
+2021/11/16 1:30:22 PM GMT+5:30,2021-11-16,13:30:22,keshav,ch aishi ram batra & co,DL 5S AG 9079,Two Wheeler,Yes
+2021/11/16 1:47:07 PM GMT+5:30,2021-11-16,13:47:07,keshav,ch aishi ram batra & co,DL 7CL 6497,LGV/Pvt.,Yes
+2021/11/16 1:48:31 PM GMT+5:30,2021-11-16,13:48:31,keshav,ch aishi ram batra & co,DL 13 Sh 7306,Two Wheeler,Yes
+2021/11/16 1:49:45 PM GMT+5:30,2021-11-16,13:49:45,keshav,ch aishi ram batra & co,DL 5S CF 5372,Two Wheeler,Yes
+2021/11/16 1:57:58 PM GMT+5:30,2021-11-16,13:57:58,yogesh kumar,bcc n block cp circle,Dl6sn6942,Two Wheeler,No
+2021/11/16 2:15:59 PM GMT+5:30,2021-11-16,14:15:59,keshav,ch aishi ram batra & co,DL 14 SH 7451,Two Wheeler,Yes
+2021/11/16 2:21:02 PM GMT+5:30,2021-11-16,14:21:02,keshav,ch aishi ram batra & co,DL 5s Cn 0998,Two Wheeler,Yes
+2021/11/16 2:22:07 PM GMT+5:30,2021-11-16,14:22:07,keshav,ch aishi ram batra & co,DL 5s cn 1223,Two Wheeler,Yes
+2021/11/16 2:23:12 PM GMT+5:30,2021-11-16,14:23:12,keshav,ch aishi ram batra & co,DL 5s aX 8163,Two Wheeler,Yes
+2021/11/16 2:26:52 PM GMT+5:30,2021-11-16,14:26:52,rajesh kumar,rama service station,Dl1cr0150,LGV/Pvt.,Yes
+2021/11/16 2:27:52 PM GMT+5:30,2021-11-16,14:27:52,keshav,ch aishi ram batra & co,DL 6s bc 4145,Two Wheeler,Declined to show certificate
+2021/11/16 2:28:15 PM GMT+5:30,2021-11-16,14:28:15,rajesh kumar,rama service station,Dl1mc0276,HGV,Yes
+2021/11/16 2:28:34 PM GMT+5:30,2021-11-16,14:28:34,keshav,ch aishi ram batra & co,DL 10 sh 0590,Two Wheeler,Yes
+2021/11/16 2:29:33 PM GMT+5:30,2021-11-16,14:29:33,rajesh kumar,rama service station,Dl5cr2938,LGV,Yes
+2021/11/16 2:30:41 PM GMT+5:30,2021-11-16,14:30:41,rajesh kumar,rama service station,Dl1rtc2496,LGV,Yes
+2021/11/16 2:32:15 PM GMT+5:30,2021-11-16,14:32:15,rajesh kumar,rama service station,Dl1rl8801,Three Wheeler,Yes
+2021/11/16 2:33:41 PM GMT+5:30,2021-11-16,14:33:41,rajesh kumar,rama service station,Dl1rm7073,Three Wheeler,Yes
+2021/11/16 2:39:00 PM GMT+5:30,2021-11-16,14:39:00,mukesh kumar,balwan service station rohini sec-16,DL11CC1879,LGV/Pvt.,Yes
+2021/11/16 2:39:08 PM GMT+5:30,2021-11-16,14:39:08,yogesh kumar,"bcc auto pvt ltd , n block cp circle",DL2CBC5059,LGV/Pvt.,Declined to show certificate
+2021/11/16 2:40:39 PM GMT+5:30,2021-11-16,14:40:39,sunil kumar,"hare krishna motar petrol pump(narela,bawana)",DL11SW4597,Two Wheeler,Yes
+2021/11/16 2:47:02 PM GMT+5:30,2021-11-16,14:47:02,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11ST9341,Two Wheeler,No
+2021/11/16 2:48:09 PM GMT+5:30,2021-11-16,14:48:09,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11ST4855,Two Wheeler,No
+2021/11/16 2:49:13 PM GMT+5:30,2021-11-16,14:49:13,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SB9073,Two Wheeler,No
+2021/11/16 2:53:10 PM GMT+5:30,2021-11-16,14:53:10,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL8SCM8659,Two Wheeler,No
+2021/11/16 2:53:58 PM GMT+5:30,2021-11-16,14:53:58,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11B3136,Two Wheeler,No
+2021/11/16 2:55:07 PM GMT+5:30,2021-11-16,14:55:07,mukesh kumar,balwan service station ronnie16,UP 16 AX 9428,LGV/Pvt.,No
+2021/11/16 2:55:23 PM GMT+5:30,2021-11-16,14:55:23,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",HR10R8564,Two Wheeler,No
+2021/11/16 2:58:02 PM GMT+5:30,2021-11-16,14:58:02,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11B2196,Two Wheeler,No
+2021/11/16 2:59:35 PM GMT+5:30,2021-11-16,14:59:35,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",UP24AM9584,Two Wheeler,No
+2021/11/16 3:01:04 PM GMT+5:30,2021-11-16,15:01:04,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SY7985,Two Wheeler,No
+2021/11/16 3:01:46 PM GMT+5:30,2021-11-16,15:01:46,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",HR79B3852,Two Wheeler,No
+2021/11/16 3:02:18 PM GMT+5:30,2021-11-16,15:02:18,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL8SBL3905,Two Wheeler,Yes
+2021/11/16 3:03:51 PM GMT+5:30,2021-11-16,15:03:51,mukesh kumar,balwan service station rohini sector 16,DL 8CW 3869,LGV/Pvt.,Yes
+2021/11/16 3:14:32 PM GMT+5:30,2021-11-16,15:14:32,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",Dl3SDW6459,Two Wheeler,Yes
+2021/11/16 3:15:11 PM GMT+5:30,2021-11-16,15:15:11,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SC5466,Two Wheeler,Yes
+2021/11/16 3:16:19 PM GMT+5:30,2021-11-16,15:16:19,sunil kumar,bharat petroleum okhla service centre,Dl10se6210,Two Wheeler,No
+2021/11/16 3:21:00 PM GMT+5:30,2021-11-16,15:21:00,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL5SCS3959,Two Wheeler,Yes
+2021/11/16 3:22:02 PM GMT+5:30,2021-11-16,15:22:02,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL8SBP1580,Two Wheeler,No
+2021/11/16 3:22:31 PM GMT+5:30,2021-11-16,15:22:31,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SE7453,Two Wheeler,Yes
+2021/11/16 3:27:07 PM GMT+5:30,2021-11-16,15:27:07,manish,mahendra cbd gound surajmal vihar,DL8SBL4841,Two Wheeler,Yes
+2021/11/16 3:30:46 PM GMT+5:30,2021-11-16,15:30:46,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SE7453,Two Wheeler,No
+2021/11/16 3:31:14 PM GMT+5:30,2021-11-16,15:31:14,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",Dl11SA3122,Two Wheeler,No
+2021/11/16 3:32:30 PM GMT+5:30,2021-11-16,15:32:30,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL5SCG5080,Two Wheeler,Yes
+2021/11/16 3:33:21 PM GMT+5:30,2021-11-16,15:33:21,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",UP20AP1347,Two Wheeler,Yes
+2021/11/16 3:34:54 PM GMT+5:30,2021-11-16,15:34:54,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL4SBK4432,Two Wheeler,No
+2021/11/16 3:35:36 PM GMT+5:30,2021-11-16,15:35:36,rajesh kumar,rama service station,Dl1ncr0026,Three Wheeler,Yes
+2021/11/16 3:36:15 PM GMT+5:30,2021-11-16,15:36:15,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SU1513,Two Wheeler,No
+2021/11/16 3:36:36 PM GMT+5:30,2021-11-16,15:36:36,rajesh kumar,rama service station,Dl1ll3013,LGV,Yes
+2021/11/16 3:36:59 PM GMT+5:30,2021-11-16,15:36:59,sunil kumar,bharat petroleum new friends colony,Dl4scu7399,Two Wheeler,Yes
+2021/11/16 3:37:31 PM GMT+5:30,2021-11-16,15:37:31,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SR0191,Two Wheeler,Yes
+2021/11/16 3:38:44 PM GMT+5:30,2021-11-16,15:38:44,rajesh kumar,rama service station,Dl14sk0736,Two Wheeler,Yes
+2021/11/16 3:39:54 PM GMT+5:30,2021-11-16,15:39:54,rajesh kumar,rama service station,Dl12cn8041,LGV,No
+2021/11/16 3:40:55 PM GMT+5:30,2021-11-16,15:40:55,rajesh kumar,rama service station,Dl1rp2851,Three Wheeler,Yes
+2021/11/16 3:42:02 PM GMT+5:30,2021-11-16,15:42:02,rajesh kumar,rama service station,Dl1rl3227,Three Wheeler,No
+2021/11/16 3:43:31 PM GMT+5:30,2021-11-16,15:43:31,rajesh kumar,rama service station,Dl5ck1073,LGV,Yes
+2021/11/16 3:43:57 PM GMT+5:30,2021-11-16,15:43:57,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",UP37P2291,Two Wheeler,Yes
+2021/11/16 3:44:54 PM GMT+5:30,2021-11-16,15:44:54,rajesh kumar,rama service station,Dl1rw1249,Three Wheeler,Yes
+2021/11/16 3:45:51 PM GMT+5:30,2021-11-16,15:45:51,rajesh kumar,rama service station,Dl1ru4266,Three Wheeler,Yes
+2021/11/16 3:46:19 PM GMT+5:30,2021-11-16,15:46:19,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SD6959,Two Wheeler,No
+2021/11/16 3:47:00 PM GMT+5:30,2021-11-16,15:47:00,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL8SCR4339,Two Wheeler,Yes
+2021/11/16 3:48:15 PM GMT+5:30,2021-11-16,15:48:15,rajesh kumar,rama service station,Dl8cs5451,LGV,No
+2021/11/16 3:51:03 PM GMT+5:30,2021-11-16,15:51:03,rajesh kumar,rama service station,Dl1rs0803,Three Wheeler,Yes
+2021/11/16 3:52:40 PM GMT+5:30,2021-11-16,15:52:40,rajesh kumar,rama service station,UP14ep3906,Two Wheeler,Yes
+2021/11/16 3:53:56 PM GMT+5:30,2021-11-16,15:53:56,rajesh kumar,rama service station,Dl6sah9236,Two Wheeler,Yes
+2021/11/16 3:55:10 PM GMT+5:30,2021-11-16,15:55:10,rajesh kumar,rama service station,Dl1cx0660,LGV/Pvt.,Yes
+2021/11/16 3:58:26 PM GMT+5:30,2021-11-16,15:58:26,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SS5119,Two Wheeler,Yes
+2021/11/16 4:00:43 PM GMT+5:30,2021-11-16,16:00:43,manish,jiwan service station man singh,DL 5BN2106,Two Wheeler,Yes
+2021/11/16 4:01:25 PM GMT+5:30,2021-11-16,16:01:25,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SX8769,Two Wheeler,No
+2021/11/16 4:02:01 PM GMT+5:30,2021-11-16,16:02:01,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11F5414,Two Wheeler,Yes
+2021/11/16 4:02:46 PM GMT+5:30,2021-11-16,16:02:46,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SX1848,Two Wheeler,Yes
+2021/11/16 4:02:57 PM GMT+5:30,2021-11-16,16:02:57,manish,jiwan service station man singh rode,Up 14dc7449,Two Wheeler,Yes
+2021/11/16 4:05:58 PM GMT+5:30,2021-11-16,16:05:58,manish,jiwan service station man singh rode,DL 7SBU7078,Two Wheeler,No
+2021/11/16 4:07:03 PM GMT+5:30,2021-11-16,16:07:03,manish,jiwan service station man singh rode,UP 14DC1685,Two Wheeler,Yes
+2021/11/16 4:08:05 PM GMT+5:30,2021-11-16,16:08:05,manish,jiwan service station man singh rode,DL 5SBF3294,Two Wheeler,Yes
+2021/11/16 4:09:34 PM GMT+5:30,2021-11-16,16:09:34,manish,jiwan service station man singh rode,DL 4SCY7949,Two Wheeler,Yes
+2021/11/16 4:10:10 PM GMT+5:30,2021-11-16,16:10:10,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SX9455,Two Wheeler,Yes
+2021/11/16 4:10:48 PM GMT+5:30,2021-11-16,16:10:48,manish,jiwan service station man singh rode,DL 5 SCB 9590,Two Wheeler,No
+2021/11/16 4:11:01 PM GMT+5:30,2021-11-16,16:11:01,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL1CAD1393,LGV/Pvt.,Yes
+2021/11/16 4:13:44 PM GMT+5:30,2021-11-16,16:13:44,manish,jiwan service station man singh rode,UP 17 P 4079,Two Wheeler,Yes
+2021/11/16 4:17:30 PM GMT+5:30,2021-11-16,16:17:30,manish,jiwan service station man singh rode,DL 5S CE1134,Two Wheeler,Yes
+2021/11/16 4:20:11 PM GMT+5:30,2021-11-16,16:20:11,manish,jiwan service station man singh rode,DL 7SCC7960,Two Wheeler,No
+2021/11/16 4:20:52 PM GMT+5:30,2021-11-16,16:20:52,rajesh kumar,rama service station,Dl3scx8678,Two Wheeler,Yes
+2021/11/16 4:22:15 PM GMT+5:30,2021-11-16,16:22:15,rajesh kumar,rama service station,UP37b8009,LGV,Yes
+2021/11/16 4:23:26 PM GMT+5:30,2021-11-16,16:23:26,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL8SCG4665,Two Wheeler,No
+2021/11/16 4:23:31 PM GMT+5:30,2021-11-16,16:23:31,rajesh kumar,rama service station,Dl7sb3982,Two Wheeler,No
+2021/11/16 4:24:06 PM GMT+5:30,2021-11-16,16:24:06,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL1SAC6620,Two Wheeler,Yes
+2021/11/16 4:25:23 PM GMT+5:30,2021-11-16,16:25:23,manish,jiwan service station man singh rode,DL 3SDX 2772,Two Wheeler,Declined to show certificate
+2021/11/16 4:27:31 PM GMT+5:30,2021-11-16,16:27:31,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",MP16MH3501,Two Wheeler,No
+2021/11/16 4:27:36 PM GMT+5:30,2021-11-16,16:27:36,manish,jiwan service station man singh rode,DL1SAB5950,Two Wheeler,Declined to show certificate
+2021/11/16 4:29:20 PM GMT+5:30,2021-11-16,16:29:20,manish,jiwan service station man singh rode,DL 13SS1189,Two Wheeler,Yes
+2021/11/16 4:30:54 PM GMT+5:30,2021-11-16,16:30:54,manish,jiwan service station man singh rode,DL 7SBR3435,Two Wheeler,Yes
+2021/11/16 4:31:21 PM GMT+5:30,2021-11-16,16:31:21,rajesh kumar,rama service station,Dl7sb3982,Two Wheeler,No
+2021/11/16 4:31:43 PM GMT+5:30,2021-11-16,16:31:43,sunil kumar,bharat petroleum new friends colony,Dl3see3163,Two Wheeler,No
+2021/11/16 4:32:47 PM GMT+5:30,2021-11-16,16:32:47,rajesh kumar,rama service station,Dl3can1503,LGV,No
+2021/11/16 4:33:05 PM GMT+5:30,2021-11-16,16:33:05,sunil kumar,bharat petroleum new friends colony,Dl3sda6463,Two Wheeler,No
+2021/11/16 4:33:57 PM GMT+5:30,2021-11-16,16:33:57,rajesh kumar,rama service station,Dl12sl0190,Two Wheeler,Yes
+2021/11/16 4:34:34 PM GMT+5:30,2021-11-16,16:34:34,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL9SAP2204,Two Wheeler,No
+2021/11/16 4:35:09 PM GMT+5:30,2021-11-16,16:35:09,rajesh kumar,rama service station,Up14bs8072,LGV,Yes
+2021/11/16 4:36:06 PM GMT+5:30,2021-11-16,16:36:06,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11G1891,Two Wheeler,No
+2021/11/16 4:36:08 PM GMT+5:30,2021-11-16,16:36:08,rajesh kumar,rama service station,Dl5sck9428,Two Wheeler,No
+2021/11/16 4:38:26 PM GMT+5:30,2021-11-16,16:38:26,manish,jiwan service station,UP 14 JT6743,LGV,Yes
+2021/11/16 4:40:06 PM GMT+5:30,2021-11-16,16:40:06,yogesh kumar,bcc n block cp circus,DL3CAP0025,LGV/Pvt.,No
+2021/11/16 4:43:43 PM GMT+5:30,2021-11-16,16:43:43,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SR4615,Two Wheeler,No
+2021/11/16 4:44:40 PM GMT+5:30,2021-11-16,16:44:40,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SY7862,Three Wheeler,Yes
+2021/11/16 4:45:12 PM GMT+5:30,2021-11-16,16:45:12,manish,jiwan service station man singh road,DL 5SAM8254,Two Wheeler,Yes
+2021/11/16 4:47:36 PM GMT+5:30,2021-11-16,16:47:36,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL2CAP3067,LGV/Pvt.,Yes
+2021/11/16 4:48:05 PM GMT+5:30,2021-11-16,16:48:05,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SR6313,LGV/Pvt.,Yes
+2021/11/16 4:48:45 PM GMT+5:30,2021-11-16,16:48:45,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11SO5233,Two Wheeler,Yes
+2021/11/16 4:49:47 PM GMT+5:30,2021-11-16,16:49:47,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL8SBB9886,Two Wheeler,Yes
+2021/11/16 4:50:02 PM GMT+5:30,2021-11-16,16:50:02,sunil kumar,bharat petroleum new friends colony,Dl3sm4079,Two Wheeler,No
+2021/11/16 4:51:09 PM GMT+5:30,2021-11-16,16:51:09,manish,jiwan service station man singh road,DL 3SBG6925,Two Wheeler,No
+2021/11/16 4:52:14 PM GMT+5:30,2021-11-16,16:52:14,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL4SCD7600,Two Wheeler,Yes
+2021/11/16 4:52:15 PM GMT+5:30,2021-11-16,16:52:15,sunil kumar,bharat petroleum new friends colony,Dl3sbv7221,Two Wheeler,No
+2021/11/16 4:54:10 PM GMT+5:30,2021-11-16,16:54:10,manish,jiwan service station man singh road,DL 10SU1430,Two Wheeler,Yes
+2021/11/16 4:55:10 PM GMT+5:30,2021-11-16,16:55:10,yogesh kumar,bcc n block cp circus,UA07S4484,Two Wheeler,No
+2021/11/16 4:57:15 PM GMT+5:30,2021-11-16,16:57:15,manish,jiwan service station man singh road,DL5SCA 1270,Two Wheeler,Yes
+2021/11/16 4:57:38 PM GMT+5:30,2021-11-16,16:57:38,yogesh kumar,bcc n block cp circus,UP14AX7365,Two Wheeler,No
+2021/11/16 4:59:33 PM GMT+5:30,2021-11-16,16:59:33,manish,jiwan service station man singh road,DL13SL4482,Two Wheeler,Declined to show certificate
+2021/11/16 5:00:28 PM GMT+5:30,2021-11-16,17:00:28,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",UP15AF0186,Two Wheeler,Yes
+2021/11/16 5:00:29 PM GMT+5:30,2021-11-16,17:00:29,manish,jiwan service station man singh road,DL14SC2699,Two Wheeler,Yes
+2021/11/16 5:02:44 PM GMT+5:30,2021-11-16,17:02:44,yogesh kumar,bcc n block cp circus,DL3SDB3812,Two Wheeler,No
+2021/11/16 5:03:48 PM GMT+5:30,2021-11-16,17:03:48,sunil kumar,bharat petroleum new friends colony,Dl3scu1450,Two Wheeler,Declined to show certificate
+2021/11/16 5:05:03 PM GMT+5:30,2021-11-16,17:05:03,manish,jiwan service station man singh road,DL7SCH8161,Two Wheeler,Yes
+2021/11/16 5:05:13 PM GMT+5:30,2021-11-16,17:05:13,rajesh kumar,rama service station,Dl5cr9077,LGV,Yes
+2021/11/16 5:05:36 PM GMT+5:30,2021-11-16,17:05:36,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",DL11S9522,Two Wheeler,No
+2021/11/16 5:06:00 PM GMT+5:30,2021-11-16,17:06:00,mukesh kumar,balwan service station rohini sector 16,DL 8CAD2532,LGV/Pvt.,No
+2021/11/16 5:06:09 PM GMT+5:30,2021-11-16,17:06:09,manish,jiwan service station man singh road,DL 13SW5158,Two Wheeler,Yes
+2021/11/16 5:06:13 PM GMT+5:30,2021-11-16,17:06:13,sunil kumar,"hare krishna motar, petrol pump(narela,bawana)",SL11SA2496,Two Wheeler,Yes
+2021/11/16 5:06:23 PM GMT+5:30,2021-11-16,17:06:23,rajesh kumar,rama service station,UP14ft1403,Three Wheeler,No
+2021/11/16 5:09:58 PM GMT+5:30,2021-11-16,17:09:58,manish,jiwan service station man singh road,DL3SCU1148,Two Wheeler,Declined to show certificate
+2021/11/16 5:11:59 PM GMT+5:30,2021-11-16,17:11:59,manish,jiwan service station man singh road,DL13SU2285,Two Wheeler,Declined to show certificate
+2021/11/16 5:12:05 PM GMT+5:30,2021-11-16,17:12:05,mukesh kumar,balwan service station rohini sector 16,DL 11SB  7420,Two Wheeler,No
+2021/11/16 5:15:47 PM GMT+5:30,2021-11-16,17:15:47,manish,jiwan service station man singh road,DLSDQ2304,Two Wheeler,No
+2021/11/16 5:18:35 PM GMT+5:30,2021-11-16,17:18:35,manish,jiwan service station man singh road,DL8SCV1949,Two Wheeler,No
+2021/11/16 5:21:05 PM GMT+5:30,2021-11-16,17:21:05,manish,jiwan service station man singh road,DL 3SDB7455,Two Wheeler,Yes
+2021/11/16 5:22:52 PM GMT+5:30,2021-11-16,17:22:52,manish,jiwan service station man singh rode,DL 4SDV6000,Two Wheeler,No
+2021/11/16 5:24:58 PM GMT+5:30,2021-11-16,17:24:58,manish,jiwan service station man singh road,DL 10SV3821,Two Wheeler,Yes
+2021/11/16 5:26:59 PM GMT+5:30,2021-11-16,17:26:59,sunil kumar,bharat petroleum new friends colony,Dl12sc3320,Two Wheeler,Declined to show certificate
+2021/11/16 5:27:55 PM GMT+5:30,2021-11-16,17:27:55,yogesh kumar,bcc n block cp circus,DL5SCA0219,Two Wheeler,No
+2021/11/16 5:28:09 PM GMT+5:30,2021-11-16,17:28:09,manish,jiwan service station man singh road,DL 4SBB5420,Two Wheeler,No
+2021/11/16 5:29:24 PM GMT+5:30,2021-11-16,17:29:24,rajesh kumar,rama service station,Dl5sbs5465,Two Wheeler,No
+2021/11/16 5:31:07 PM GMT+5:30,2021-11-16,17:31:07,rajesh kumar,rama service station,Hr87f3675,Two Wheeler,Declined to show certificate
+2021/11/16 5:32:24 PM GMT+5:30,2021-11-16,17:32:24,rajesh kumar,rama service station,Dl5sbf2434,Two Wheeler,Declined to show certificate
+2021/11/16 5:33:48 PM GMT+5:30,2021-11-16,17:33:48,rajesh kumar,rama service station,Dl3sdd1127,Two Wheeler,Yes
+2021/11/16 5:35:09 PM GMT+5:30,2021-11-16,17:35:09,rajesh kumar,rama service station,Dl8scw1915,Two Wheeler,Yes
+2021/11/16 5:36:32 PM GMT+5:30,2021-11-16,17:36:32,rajesh kumar,rama service station,Dl1rq3024,Three Wheeler,Yes
+2021/11/16 5:37:31 PM GMT+5:30,2021-11-16,17:37:31,rajesh kumar,rama service station,Dl1lt4740,LGV/Pvt.,Yes
+2021/11/16 5:38:54 PM GMT+5:30,2021-11-16,17:38:54,rajesh kumar,rama service station,Dl10cl5679,LGV,Yes
+2021/11/16 5:40:15 PM GMT+5:30,2021-11-16,17:40:15,rajesh kumar,rama service station,Dl1rv3205,Three Wheeler,Yes
+2021/11/16 5:42:41 PM GMT+5:30,2021-11-16,17:42:41,rajesh kumar,rama service station,Dl2cba8616,LGV,Yes
+2021/11/16 5:43:47 PM GMT+5:30,2021-11-16,17:43:47,rajesh kumar,rama service station,Dl1rq8792,Three Wheeler,Yes
+2021/11/16 5:44:49 PM GMT+5:30,2021-11-16,17:44:49,rajesh kumar,rama service station,Dl1lac6907,LGV/Pvt.,Yes
+2021/11/16 5:46:36 PM GMT+5:30,2021-11-16,17:46:36,yogesh kumar,bcc n block cp circus,DL3SEH6178,Two Wheeler,No
+2021/11/16 5:48:03 PM GMT+5:30,2021-11-16,17:48:03,rajesh kumar,rama service station,Dl14s9228,Two Wheeler,Declined to show certificate
+2021/11/16 5:57:26 PM GMT+5:30,2021-11-16,17:57:26,yogesh kumar,bcc n block cp circus,DL8SCP0234,Two Wheeler,No
+2021/11/16 6:04:46 PM GMT+5:30,2021-11-16,18:04:46,rajesh kumar,"ugra sain r sons petrol pump,welcome,shahdara",9,Two Wheeler,No
+2021/11/16 6:34:27 PM GMT+5:30,2021-11-16,18:34:27,rajesh kumar,rama service station,Dl1rp1528,Three Wheeler,Yes
+2021/11/16 6:34:27 PM GMT+5:30,2021-11-16,18:34:27,yogesh kumar,bcc n block cp circus,DL5SBB5607,Two Wheeler,Declined to show certificate
+2021/11/16 6:35:35 PM GMT+5:30,2021-11-16,18:35:35,rajesh kumar,rama service station,Dl3cbc5418,LGV,Yes
+2021/11/16 6:36:36 PM GMT+5:30,2021-11-16,18:36:36,rajesh kumar,rama service station,UP16gt1123,LGV,Yes
+2021/11/16 6:38:13 PM GMT+5:30,2021-11-16,18:38:13,rajesh kumar,rama service station,Dl1rq1348,Three Wheeler,Yes
+2021/11/16 6:39:14 PM GMT+5:30,2021-11-16,18:39:14,rajesh kumar,rama service station,Dl7cr1226,LGV,Yes
+2021/11/16 6:40:21 PM GMT+5:30,2021-11-16,18:40:21,rajesh kumar,rama service station,Dl1ru2551,Three Wheeler,Yes
+2021/11/16 6:41:17 PM GMT+5:30,2021-11-16,18:41:17,rajesh kumar,rama service station,Dl1rq5747,Three Wheeler,Yes
+2021/11/16 6:42:10 PM GMT+5:30,2021-11-16,18:42:10,rajesh kumar,rama service station,Dl1rq0634,Three Wheeler,Yes
+2021/11/16 6:43:03 PM GMT+5:30,2021-11-16,18:43:03,rajesh kumar,rama service station,Dl1rv5729,Three Wheeler,Yes
+2021/11/16 6:55:22 PM GMT+5:30,2021-11-16,18:55:22,mukesh kumar,balman service station sector 16,DL11A3307,Two Wheeler,Yes
+2021/11/16 6:59:06 PM GMT+5:30,2021-11-16,18:59:06,mukesh kumar,balman service station rohini sector 16,DL11SE0282,Two Wheeler,Yes
+2021/11/16 7:05:39 PM GMT+5:30,2021-11-16,19:05:39,mukesh kumar,balwan service station rohini sector 16,DL5SCP0347,Two Wheeler,Yes
+2021/11/16 7:05:51 PM GMT+5:30,2021-11-16,19:05:51,yogesh kumar,bcc n block cp circus,DL3SDW0396,Two Wheeler,No
+2021/11/16 7:07:18 PM GMT+5:30,2021-11-16,19:07:18,yogesh kumar,bcc n block cp ciircus,DL7SBQ5615,Two Wheeler,Declined to show certificate
+2021/11/16 7:07:53 PM GMT+5:30,2021-11-16,19:07:53,mukesh kumar,balmanservice station rohini sector 16,DL1SY6819,Two Wheeler,Yes
+2021/11/16 7:13:58 PM GMT+5:30,2021-11-16,19:13:58,mukesh kumar,balwan service station rohini sector 16,DL4sBQ6159,Two Wheeler,No
+2021/11/16 7:14:50 PM GMT+5:30,2021-11-16,19:14:50,rajesh kumar,rama service station,Dl1cn8771,LGV/Pvt.,Yes
+2021/11/16 7:15:47 PM GMT+5:30,2021-11-16,19:15:47,mukesh kumar,balwan service station rohini sector 16,DL11F0953,Two Wheeler,Yes
+2021/11/16 7:15:49 PM GMT+5:30,2021-11-16,19:15:49,rajesh kumar,rama service station,Dl1rw6479,Three Wheeler,Yes
+2021/11/16 7:19:31 PM GMT+5:30,2021-11-16,19:19:31,mukesh kumar,balwan service station rohini sector 16,DL 4SDD 1755,Two Wheeler,Yes
+2021/11/16 7:21:05 PM GMT+5:30,2021-11-16,19:21:05,yogesh kumar,bcc n block cp circus,DL13SJ5268,Two Wheeler,Declined to show certificate
+2021/11/16 7:34:05 PM GMT+5:30,2021-11-16,19:34:05,sunil kumar,bharat petroleum new friends colony,Up13an7230,Two Wheeler,No
+2021/11/16 7:39:20 PM GMT+5:30,2021-11-16,19:39:20,rajesh kumar,rama service station,Dl5say0968,Two Wheeler,Yes
+2021/11/16 7:40:40 PM GMT+5:30,2021-11-16,19:40:40,rajesh kumar,rama service station,Dl5scp0610,Two Wheeler,No
+2021/11/16 7:42:09 PM GMT+5:30,2021-11-16,19:42:09,rajesh kumar,rama service station,Dl1sad8507,Two Wheeler,No
+2021/11/16 7:43:15 PM GMT+5:30,2021-11-16,19:43:15,rajesh kumar,rama service station,Br10ad4193,Two Wheeler,No
+2021/11/16 7:44:20 PM GMT+5:30,2021-11-16,19:44:20,rajesh kumar,rama service station,Dl5cn7544,LGV,No
+2021/11/16 7:47:42 PM GMT+5:30,2021-11-16,19:47:42,mukesh kumar,balwan service station rohini sector 16,DL8sBG8955,Two Wheeler,Yes
+2021/11/16 7:59:45 PM GMT+5:30,2021-11-16,19:59:45,mukesh kumar,balwan service station rohini sector 16,DL1CN7352,LGV/Pvt.,Yes
+2021/11/16 8:02:11 PM GMT+5:30,2021-11-16,20:02:11,rajesh kumar,rama service station,Dl5scb0556,Two Wheeler,Yes
+2021/11/16 8:03:19 PM GMT+5:30,2021-11-16,20:03:19,rajesh kumar,rama service station,Dl13sv9220,Two Wheeler,Yes
+2021/11/16 8:14:00 PM GMT+5:30,2021-11-16,20:14:00,sunil kumar,bharat petroleum new friends colony,Dl3sdp6782,Two Wheeler,No
+2021/11/16 8:17:01 PM GMT+5:30,2021-11-16,20:17:01,yogesh kumar,bcc n block cp circus,DL7SCJ3064,Two Wheeler,Declined to show certificate
+2021/11/16 8:20:48 PM GMT+5:30,2021-11-16,20:20:48,sunil kumar,bharat petroleum new friends colony,Dl3ccq2573,LGV/Pvt.,No
+2021/11/16 8:24:20 PM GMT+5:30,2021-11-16,20:24:20,sunil kumar,bharat petroleum new friends colony,Dl3sea5808,Two Wheeler,No
+2021/11/16 8:28:34 PM GMT+5:30,2021-11-16,20:28:34,yogesh kumar,bcc n block cp circus,DL3SEK0668,Two Wheeler,Declined to show certificate
+2021/11/16 8:39:14 PM GMT+5:30,2021-11-16,20:39:14,yogesh kumar,bcc n block cp circus,DL8SBS6936,Two Wheeler,Declined to show certificate

@@ -1,23 +1,46 @@
 ---
-title: "PUCC Survey Report"
-author: "Aarsh Batra"
-date:  `r paste0("Last updated: ", Sys.Date())`
-output: html_document
+title: |
+  ![](logo.jpg){width=2.5in}  
+  PUCC Survey Report
+author: "Project Management Unit"
+date:  "`r Sys.Date()`"
+output: 
+   prettydoc::html_pretty:
+    theme: tactile
+    highlight: vignette
+params:
+  data: 
+    label: "Input Survey dataset:"
+    value: data-raw/PUCC Checking by CDVs in Petrol Pumps.csv
+    input: file
+    
+  date_range_ll:
+    label: "Start Date"
+    value: !r Sys.Date() - 1
+    input: date 
+    
+  date_range_ul:
+    label: "End Date"
+    value: !r Sys.Date() - 1
+    input: date
+    
+  plot_type:
+    label: "Plot Type"
+    value: percentage
+    input: select
+    choices: [percentage, count]  
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-	fig.height = 5,
-	fig.width = 8,
-	message = FALSE,
-	warning = FALSE,
-	cache = TRUE,
-	cache.lazy = FALSE,
-	dpi = 180,
-	include = FALSE
-)
-theme_minimal()
-update_geom_defaults("rect", list(fill = "midnightblue", alpha = 0.8))
+knitr::opts_chunk$set(echo = TRUE)
+
+# note: using load_all and document() within the rmd file is 
+# crucial as loading it outside the context of the rmd file 
+# (for example in the console) will not give it access to the 
+# functions that are stored in the R sub-directory.
+
+devtools::load_all()
+devtools::document()
 
 ```
 
@@ -42,6 +65,7 @@ library(outliers)
 library(ggplot2)
 library(scales)
 library(grid)
+library(prettydoc)
 library(RColorBrewer)
 library(psych)
 library(lubridate)
@@ -50,35 +74,19 @@ library(janitor)
 
 
 
-```{r document-structure, eval=FALSE, include=FALSE}
+```{r PUCOrderFilterData-read-data, include=FALSE}
 
-## Document Structure
+#> Read raw data---------------------------------------------------------------
 
-# * This document is a single reference source for all small R data tasks (and their corresponding report generation).
- 
-# * The task that is marked  **Active** is the current task at hand.
- 
-# * The tasks that is marked **Inactive** (written in front of it) means that they were completed at some point but now lay dormant and can be reactivated later if needed. The code chunks for these tasks will remain inactive until they are reactivated. 
-
-
-
+pucc_data_raw <- readr::read_csv(params$data)
 ```
 
 
 
 
-### Task 1 (Inactive chunk): Filter data for the names in the [PUC Order](https://drive.google.com/file/d/1NWQHUx85j_rCRd1qZHzHEf08FgTP-7mg/view?usp=sharing).
+```{r clean-raw-data, include=FALSE}
 
-
-## Read Raw Data
-
-```{r PUCOrderFilterData-read-data}
-pucc_data_raw <- readr::read_csv("data-raw/PUCC Checking by CDVs in Petrol Pumps.csv")
-```
-
-## Clean raw data
-
-```{r clean-raw-data}
+#> Clean raw data--------------------------------------------------------------
 
 ## cleaning steps (in order as they are performed)
 # 1. clean column names
@@ -96,36 +104,75 @@ pucc_data_cleaned <- pucc_data_raw %>%
                 petrol_pump_location = stringr::str_to_lower(petrol_pump_location), 
                 vehicle_category = haven::as_factor(vehicle_category), 
                 vehicle_pucc_valid = haven::as_factor(vehicle_pucc_valid), 
-                civil_defence_volunteer_name = haven::as_factor(civil_defence_volunteer_name))
+                civil_defence_volunteer_name = haven::as_factor(civil_defence_volunteer_name)) %>%
+  dplyr::select(timestamp, date_only, time_only, tidyselect::everything())
 
 ```
 
 
-```{r task1-PUCOrderFilterData-cleaning-data, eval=FALSE, include=FALSE}
-
-
-# Enter Nodal officers names list mentioned in the PUC Order PDF above
-name_list <- c("nikhil", "yogesh kumar", "keshav", "dusyant yadav", 
-               "saju p sharma", "kuldeep garg", "sunil kumar", 
-               "yogesh", "jagdish jumar", "avinash", "angad pratab singh", 
-               "rishikesh", "sunil sani", "vishal goel", "utkresh", "manish", 
-               "girish chandra", "ram tirath yadav", "rajesh kumar", 
-               "sagar dhiman", "guru shran mishra", "vikes solanki", 
-               "mukesh kumar", "ajit singh", "robin ranjan", 
-               "sunil kumar", "sachin sharan", "vishal rana", 
-               "naresh", "jag mohan")
+```{r filtered_date_range, include=FALSE}
 
 # enter date range for filtering PUC data
-date_range <- lubridate::as_date(lubridate::ymd("2021-11-15") : lubridate::ymd("2021-11-19"))
+date_range <- lubridate::as_date(lubridate::ymd(params$date_range_ll) : lubridate::ymd(params$date_range_ul))
 
 # filtered_dataset
-pucc_data_filtered <- pucc_data %>%
-  dplyr::mutate(dateOnly = lubridate::ymd(unlist(str_extract_all(timestamp, "..../../.."))), civil_defence_volunteer_name = stringr::str_to_lower(civil_defence_volunteer_name)) %>%
-  dplyr::filter(dateOnly  %in% date_range) %>%
-  dplyr::filter(civil_defence_volunteer_name %in% name_list)
+pucc_data_filtered <- pucc_data_cleaned %>%
+  dplyr::filter(date_only %in% date_range) 
+```
 
-# save puc filtered dataset
-write_csv(pucc_data_filtered, "pucc_data_filtered_nov152021Onwards_namesInPUCOrderList.csv")
+&nbsp;
+
+&nbsp;
+
+
+## Reporting Summary Statistics from: `r params$date_range_ll` to `r params$date_range_ul`
+
+<hr>
+
+&nbsp;
+
+## Is PUCC Valid?
+
+
+```{r is_pucc_valid, echo=FALSE}
+
+## Is pucc valid? question bar graph
+
+plot_bargraph(df = pucc_data_filtered, col_to_plot = "vehicle_pucc_valid", type_of_graph = params$plot_type  , xlab = "Is Pollution Certificate Valid?", ylab = params$plot_type, title = "PUCC certificate validity", facet = FALSE, facet_by = "vehicle_category")
+
+
+## Is pucc valid? summary table (groups: vehicle_pucc_valid)
+
+summarise_df_by_colname(
+  df = pucc_data_filtered, col_to_grp_by = "vehicle_pucc_valid"
+)
+```
+
+
+&nbsp;
+
+&nbsp;
+
+<hr>
+
+## PUCC Validity across vehicle groups
+
+
+```{r is_pucc_valid_facetted, echo=FALSE}
+
+## Is pucc valid? question bar graph faceted by vehicle_category
+
+plot_bargraph(df = pucc_data_filtered, col_to_plot = "vehicle_pucc_valid", type_of_graph = params$plot_type, xlab = "Is Pollution Certificate Valid?", ylab = params$plot_type, title = "PUCC certificate validity", facet = TRUE, facet_by = "vehicle_category")
+
+
+## Is pucc valid? summary table (groups: vehicle_pucc_valid, vehicle_category)
+
+summarise_df_by_colname(
+  df = pucc_data_filtered, col_to_grp_by = c("vehicle_pucc_valid", 
+                                             "vehicle_category")
+)
+
+
 
 ```
 
