@@ -1,0 +1,67 @@
+---
+title: |
+  ![](logo.jpg){width=2.5in}  
+  PUCC Survey Report
+author: "Project Management Unit"
+date:  "`r Sys.Date() - 1`"
+output: 
+   prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# note: using load_all and document() within the rmd file is 
+# crucial as loading it outside the context of the rmd file 
+# (for example in the console) will not give it access to the 
+# functions that are stored in the R sub-directory.
+
+devtools::load_all()
+devtools::document()
+
+```
+
+```{r libraries, include=FALSE}
+library(tidyverse)
+library(roxygen2)
+library(envnames)
+library(tidyr)
+library(magrittr)
+library(ggplot2)
+library(stringr)
+library(skimr)
+library(purrr)
+library(forcats)
+library(foreign)
+library(haven)
+library(dplyr)
+library(broom)
+library(glue)
+library(VIM)
+library(outliers)
+library(ggplot2)
+library(scales)
+library(grid)
+library(prettydoc)
+library(RColorBrewer)
+library(psych)
+library(lubridate)
+library(janitor)
+library(ggthemes)
+```
+
+
+# 
+
+```{r ge}
+
+# pucc certificates data 2015
+pucc_data_2015 <- read_csv(params$data)
+spec(pucc_data_2015)
+View(pucc_data_2015)
+
+```
+

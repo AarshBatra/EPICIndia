@@ -6,18 +6,15 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-	fig.height = 5,
-	fig.width = 8,
-	message = FALSE,
-	warning = FALSE,
-	cache = TRUE,
-	cache.lazy = FALSE,
-	dpi = 180,
-	include = FALSE
-)
-ggplot2::theme_minimal()
-ggplot2::update_geom_defaults("rect", list(fill = "midnightblue", alpha = 0.8))
+knitr::opts_chunk$set(echo = TRUE)
+
+# note: using load_all and document() within the rmd file is 
+# crucial as loading it outside the context of the rmd file 
+# (for example in the console) will not give it access to the 
+# functions that are stored in the R sub-directory.
+
+devtools::load_all()
+devtools::document()
 
 ```
 
@@ -64,13 +61,16 @@ library(tidyselect)
 
 ## Read Raw Data
 
-```{r PUCOrderFilterData-read-data}
+
+
+
+```{r PUCOrderFilterData-read-data, eval=FALSE, include=FALSE}
 pucc_data_raw <- readr::read_csv("data-raw/PUCC Checking by CDVs in Petrol Pumps.csv")
 ```
 
 ## Clean raw data
 
-```{r clean-raw-data}
+```{r clean-raw-data, eval=FALSE, include=FALSE}
 
 ## cleaning steps (in order as they are performed)
 # 1. clean column names
@@ -94,7 +94,7 @@ pucc_data_cleaned <- pucc_data_raw %>%
 ```
 
 
-```{r task1-PUCOrderFilterData-cleaning-data, echo=TRUE}
+```{r task1-PUCOrderFilterData-cleaning-data, eval=FALSE, include=FALSE}
 
 
 ## Enter Nodal officers names list mentioned in the PUC Order PDF above
@@ -135,3 +135,464 @@ readr::write_csv(pucc_data_filtered, file_name)
 
 ```
 
+
+
+
+
+
+## Task 2: Ad hoc task from transport department: Analyze a few data files and create graphs
+
+
+# get data
+
+```{r }
+
+```
+
+
+# Graph 1: Total number of registered vehicles in Delhi
+
+```{r plot1-num-reg-veh}
+
+# setting options for removing scientific notation from plots
+options(scipen = 999)
+
+reg_veh_tibble <- tibble(vehicle_type = c("Diesel", "Petrol", "Electric", "CNG", "Hybrid(Petrol/CNG)"), num_registered_vehicles = c(986007, 11055357, 123239, 
+278236, 744089))
+
+reg_veh_tibble$vehicle_type <- as.factor(reg_veh_tibble$vehicle_type)
+
+plot1_num_registered_vehicles <- ggplot(reg_veh_tibble, mapping = aes(x = fct_reorder(vehicle_type, num_registered_vehicles), y = num_registered_vehicles)) + 
+  geom_col(fill = "burlywood1", width = 0.6) +
+  scale_y_continuous(breaks = seq(0, 12000000, 500000)) +
+  geom_text(mapping = aes(label = num_registered_vehicles), position=position_dodge(width=0.9), vjust=-0.25) +
+  labs(x = "Type of Vehicle", y = "Number of Registered Vehicles") +
+  ggtitle("Number of Registered Vehicles") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggthemes::theme_tufte()
+
+plot1_num_registered_vehicles
+
+# ggsave(filename = "graph_num_registered_vehicles.jpeg")
+
+
+
+```
+
+
+
+## Graph 2: PUCC Challans Issued
+
+```{r plot2-pucc-challan-issued}
+
+# Assumptions:
+# Given the document, I assume that the number of issuing places for DTC buses are different from the Petrol Pumps and Service Stations. 
+
+
+# create tibble
+pucc_challan_issued_tibble <- tibble(time_period = c("January 2021 to October 2021", "October 2021"), num_pucc_challans_issued = c(15678, 9522))
+
+plot2_num_pucc_challans_issued <- ggplot(pucc_challan_issued_tibble, mapping = aes(x = time_period, y = num_pucc_challans_issued)) + 
+  geom_col(fill = "burlywood1", width = 0.6) +
+  scale_y_continuous(breaks = seq(0, 18000, 5000)) +
+  geom_text(mapping = aes(label = num_pucc_challans_issued), position=position_dodge(width=0.9), vjust=-0.25) +
+  labs(x = "Time Period", y = "Number of PUCC Challans Issued") +
+  ggtitle("Number of PUCC Challans Issued") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggthemes::theme_tufte()
+
+plot2_num_pucc_challans_issued
+
+# ggsave("plot2_num_pucc_challans_issued.jpeg")
+
+```
+
+# Graph 3: Number of PUCC Issuing places
+
+```{r plot3-pucc-issuing-places}
+pucc_issuing_places <- tibble(places = c("Petrol Pumps", "Service Stations", "PUC for buses (DTC)"), number_of_places  = c(360, 300, 39))
+
+plot3_num_pucc_issuing_places <- ggplot(pucc_issuing_places, mapping = aes(x = fct_reorder(places, number_of_places), y = number_of_places)) + 
+  geom_col(fill = "burlywood1", width = 0.6) +
+  scale_y_continuous(breaks = seq(0, 400, 50)) +
+  geom_text(mapping = aes(label = number_of_places), position=position_dodge(width=0.9), vjust=-0.25) +
+  labs(x = "PUCC Issuing Place", y = "Total Count") +
+  ggtitle("Number of PUCC Issuing Places") +
+  
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggthemes::theme_tufte()
+
+plot3_num_pucc_issuing_places
+
+# ggsave("plot3_num_pucc_issuing_places.jpeg")
+
+```
+
+# Graph 4: PUCC Certificates Issued
+
+```{r}
+# create tibble
+
+months_modify <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
+                   "Aug", "Sep", "Oct", "Nov(till Nov 21)")
+
+pucc_certificates_issued_tibble <- tibble(time_period = months_modify , num_pucc_certificates_issued = c(490958, 449831, 499382, 260688, 176298, 480229, 371998, 340951, 544186, 805249, 509406))
+
+plot4_updated_num_pucc_certificates_issued <- ggplot(pucc_certificates_issued_tibble, mapping = aes(x = fct_reorder(time_period, num_pucc_certificates_issued),  y = num_pucc_certificates_issued)) + 
+  geom_col(fill = "burlywood1", width = 0.6) +
+  scale_y_continuous(breaks = seq(0, 700000, 50000)) +
+  geom_text(mapping = aes(label = num_pucc_certificates_issued), position = position_dodge(width=0.9), vjust=-0.25) +
+  scale_x_discrete(limits = months_modify) +
+  labs(x = "Time Period (2021)", y = "Number of PUCC Certificates Issued") +
+  ggtitle("Number of PUCC Certificates Issued") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggthemes::theme_tufte()
+
+ plot4_updated_num_pucc_certificates_issued
+
+ggsave("plot4_updated_num_pucc_certificates_issued.jpeg")
+
+```
+
+
+# Graph 5: Number of Vehicles Impounded
+
+```{r}
+
+dat_impounding <- readxl::read_xlsx("data-raw/smallTasksRmdScript-Task(CreateGraphsTDNov252021)/impoundingVehicles.xlsx")
+
+colnames(dat_impounding) <- c("time_period", "impounded_vehicle_10_year_old", "impounded_vehicle_15_year_old", "total_vehicles_impounded")
+
+dat_impounding
+
+dat_impounding <- dat_impounding %>%
+  select(time_period, impounded_vehicle_10_year_old, impounded_vehicle_15_year_old) %>%
+  mutate(time_period = month.name[1:11])
+
+
+dat_impounding_clean <- pivot_longer(dat_impounding, cols = !time_period, names_to = "Impounded_Vehicle_Type", values_to = "count")
+
+plot5_number_of_vehicles_impounded <-  ggplot(dat_impounding_clean, mapping = aes(x = fct_reorder(time_period, count), y = count)) +
+  geom_col(mapping = aes(x = fct_reorder(time_period, count), y = count, fill = Impounded_Vehicle_Type), position = "dodge") + 
+  scale_y_continuous(breaks = seq(0, 350, 50)) +
+  labs(x = "Time Period (2021)", y = "Number of Vehicles Impounded") +
+  ggtitle("Number of Vehicles Impounded") +
+  scale_x_discrete(limits = month.name[1:11]) +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  coord_flip() +
+  ggthemes::theme_tufte()
+
+
+
+ggsave("plot5_number_of_vehicles_impounded.jpeg")
+  
+
+# plot5_number_of_vehicles_impounded
+```
+
+
+# Graph 6: Actions taken against PCC's 3 months summary (September 1, 2021 to November 20, 2021)
+
+```{r actions-taken}
+
+actions_taken_summary_tibble <- tibble(action_type = c("Total PCC's", "SCN Issued", 
+                                        "PCC Warnings", "PCC Suspended", 
+                                        "PCC Cancelled"), 
+                        total = c(972, 61, 107, 10, 6))
+
+plot6_actions_taken_summary <- ggplot(actions_taken_summary_tibble, mapping = aes(x = fct_reorder(action_type, total), y = total)) + 
+  geom_col(fill = "burlywood1", width = 0.6) +
+  scale_y_continuous(breaks = seq(0, 1000, 50)) +
+  geom_text(mapping = aes(label = total), position = position_dodge(width=0.9), vjust=-0.25) +
+  labs(x = "Actions Taken", y = "Total") +
+  ggtitle("Actions taken against PCC's 3 months Summary: Sep 1, 2021 to Nov 20, 2021") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggthemes::theme_tufte()
+
+
+ggsave("plot6_actions_taken_summary.jpeg")
+
+# plot6_actions_taken_summary
+
+```
+
+
+## Graph 7: Prosecution Report PUCC
+
+```{r}
+dat_prosecution <- readxl::read_xlsx("data-raw/smallTasksRmdScript-Task(CreateGraphsTDNov252021)/prosecution_report_pucc.xlsx")
+
+dat_prosecution$period <- month.name[1:11]
+  
+dat_prosecution
+
+plot7_prosecution_report_pucc <- ggplot(dat_prosecution, mapping = aes(x = period, y = num_challans_issued)) + 
+  geom_col(fill = "burlywood1", width = 0.6) +
+  scale_y_continuous(breaks = seq(0, 500, 10000)) +
+  geom_text(mapping = aes(label = num_challans_issued), position = position_dodge(width=0.9), vjust=-0.25) +
+  labs(x = "Time Period(2021)", y = "Number of Challans Issued") +
+  ggtitle("Number of Challans Issued (with special drive at petrol pumps from Oct 21-28, 2021)") +
+  scale_x_discrete(limits = month.name[1:11]) +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggthemes::theme_tufte()
+
+
+plot_bar_transp_dept_format_data(dat_prosecution, "period", "num_challans_issued", "burlywood1", seq(0, 10000, 500), "foo", "foo1", "Title")
+
+
+# plot7_prosecution_report_pucc
+
+ggsave("plot7_prosecution_report_pucc.jpeg")
+
+```
+
+
+
+```{r}
+
+cng_buses_delhi_tibble <- tibble(auth_name = c("DTC", "DIMTS/Cluster Buses"),
+                           num_buses = c(3760, 3033))
+
+plot8_cng_buses_in_delhi <- ggplot(cng_buses_delhi_tibble, mapping = aes(x = auth_name, y = num_buses)) + 
+  geom_col(fill = "burlywood1", width = 0.6) +
+  scale_y_continuous(breaks = seq(0, 5000, 1000)) +
+  geom_text(mapping = aes(label = num_buses), position = position_dodge(width=0.9), vjust=-0.25) +
+  labs(x = "Authority Name", y = "Number of CNG Buses") +
+  ggtitle("Number of CNG buses currently running in Delhi") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggthemes::theme_tufte()
+
+# plot8_cng_buses_in_delhi
+
+ggsave("plot_8_cng_buses_delhi.jpeg")
+
+
+```
+
+
+```{r}
+
+dat_gwr_daily_report <- readxl::read_xlsx("data-raw/smallTasksRmdScript-Task(CreateGraphsTDNov252021)/Dailyreport of Greenwar room softcopy.xlsx")
+
+
+dat_gwr_daily_report$action_taken_on <- c("Vehicles(>10-15 yrs old)", "Trucks Non Essential Goods", 
+                                    "Vehicles(>10-15 yrs old)", "Visible Poll Veh without PUCC")
+
+dat_gwr_daily_report
+plot9_dat_gwr_daily_report <- ggplot(dat_gwr_daily_report, mapping = aes(x = action_taken_on, y = log10(Total))) + 
+  geom_col(mapping = aes(fill = type_of_action), width = 0.6, position = "dodge") +
+  labs(x = "Actions Taken On", y = "total (log scale)") +
+  ggtitle("Green War Room action report (November 17, 2021 to November 23, 2021)") +
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  ggthemes::theme_tufte()
+
+dat_gwr_daily_report
+
+plot9_dat_gwr_daily_report
+
+# ggsave("plot9_log_scale_dat_gwr_daily_report.jpeg")
+```
+
+
+
+## Task 3: Connect R to PostgreSQL.
+
+# Steps completed: 
+#  Successfully created an empty table in PostgreSQL.
+#  From an excel file, imported some data into the empty table using psql
+# 
+# Next Steps:
+#  Connect R to Postgres and bring the data into R for manipulation.
+
+```{r}
+library(DBI)
+
+# using R-Postgres
+con <- dbConnect(drv = RPostgres::Postgres(),
+                 host = "localhost", 
+                 dbname = "postgres", 
+                 port = "5432", 
+                 user = "postgres",
+                 password = "aarshepicindia")
+
+dbListTables(con)
+dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
+
+foo <- dbListFields(con, "mtcars")
+foo
+
+foo1 <- dbReadTable(con, "mtcars")
+foo1
+
+# using dplyr
+
+con <- DBI::dbConnect(RPostgreSQL::PostgreSQL(), 
+                      host = "localhost", 
+                      user = "postgres", 
+                      password = "aarshepicindia")
+
+copy_to(con, nycflights13::flights, "flights",
+  temporary = FALSE, 
+  indexes = list(
+    c("year", "month", "day"), 
+    "carrier", 
+    "tailnum",
+    "dest"
+  )
+)
+
+
+
+```
+
+## Task 4: Extract broad areas from the list of addresses in the petrol pumps sheet
+
+
+# Generating the focus areas list, from which each address will be looked up on Google
+Maps to determine the best central area possible for that address.
+
+```{r eval=FALSE, include=FALSE}
+petrol_pumps_data <- read_csv("C:/Users/Hp/OneDrive/Desktop/EPICIndia/data-raw/smallTasksRmdScript-Task(ExtractBroadAreasFromListOfAddresses)/pmu_ws_CDVs_petrol_pumps_addresses.csv")
+
+pincode_list_delhi <- read_csv("C:/Users/Hp/OneDrive/Desktop/EPICIndia/data-raw/smallTasksRmdScript-Task(ExtractBroadAreasFromListOfAddresses)/pin_code_list_delhi.csv")
+
+# Number of unique addresses in the petrol pumps addresses dataset
+num_unique_addresses <- length(unique(petrol_pumps_data$Address)) # 370
+
+# Number of unique addresses that have a missing petrol pump name
+foo <- petrol_pumps_data %>% filter(is.na(`Center Name`))
+length(unique(foo$Address))
+
+num_unique_addresses_miss_pp_name <- 
+
+
+# clean petrol pumps addresses data
+
+petrol_pump_addresses <- petrol_pumps_data %>%
+  clean_names() %>%
+  mutate(s_no = 1:nrow(petrol_pumps_data)) %>%
+  select(s_no, center_name, address) %>%
+  mutate(pincode = str_extract(address, "(-\\d{6})|(- \\d{6})")) %>%
+  mutate(pincode = str_extract(pincode, "\\d+")) %>%
+  arrange()
+
+petrol_pump_addresses$pincode <- as.factor(petrol_pump_addresses$pincode)
+petrol_pump_addresses_arranged <- arrange(petrol_pump_addresses, pincode)
+
+write.csv(petrol_pump_addresses_arranged, "petrol_pump_addresses_arranged.csv")
+
+# clean pin-code list data
+pincode_list_delhi <- pincode_list_delhi %>%
+  clean_names()
+
+pincode_list_delhi$pincode <- as.factor(pincode_list_delhi$pincode)
+
+# View(pincode_list_delhi)
+# View(petrol_pump_addresses)
+
+
+# sanity checks
+
+length(unique(petrol_pump_addresses$pincode)) # 77 A pincode can represent more than one area.
+
+sum(petrol_pump_addresses$pincode %in% pincode_list_delhi$Pincode) == length(petrol_pump_addresses$pincode)
+
+sum(pincode_list_delhi$pincode %in% petrol_pump_addresses$pincode)
+length(unique(pincode_list_delhi$pincode)) #95
+
+# join above 2 datasets by pincode
+master_pp_addresses_data <- left_join(petrol_pump_addresses, pincode_list_delhi, by = "pincode")
+
+# clean master data
+
+master_pp_addresses_data <- master_pp_addresses_data %>%
+  clean_names() %>%
+  select(-serial_no, -taluk) 
+
+master_pp_addresses_data <- master_pp_addresses_data %>%
+  arrange(pincode)
+
+# pincodes_area_count <- count(master_pp_addresses_data, pincode)
+# pincodes_area_count <- pincodes_area_count %>%
+#   arrange(n)
+# View(pincodes_area_count)
+
+# Number of possible areas around which our petrol pumps are located
+focus_areas <- count(master_pp_addresses_data, pincode, area)
+focus_areas <- focus_areas %>%
+  select(-n)
+
+focus_areas <- focus_areas %>%
+  arrange(pincode)
+
+# Count of areas represented by each pincode
+areas_rep_by_pincodes <- count(focus_areas, pincode)
+areas_rep_by_pincodes <- areas_rep_by_pincodes %>%
+  arrange(n)
+
+View(areas_rep_by_pincodes)
+
+
+# as.character(unique(master_pp_addresses_data$pincode))
+# 
+# 
+# # sanity checks
+# length(unique(master_pp_addresses_data$area)) # 481
+# View(as.data.frame(unique(master_pp_addresses_data$area)))
+# length(unique(master_pp_addresses_data$pincode)) # 77
+# 
+# # View(master_pp_addresses_data)
+# 
+# # locations out of which 30 broad areas need to be chosen
+# 
+# # areas_master_df <- as.data.frame(unique(master_pp_addresses_data$area))
+# # areas_master_df <- as_tibble(areas_master_df)
+# # colnames(areas_master_df)[1] <- "areas"
+# 
+# # count unique combinations of pincode and area
+# count_pincode_area <- count(master_pp_addresses_data, pincode, area)
+# View(count_pincode_area)
+# 
+# length(unique(count_pincode_area$pincode)) #77 unique pin codes.
+# 
+# 
+# areas_master_df <- areas_master_df %>% arrange(areas)
+# 
+# View(areas_master_df)
+
+write.csv(focus_areas, "focus_areas.csv")
+
+```
+
+# Generating a the petrol pump names list for SCTO choices sheet
+
+```{r}
+
+scto_choices_list_uids <- readxl::read_xlsx("./data-raw/smallTasksRmdScript-Task(ExtractBroadAreasFromListOfAddresses)/focus_areas_scto_list.xlsx", sheet = "uid_central_areas")
+
+scto_addresses_df <- readxl::read_xlsx("./data-raw/smallTasksRmdScript-Task(ExtractBroadAreasFromListOfAddresses)/focus_areas_scto_list.xlsx", sheet = "addresses_central_areas")
+
+scto_master_df <- left_join(scto_addresses_df, scto_choices_list_uids, by = "Location")
+
+scto_master_df_arr_location <- scto_master_df %>% 
+  arrange(uid_central_area)
+
+scto_master_df_arr_by_grp <- scto_master_df %>%
+  group_by(uid_central_area) %>%
+  arrange(`Center Name`, .by_group = TRUE) %>%
+  ungroup()
+
+
+scto_master_df_arr_by_grp_exp_sheet <- scto_master_df_arr_by_grp %>%
+  select(`Center Name`, uid_central_area)
+  
+  write_csv(scto_master_df_arr_by_grp_exp_sheet, "./output/smallTasksRmdScriptOutputFiles/smallTasksRmdScript-Task(ExtractBroadAreasFromListOfAddresses)/data_to_be_entered_into_scto_choices.csv")
+
+
+View(scto_master_df_arr_by_grp)
+
+View(select(filter(scto_master_df_arr_by_grp, uid_central_area == "anandvihar_ed"), 
+            `Center Name`, uid_central_area, everything()))
+
+```

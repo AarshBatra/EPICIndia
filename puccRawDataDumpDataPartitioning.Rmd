@@ -1,0 +1,234 @@
+---
+title: |
+  ![](logo.jpg){width=2.5in}  
+  PUCC Survey Report: Partioning Data
+author: "Project Management Unit"
+date:  "`r Sys.Date() - 1`"
+output: 
+   prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# note: using load_all and document() within the rmd file is 
+# crucial as loading it outside the context of the rmd file 
+# (for example in the console) will not give it access to the 
+# functions that are stored in the R sub-directory.
+
+devtools::load_all()
+devtools::document()
+
+```
+
+
+# Libraries
+
+```{r libraries, include=FALSE}
+library(tidyverse)
+library(roxygen2)
+library(envnames)
+library(tidyr)
+library(magrittr)
+library(ggplot2)
+library(stringr)
+library(skimr)
+library(purrr)
+library(forcats)
+library(foreign)
+library(haven)
+library(dplyr)
+library(broom)
+library(glue)
+library(VIM)
+library(outliers)
+library(ggplot2)
+library(scales)
+library(grid)
+library(prettydoc)
+library(RColorBrewer)
+library(psych)
+library(lubridate)
+library(janitor)
+library(ggthemes)
+library(data.table)
+```
+
+# Raw Data Files Count by Category (received on December 09, 2021)
+
+The table numbers correspond to the table script schema sent to us by the IT Department. The tables script schema can be found here: *C:\Users\Hp\OneDrive\Desktop\EPICIndia\data-raw\puccRawDataDumpPartitioningRmdScript\tables_schema.txt*
+
+* Centers Table (Table-5): 
+
+ * Number of files received:
+    * All: 1
+ * Number of raw columns: 15
+
+* Public.pucc_certificatedetail (Table-1):
+  * Number of files received:
+    * 2015: 1
+    * 2016: 4
+    * 2017: 4
+    * 2018: 4
+    * 2019: 4
+    * 2020: 4
+    * 2021: 4
+    
+  * Number of raw columns: 8
+  
+* Public.pucc_certstring (Table-2)
+
+  * Number of files received:
+    * All: 1
+    
+  * Number of raw columns:
+    * 5
+
+* Public Mas (Table-3): 
+  * Number of files received:
+    * 2015: 1
+    * 2016: 4
+    * 2017: 5
+    * 2018: 5
+    * 2019: 5
+    * 2020: 5
+    * 2021: 4
+  * Number of raw columns:
+    * 13
+  
+
+* Public.puccdetailnew (Table-4)
+
+  * Number of files received:
+    * 2015: 1
+    * 2016: 5
+    * 2017: 5
+    * 2018: 5
+    * 2019: 5
+    * 2020: 5
+    * 2021: 3
+  
+  * Number of columns:
+    * 4
+
+* Total raw data files received: 88 (as on December 13, 2021)
+
+\newpage
+
+<hr>
+
+
+# Master Data Files: Read in, partition, store (All tables)
+
+
+* Read in all data files, create partitions and store those partitions.
+
+```{r partition-raw-data, eval=FALSE, include=FALSE}
+
+list_files_partitions <-partition_data_pucc_specific(directory_rel_path = "./data-raw/puccRawDataDumpPartitioningRmdScript/master_files_for_each_table_dump", test_mode = "no", pucc_col_type_name_specify = TRUE)
+
+```
+
+# Store each partition into its own excel file, name appropriately, and export partitions.
+
+```{r eval=FALSE, include=FALSE}
+output_folder_rel_path <- "./output/puccRawDataDumpDataPartitioningRmdScriptOutputFiles/master_files_for_each_table_dump_output"
+
+file_names_ext_removed <- str_remove(list_files_partitions[[2]], ".csv")
+total_num_files <- length(file_names_ext_removed)
+counter <- 0
+
+for(i in 1:length(list_files_partitions[[1]])){
+  if(is.null(nrow(list_files_partitions[[1]][[i]])) == FALSE){
+    tmp_file_name <- str_c(file_names_ext_removed[i], "all", ".csv", sep = "_")
+    path_store_tmp_file <- str_c(output_folder_rel_path, tmp_file_name, sep = "/")
+    write_csv(list_files_partitions[[1]][[i]], path_store_tmp_file)
+    counter <- counter + 1
+    print(str_c(counter, "-", "exported", sep = " "))
+  } else {
+    for(j in 1:length(list_files_partitions[[1]][[i]])){
+      tmp_file_name <- str_c(file_names_ext_removed[i], "part", j, ".csv", sep = "_")
+      path_store_tmp_file <- str_c(output_folder_rel_path, tmp_file_name, sep = "/")
+      write_csv(list_files_partitions[[1]][[i]][[j]], path_store_tmp_file)
+      counter <- counter + 1
+      print(str_c(counter, "-", "exported", sep = " "))
+    }
+  }
+}
+
+
+```
+
+# Create 5 master data files (from the partitioned files), one for each type of table. For example, for a given table: combine all of its partiotioned files (which already have uniform column names and types) by appending them one after the other. At the end of this process, we will have 5 huge master data files, one for each table. Although these cannot be opened in Excel, they can be opened in R/STATA. 
+
+```{r}
+# For each table, read in all of its partitioned data files and combine them into a 
+# single master data file for that table. Detect table/file type using keywords.
+
+keywords <- c("certificate", "certstring", "mas", "new", "center")
+rel_path_to_directory <- "./output/puccRawDataDumpDataPartitioningRmdScriptOutputFiles/master_files_for_each_table_dump_output"
+
+
+master_data_table_list_to_be_cleaned <- list()
+counter <- 0
+for (i in 1:length(keywords)){
+  master_data_table_list_to_be_cleaned[[i]] <- combine_partitioned_files(rel_path_to_directory = rel_path_to_directory, keywords[i])
+  counter <- counter + 1
+  print(str_c(counter, "/", length(keywords), " completed", sep = " "))
+}
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Next Step: Cleaning the partitioned files, adding useful columns and creating master cleaned files (one for each table).
+
+* For this, refer the next script: `puccRawDataDumpCleaning.Rmd`. This files takes in as its input (one by one) the partitioned files. Then, it automatically detects the type of the file (from file name, there are a total of 5 tables, hence 5 types of files). 
+
+* Create 5 master data files (from the partitioned files), one for each type of table. For example, for a given table: combine all of its partiotioned files (which already have uniform column names and types) by appending them one after the other. At the end of this process, we will have 5 huge master data files, one for each table. Although these cannot be opened in Excel, they can be opened in R/STATA. 
+
+* Once these 5 master data files are generated, the first cleaning step would be to figure out the unique values in each column. making these values consistent. Then converting the character columns to factor columns. 
+
+* For each type of file, there would be a bunch of cleaning steps. There is a separate cleaning process for each type of file.
+
+* At this point make sure that the following is complete:
+    
+    * Each master data file (total: 5) have well defined column names and types.
+    * Missing values are properly dealt with and documented.
+    * Primary Key Columns identified in each table.
+    * List common columns in each table. These will be used to link the tables.
+    * Cleaning Steps for each table are clearly defined.
+
+* Once the cleaning and feature engineering is complete. 
+
+  * Update the data dictionary. 
+  
+      * Add notes for Primary Keys, common columns between tables, missing values and how         they are dealt with in each column.
+      
+      * Update column types, column names (if those have changes). 
+      
+      * Add new columns (if any new ones have been added).
+      
+      * Remove obsolete columns (remove those columns that are no longer in use).
+  
+  * Export the cleaned master data files (one for each table, total 5).
+  
+  * Link the 5 tables with common column names and generate a single master cleaned table that will be used for all analysis. Name this: pucc_master_table_cleaned_combined.
+  
+* Export this master table in a .dta format for use in STATA.

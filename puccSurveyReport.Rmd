@@ -3,15 +3,15 @@ title: |
   ![](logo.jpg){width=2.5in}  
   PUCC Survey Report
 author: "Project Management Unit"
-date:  "`r Sys.Date()`"
+date:  "`r Sys.Date() - 1`"
 output: 
    prettydoc::html_pretty:
     theme: cayman
-    highlight: gitub
+    highlight: github
 params:
   data: 
     label: "Input Survey dataset:"
-    value: data-raw/PUCC Checking by CDVs in Petrol Pumps.csv
+    value: data-raw/puccSurveyReportRmdScript/PUCC Checking by CDVs in Petrol Pumps.csv
     input: file
     
   date_range_ll:
@@ -38,6 +38,12 @@ params:
     max: 21600
     step: 600
     sep: "" 
+  
+  flip_axis:
+    label: "Flip Axis"
+    value: doNotFlip
+    input: select
+    choices: [Flip, doNotFlip]
 ---
 
 ```{r setup, include=FALSE}
@@ -154,9 +160,12 @@ pucc_data_filtered %>%
   dplyr::group_by(date_only) %>%
   dplyr::summarise(total_surveys_completed = n()) %>%
   ungroup() %>%
-  ggplot() + 
-  geom_col(mapping = aes(x = date_only, y = total_surveys_completed)) +
-  coord_flip()
+  ggplot(mapping = aes(x = date_only, y = total_surveys_completed)) + 
+  geom_point(size = 4, color = "burlywood2") +
+  labs(x = "Date Only", y = "Total Surveys Completed") +
+  geom_text(mapping = aes(label = total_surveys_completed), position = position_dodge(width = 0.9), vjust = 0.5, hjust = -0.3) +
+  ggtitle("Total Number of Surveys Completed") +
+  ggthemes::theme_solarized()
 
 
 ```
@@ -178,7 +187,13 @@ pucc_data_filtered %>%
 
 ## Is pucc valid? question bar graph
 
-plot_bargraph(df = pucc_data_filtered, col_to_plot = "vehicle_pucc_valid", type_of_graph = params$plot_type  , xlab = "Is Pollution Certificate Valid?", ylab = params$plot_type, title = "PUCC certificate validity", facet = FALSE, facet_by = "vehicle_category") 
+
+if(params$flip_axis == "Flip"){
+  plot_bargraph(df = pucc_data_filtered, col_to_plot = "vehicle_pucc_valid", type_of_graph = params$plot_type  , xlab = "Is Pollution Certificate Valid?", ylab = params$plot_type, title = "PUCC certificate validity", facet = FALSE, facet_by = "vehicle_category") +
+    coord_flip()
+} else if (params$flip_axis == "doNotFlip"){
+  plot_bargraph(df = pucc_data_filtered, col_to_plot = "vehicle_pucc_valid", type_of_graph = params$plot_type  , xlab = "Is Pollution Certificate Valid?", ylab = params$plot_type, title = "PUCC certificate validity", facet = FALSE, facet_by = "vehicle_category") 
+}
 
 
 ## Is pucc valid? summary table (groups: vehicle_pucc_valid)
@@ -204,8 +219,14 @@ summarise_df_by_colname(df = pucc_data_filtered, col_to_grp_by = "vehicle_pucc_v
 
 ## Is pucc valid? question bar graph faceted by vehicle_category
 
-plot_bargraph(df = pucc_data_filtered, col_to_plot = "vehicle_pucc_valid", type_of_graph = params$plot_type, xlab = "Is Pollution Certificate Valid?", ylab = params$plot_type, title = "PUCC certificate validity", facet = TRUE, facet_by = "vehicle_category")
+if(params$flip_axis == "Flip"){
+ plot_bargraph(df = pucc_data_filtered, col_to_plot = "vehicle_pucc_valid", type_of_graph = params$plot_type, xlab = "Is Pollution Certificate Valid?", ylab = params$plot_type, title = "PUCC certificate validity", facet = TRUE, facet_by = "vehicle_category") +
+    coord_flip()
 
+} else if(params$flip_axis == "doNotFlip"){
+  plot_bargraph(df = pucc_data_filtered, col_to_plot = "vehicle_pucc_valid", type_of_graph = params$plot_type, xlab = "Is Pollution Certificate Valid?", ylab = params$plot_type, title = "PUCC certificate validity", facet = TRUE, facet_by = "vehicle_category")
+
+}
 
 ## Is pucc valid? summary table (groups: vehicle_pucc_valid, vehicle_category)
 
@@ -238,18 +259,30 @@ summarise_df_by_colname(
 ```{r time-intervals-dist-all, echo=FALSE, message=FALSE, warning=FALSE}
 
 if(params$plot_type == "percentage"){
- ggplot(pucc_data_filtered) + 
+  if(params$flip_axis == "Flip"){
+     ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = as.numeric(time_only), y = (..count../sum(..count..))*100), color = "white", bins = 60) +
+  scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) + coord_flip() +
+  ggthemes::theme_solarized()
+    
+  } else if(params$flip_axis == "doNotFlip"){
+     ggplot(pucc_data_filtered) + 
   geom_histogram(mapping = aes(x = as.numeric(time_only), y = (..count../sum(..count..))*100), color = "white", bins = 60) +
   scale_x_continuous(
     name = "time", 
     breaks = seq(0, 86400, params$time_gap), 
     labels = time_hms_formatter
   ) +
-  coord_flip() +
-  ggthemes::theme_fivethirtyeight()
+  ggthemes::theme_solarized()
  
+  }
 } else if (params$plot_type == "count"){
-  ggplot(pucc_data_filtered) + 
+  if(params$flip_axis == "Flip"){
+     ggplot(pucc_data_filtered) + 
   geom_histogram(mapping = aes(x = as.numeric(time_only)), color = "white", bins = 60) +
   scale_x_continuous(
     name = "time", 
@@ -257,8 +290,19 @@ if(params$plot_type == "percentage"){
     labels = time_hms_formatter
   ) +
   coord_flip() +
+  ggthemes::theme_solarized()
+ 
+  } else if (params$flip_axis == "doNotFlip"){
+      ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = as.numeric(time_only)), color = "white", bins = 60) +
+  scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
   ggthemes::theme_fivethirtyeight()
 
+  }
 }
 
 
@@ -273,22 +317,47 @@ if(params$plot_type == "percentage"){
 ```{r time-intervals-dist-grp-puccval, echo=FALSE, message=FALSE, warning=FALSE}
 
 if(params$plot_type == "percentage"){
-  ggplot(pucc_data_filtered) + 
+  if(params$flip_axis == "Flip"){
+     ggplot(pucc_data_filtered) + 
   geom_histogram(mapping = aes(x = time_only, y = (..count../sum(..count..)) * 100), color = "white", bins = 60) +
       scale_x_continuous(
     name = "time", 
     breaks = seq(0, 86400, params$time_gap), 
     labels = time_hms_formatter
   ) +
-  facet_grid(~vehicle_pucc_valid) + coord_flip()
+  facet_grid(~vehicle_pucc_valid) + 
+      coord_flip()
+ 
+  } else if(params$flip_axis == "doNotFlip"){
+      ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = time_only, y = (..count../sum(..count..)) * 100), color = "white", bins = 60) +
+      scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  facet_grid(~vehicle_pucc_valid)
+  }
 } else if(params$plot_type == "count"){
-  ggplot(pucc_data_filtered) + 
+  
+  if(params$flip_axis == "Flip"){
+      ggplot(pucc_data_filtered) + 
   geom_histogram(mapping = aes(x = time_only), color = "white", bins = 60) +  scale_x_continuous(
     name = "time", 
     breaks = seq(0, 86400, params$time_gap), 
     labels = time_hms_formatter
   ) +
   facet_grid(~vehicle_pucc_valid) + coord_flip()
+  } else if(params$flip_axis == "doNotFlip"){
+      ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = time_only), color = "white", bins = 60) +  scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  facet_grid(~vehicle_pucc_valid)
+
+  }
 }
 ```
 
@@ -300,7 +369,8 @@ if(params$plot_type == "percentage"){
 
 ```{r time-intervals-dist-grp-vehcat, echo=FALSE, message=FALSE, warning=FALSE}
 if(params$plot_type == "percentage"){
- ggplot(pucc_data_filtered) + 
+  if(params$flip_axis == "Flip"){
+    ggplot(pucc_data_filtered) + 
   geom_histogram(mapping = aes(x = time_only, y = (..count../sum(..count..)) * 100), color = "white", bins = 60) +
       scale_x_continuous(
     name = "time", 
@@ -308,8 +378,20 @@ if(params$plot_type == "percentage"){
     labels = time_hms_formatter
   ) +
   facet_grid(~vehicle_category) + coord_flip()
+  } else if(params$flip_axis == "doNotFlip"){
+     ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = time_only, y = (..count../sum(..count..)) * 100), color = "white", bins = 60) +
+      scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  facet_grid(~vehicle_category)
+
+  }
 } else if(params$plot_type == "count"){
-  ggplot(pucc_data_filtered) + 
+  if(params$flip_axis == "Flip"){
+     ggplot(pucc_data_filtered) + 
   geom_histogram(mapping = aes(x = time_only), color = "white", bins = 60) +
       scale_x_continuous(
     name = "time", 
@@ -317,6 +399,18 @@ if(params$plot_type == "percentage"){
     labels = time_hms_formatter
   ) +
   facet_grid(~vehicle_category) + coord_flip()
+ 
+  } else if(params$flip_axis == "doNotFlip"){
+      ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = time_only), color = "white", bins = 60) +
+      scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  facet_grid(~vehicle_category) 
+
+  }
 }
 ```
 
@@ -330,7 +424,8 @@ if(params$plot_type == "percentage"){
 ```{r time-intervals-dist-grp-pucval_vehcat, echo=FALSE, message=FALSE, warning=FALSE}
 
 if(params$plot_type == "percentage"){
-  ggplot(pucc_data_filtered) + 
+  if(params$flip_axis == "Flip"){
+      ggplot(pucc_data_filtered) + 
   geom_histogram(mapping = aes(x = time_only, y = (..count../sum(..count..)) * 100), color = "white", bins = 60) +
       scale_x_continuous(
     name = "time", 
@@ -338,8 +433,21 @@ if(params$plot_type == "percentage"){
     labels = time_hms_formatter
   ) +
   facet_grid(vehicle_category~vehicle_pucc_valid) + coord_flip()
+
+  } else if(params$flip_axis == "doNotFlip"){
+      ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = time_only, y = (..count../sum(..count..)) * 100), color = "white", bins = 60) +
+      scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  facet_grid(vehicle_category~vehicle_pucc_valid) 
+
+  }
 } else if(params$plot_type == "count"){
-  ggplot(pucc_data_filtered) + 
+  if(params$flip_axis == "Flip"){
+     ggplot(pucc_data_filtered) + 
   geom_histogram(mapping = aes(x = time_only), color = "white", bins = 60) +
       scale_x_continuous(
     name = "time", 
@@ -347,7 +455,18 @@ if(params$plot_type == "percentage"){
     labels = time_hms_formatter
   ) +
   facet_grid(vehicle_category~vehicle_pucc_valid) + coord_flip()
+ 
+  } else if(params$flip_axis == "doNotFlip"){
+      ggplot(pucc_data_filtered) + 
+  geom_histogram(mapping = aes(x = time_only), color = "white", bins = 60) +
+      scale_x_continuous(
+    name = "time", 
+    breaks = seq(0, 86400, params$time_gap), 
+    labels = time_hms_formatter
+  ) +
+  facet_grid(vehicle_category~vehicle_pucc_valid)
 
+  }
 }
 ```
 
