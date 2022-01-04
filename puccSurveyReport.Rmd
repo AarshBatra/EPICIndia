@@ -92,8 +92,24 @@ library(ggthemes)
 
 ```{r PUCOrderFilterData-read-data, include=FALSE}
 
-#> Read raw data---------------------------------------------------------------
+#> Read current raw dataset-----------------------------------------------------
+# Name: V4_(SameAsV3)_PUCC Checking by CDVs in Petrol Pumps
 pucc_data_raw <- readr::read_csv(params$data)
+
+#> preprocess v1
+
+# read data
+pucc_data_raw_v1 <- readr::read_csv("./data-raw/puccSurveyReportRmdScript/PUCC Checking of Vehicles in NCT of Delhi.csv")
+
+# change column names to be the same as that of version 2 and version 3 and 4
+colnames(pucc_data_raw_v1) <- colnames(pucc_data_raw)
+
+
+#> Read in data from V2 and V3 form (there is a single form for version 2 and version 3):
+pucc_data_raw_v2_v3 <- readr::read_csv("./data-raw/puccSurveyReportRmdScript/PUCC Checking by CDVs in Petrol Pumps_v2_v3.csv")
+
+#> combine v1 to v4 into a single master raw dataset
+pucc_data_raw <- bind_rows(pucc_data_raw_v1, pucc_data_raw_v2_v3, pucc_data_raw)
 
 ```
 
@@ -123,8 +139,16 @@ pucc_data_cleaned <- pucc_data_raw %>%
                 civil_defence_volunteer_name = haven::as_factor(civil_defence_volunteer_name)) %>%
   dplyr::select(timestamp, date_only, time_only, tidyselect::everything())
 
+# making adjustment for the change in the choice list for the Vehicle category column since version 3
+
+(pucc_data_cleaned[which(pucc_data_cleaned$timestamp < "2021/11/20 07:49:00 PM GMT+5:30"), ])$vehicle_category  <- str_replace((pucc_data_cleaned[which(pucc_data_cleaned$timestamp < "2021/11/20 07:49:00 PM GMT+5:30"), ])$vehicle_category, "LGV/Pvt.", "LPV/PVT")   
+
 ```
 
+
+# Important assumption made (for all data prior to November 20, 2021 7:49 pm):
+
+* Because there was a change in the category
 
 ```{r filtered_date_range, include=FALSE}
 
