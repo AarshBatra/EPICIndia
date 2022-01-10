@@ -141,14 +141,13 @@ pucc_data_cleaned <- pucc_data_raw %>%
 
 # making adjustment for the change in the choice list for the Vehicle category column since version 3
 
-(pucc_data_cleaned[which(pucc_data_cleaned$timestamp < "2021/11/20 07:49:00 PM GMT+5:30"), ])$vehicle_category  <- str_replace((pucc_data_cleaned[which(pucc_data_cleaned$timestamp < "2021/11/20 07:49:00 PM GMT+5:30"), ])$vehicle_category, "LGV/Pvt.", "LPV/PVT")   
+pucc_data_cleaned[which(pucc_data_cleaned$timestamp < "2021/11/20 07:49:00 PM GMT+5:30"), ]$vehicle_category  <- str_replace((pucc_data_cleaned[which(pucc_data_cleaned$timestamp < "2021/11/20 07:49:00 PM GMT+5:30"), ])$vehicle_category, "LGV/Pvt.", "LPV/PVT")
 
 ```
 
-
 # Important assumption made (for all data prior to November 20, 2021 7:49 pm):
 
-* Because there was a change in the category
+* Because there was a change in one of the values for vehicle category (LGV/Pvt. is now LPV/PVT) I have assumed that prior to November 20, 2021, 7:49 pm when CDV's filled in LGV/Pvt. that was equivalent to LPV/PVT.
 
 ```{r filtered_date_range, include=FALSE}
 
