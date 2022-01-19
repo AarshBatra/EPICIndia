@@ -1,0 +1,629 @@
+---
+title: |
+  ![](logo.jpg){width=2.5in}  
+  PUCC Survey Report: Cleaning Data
+author: "Project Management Unit"
+date:  "`r Sys.Date() - 1`"
+output: 
+   prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# note: using load_all and document() within the rmd file is 
+# crucial as loading it outside the context of the rmd file 
+# (for example in the console) will not give it access to the 
+# functions that are stored in the R sub-directory.
+
+devtools::load_all()
+devtools::document()
+
+```
+
+
+# Libraries
+
+```{r libraries, include=FALSE}
+library(tidyverse)
+library(roxygen2)
+library(envnames)
+library(tidyr)
+library(magrittr)
+library(ggplot2)
+library(stringr)
+library(skimr)
+library(purrr)
+library(forcats)
+library(foreign)
+library(haven)
+library(dplyr)
+library(broom)
+library(glue)
+library(VIM)
+library(outliers)
+library(ggplot2)
+library(scales)
+library(grid)
+library(prettydoc)
+library(RColorBrewer)
+library(psych)
+library(lubridate)
+library(janitor)
+library(ggthemes)
+library(data.table)
+library(vroom)
+library(DBI)
+library(RSQLite)
+```
+
+
+# Explore 1 raw sample file from each of the 5 tables, to determine broad cleaning steps, listing clarifying questions.
+
+```{r eval=FALSE, include=FALSE}
+## getting sample data from 5 tables into a list
+# path to sample files (one from each table) with clean column names
+rel_path_to_sample_partitioned_files_dir <- c("./data-raw/puccRawDataDumpPartitioningRmdScript/test_sample_data_clean_col_names")
+
+# a character vector listing the above files
+sample_files <- list.files(rel_path_to_sample_partitioned_files_dir)
+
+# empty list to store each of the above files
+sample_df_list <- list()
+
+# store the files in the above list
+for(i in 1:length(sample_files)){
+  sample_df_list[[i]] <- read_csv(str_c(rel_path_to_sample_partitioned_files_dir, sample_files[i], sep = "/"))
+}
+```
+
+## Explore Table 1:
+
+```{r eval=FALSE, include=FALSE}
+## Exploring table 1 (keyword: certificate)-------------------------------
+
+#> Convert all character columns to lower case
+sample_df_list[[1]] <- convert_character_col_case(sample_df_list[[1]], "lower")
+
+#> sort out redundant fuel types and create a MECE list of fuel type categories
+
+# from regular expressions for fuel type
+from_reg_exps_fuel_type <- c("(petrol petrol)|(gasolin)", "(E|e)(L|l).+", 
+                             "cng only", "lpg only", 
+                             "(p|P|c|C)([a-z]|[A-Z])+(-|/)(c|C|p|P).+", 
+                             "(p|P|l|L)([a-z]|[A-Z])+(-|/)(l|L|p|P).+", 
+                             "(d|D|l|L)([a-z]|[A-Z])+(-|/)(l|L|d|D).+", 
+                             "(d|D|c|C)([a-z]|[A-Z])+(-|/)(c|C|d|D).+", 
+                             "not applicable", 
+                             "white petrol", 
+                             "no fuel")
+
+# to regular expressions for fuel type
+to_reg_exps_fuel_type <- c("petrol", "electric", "cng", "lpg", "petrol-cng", "petrol-lpg", 
+                           "diesel-lpg", "diesel-cng", "notapplicable", 
+                           "whitepetrol", "nofuel")
+
+# replace the values in the fuel type column that fit the "from" expressions into "to" expressions
+sample_df_list[[1]] <- replace_col_values(sample_df_list[[1]], "t_1_certificate_vehicle_fuel_type", 
+                                     from_reg_exps_fuel_type, to_reg_exps_fuel_type)
+
+
+#> create a date only and time only column from time stamp
+sample_df_list[[1]] <- sample_df_list[[1]] %>%
+separate(t_1_certificate_vehicle_ts, c("t_1_certificate_vehicle_ts_date_only", "t_1_certificate_vehicle_ts_time_only"), " ", remove = FALSE)
+
+#> create a petrol code and diesel code column from the pucc number
+
+sample_df_list[[1]] <- sample_df_list[[1]] %>%
+  mutate(t_1_certificate_vehicle_pucc_number_petrol_diesel_code = str_extract(t_1_certificate_vehicle_pucc_number, "(p|d|P|D)..."))
+
+#> create a state code column from the vehicle number column
+sample_df_list[[1]] <- sample_df_list[[1]] %>%
+  mutate(t_1_certificate_vehicle_number_state_code = str_extract(t_1_certificate_vehicle_number, ".."))
+
+#> split machine reading column according to regular expressions and fuel types
+
+# maximum number of hash delimiter in a given string in the machine reading column
+max_hashes_machine_reading <- 9
+
+# maximum number of hyphen delimiter in a given string in machine reading
+max_hyphen_machine_reading <- 
+
+
+sample_df_list[[1]] <- sample_df_list[[1]] %>%
+separate(t_1_certificate_vehicle_machine_reading, c("t_1_certificate_vehicle_machine_reading_notdiesel_g1", "t_1_certificate_vehicle_machine_reading_notdiesel_g2", 
+"t_1_certificate_vehicle_machine_reading_notdiesel_g3", 
+"t_1_certificate_vehicle_machine_reading_notdiesel_g4", 
+"t_1_certificate_vehicle_machine_reading_notdiesel_g5", 
+"t_1_certificate_vehicle_machine_reading_notdiesel_g6", 
+"t_1_certificate_vehicle_machine_reading_notdiesel_g7"), "#", remove = FALSE)
+
+
+
+# Convert all date, datetime, time character columns into date, datetime, time formats
+sample_df_list[[1]]$t_1_certificate_vehicle_ts <- as_datetime(sample_df_list[[1]]$t_1_certificate_vehicle_ts)
+
+sample_df_list[[1]]$t_1_certificate_vehicle_ts_date_only <- as_date(sample_df_list[[1]]$t_1_certificate_vehicle_ts_date_only)
+
+sample_df_list[[1]]$t_1_certificate_vehicle_ts_time_only <- 
+  readr::parse_time(sample_df_list[[1]]$t_1_certificate_vehicle_ts_time_only)
+  
+
+#> find primary keys
+t_1_primary_keys <- find_primary_keys(sample_df_list[[1]])
+
+#> find unique values by columns
+t_1_unique_values_by_col <- find_unique_values_by_col(sample_df_list[[1]])
+
+
+
+# nrows
+nrow(sample_df_list[[1]])
+
+#> find primary keys
+
+primary_keys_t_1 <- find_primary_keys(sample_df_list[[1]])
+
+
+#> count of each fuel type
+count_each_fuel_type <- sample_df_list[[1]] %>% group_by(t_1_certificate_vehicle_fuel_type) %>% summarise(count = n()) %>%
+  arrange(desc(count))
+
+#> graph the fuel type from (most present to least present)
+count_each_fuel_type %>% 
+  ggplot() + 
+  geom_col(mapping = aes(x = fct_reorder(t_1_certificate_vehicle_fuel_type, count), y = log(count, 3))) +
+  coord_flip()
+
+#> Why does this electric vehicle have a pucc certificate?
+elec_veh_pucc <- filter(sample_df_list[[1]], t_1_certificate_vehicle_fuel_type == "electric")
+
+
+###################################
+
+# #> skim
+# skimr::skim(sample_df_list[[1]])
+# 
+# #> Explore unique values for each column
+# find_unique_values_by_col(sample_df_list[[1]])
+# 
+# # unique values of fuel type
+# # There are 28 unique values for Fuel in this sample. Probably means that
+# # in the vahan system this is taken as a character input. They should take it
+# # as a factor input with defined levels. 
+# 
+# # These are the following types of fuel (need to check this with the transport department) that exist.
+# 
+# # Petrol, Diesel, CNG, LPG, Electric, Petrol/CNG, Petrol/LPG, Diesel/LPG, rlpg/p, White Petrol, rcng/p, ret.cng kit, 
+# 
+# #  Others: Gasolin, no fuel, not applicable
+# 
+# unique(str_to_lower(sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type))
+# 
+#  # Commented out code as this has been converted into functions.
+
+
+# #> sort out redundant fuel types----------------------
+# 
+# # convert fuel type values to lower case
+# sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type <- sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type %>%
+#   str_to_lower()
+# 
+# 
+# # petrol petrol|gasolin > petrol
+# 
+# sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type <- str_replace(sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type, "(petrol petrol)|(gasolin)", "petrol")
+# 
+# # Any electric > electric
+# sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type <- str_replace(sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type, "(E|e)(L|l).+", "electric")
+# 
+# 
+# # cng only > cng 
+# 
+# sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type <- str_replace(sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type, "cng only", "cng")
+# 
+# # lpg only > lpg
+# 
+# sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type <- str_replace(sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type, "lpg only", "lpg")
+#  
+# 
+# # All combinations of petrol/cng > petrol-cng
+# sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type <- str_replace(sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type, "(p|P|c|C)([a-z]|[A-Z])+(-|/)(c|C|p|P).+", "petrol-cng")
+# 
+# # All combinations of petrol lpg > petrol-lpg
+# sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type <- str_replace(sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type, "(p|P|l|L)([a-z]|[A-Z])+(-|/)(l|L|p|P).+", "petrol-lpg")
+# 
+# # All combinations of diesellpg > diesel-lpg
+# sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type <- str_replace(sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type, "(d|D|l|L)([a-z]|[A-Z])+(-|/)(l|L|d|D).+", "diesel-lpg")
+# 
+# # All combinations of dieselcng > diesel-cng
+# sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type <- str_replace(sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type, "(d|D|c|C)([a-z]|[A-Z])+(-|/)(c|C|d|D).+", "diesel-cng")
+# 
+# 
+# # not applicable > notapplicable
+# sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type <- str_replace(sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type, "not applicable", "notapplicable")
+# 
+# # white petrol > whitepetrol
+# sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type <- str_replace(sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type, "white petrol", "whitepetrol")
+# 
+# # no fuel > nofuel
+# 
+# sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type <- str_replace(sample_df_list[[1]]$t_1_certificate_vehicle_fuel_type, "no fuel", "nofuel")
+# 
+
+#############################################
+
+```
+
+
+## Explore Table 2
+
+```{r eval=FALSE, include=FALSE}
+
+## Exploring table 2 (keyword: "certstring")-------------------------------
+
+#> nrows
+nrow(sample_df_list[[2]])
+
+#>  figuring out the primary key column
+primary_keys_t_2 <- find_primary_keys(sample_df_list[[2]])
+
+#> Exploring unique values in each column
+find_unique_values_by_col(sample_df_list[[2]])
+
+
+```
+
+
+## Explore Table 3
+
+```{r eval=FALSE, include=FALSE}
+
+
+
+
+
+#> Convert all character columns to lower case
+sample_df_list[[2]] <- convert_character_col_case(sample_df_list[[2]], "lower")
+
+#> nrows
+nrow(sample_df_list[[3]])
+
+#> figuring out the primary key column
+primary_keys_t_3 <- find_primary_keys(sample_df_list[[3]])
+
+#> converting vehicle make, model into lower case
+sample_df_list[[3]]$t_3_mas_vehicle_make <- 
+str_to_lower(sample_df_list[[3]]$t_3_mas_vehicle_make)
+
+sample_df_list[[3]]$t_3_mas_vehicle_model <- 
+str_to_lower(sample_df_list[[3]]$t_3_mas_vehicle_model)
+
+#> removing redundant fuel types
+
+
+
+#> exploring unique values in each column
+find_unique_values_by_col(sample_df_list[[3]])
+
+
+
+
+```
+
+
+## Explore Table 4
+
+```{r eval=FALSE, include=FALSE}
+
+
+#> nrows
+nrow(sample_df_list[[4]])
+
+#> figuring out the primary key column
+primary_keys_t_4 <- find_primary_keys(sample_df_list[[4]])
+
+
+
+```
+
+## Explore Table 5
+
+```{r eval=FALSE, include=FALSE}
+
+#> nrows
+nrow(sample_df_list[[5]])
+
+#> figuring out primary key column
+primary_keys_t_5 <- find_primary_keys(sample_df_list[[5]])
+
+```
+
+
+
+
+# Post EDA: Perform Cleaning on partitioned files using the master cleaning function
+
+```{r eval=FALSE, message=FALSE, warning=TRUE, include=FALSE}
+
+input_partitioned_files_dir_rel_path <- c("./output/puccRawDataDumpDataPartitioningRmdScriptOutputFiles/master_files_for_each_table_dump_output") 
+
+clean_output_folder_rel_path <- c("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned")
+
+input_partitioned_files_list <- list.files(input_partitioned_files_dir_rel_path)
+
+for(i in 1:length(input_partitioned_files_list)){
+  print(str_c("Starting cleaning File: ", i, "/", length(input_partitioned_files_list), sep = " "))
+  input_file_name <- input_partitioned_files_list[i]
+  df <- read_csv(str_c(input_partitioned_files_dir_rel_path, input_file_name, sep = "/"))
+  
+  #> Convert all character columns to lower case
+  df <- convert_character_col_case(df, "lower")
+  print("converted all character columns to lower case")
+
+  clean_partitioned_pucc_data_dump_file(df, input_file_name, clean_output_folder_rel_path)
+  print(str_c("File", i, "/", length(input_partitioned_files_list), "cleaned and exported", sep = " "))
+  if(i == length(input_partitioned_files_list)){
+    print("All files cleaned and exported!")
+  }
+}
+
+
+  
+```
+
+
+
+# Combine all partitioned cleaning files of a given table into a single master dataframe. At the end of this process there will be five master files for five tables.
+
+```{r eval=FALSE, include=FALSE}
+#> v1
+# df_certificate <- combine_partitioned_files("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "certificate")
+
+#> v2
+
+# keyword: certificate
+combine_partitioned_files_v2("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "certificate", "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_five_files_for_each_table_dump_output_cleaned", "puc_certificate_master_table.csv")
+
+# keyword: certstring
+combine_partitioned_files_v2("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "certstring", "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_five_files_for_each_table_dump_output_cleaned", "puc_certstring_master_table.csv")
+
+
+# keyword: new
+combine_partitioned_files_v2("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "new", "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_five_files_for_each_table_dump_output_cleaned", "puc_new_master_table.csv")
+
+
+# keyword: mas
+combine_partitioned_files_v2("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "mas", "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_five_files_for_each_table_dump_output_cleaned", "puc_mas_master_table.csv")
+
+# keyword: center
+combine_partitioned_files_v2("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "center", "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_five_files_for_each_table_dump_output_cleaned", "puc_center_master_table.csv")
+
+
+
+```
+
+
+# reading in the 5 master tables into data.tables
+
+```{r eval=FALSE, include=FALSE}
+puc_certificate_master_table_dt <- vroom("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_five_files_for_each_table_dump_output_cleaned/puc_certificate_master_table.csv")
+
+puc_new_master_table_dt <- vroom("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_five_files_for_each_table_dump_output_cleaned/puc_new_master_table.csv")
+
+puc_mas_master_table_dt <- vroom("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_five_files_for_each_table_dump_output_cleaned/puc_mas_master_table.csv")
+
+puc_certstring_master_table_dt <- vroom("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_five_files_for_each_table_dump_output_cleaned/puc_certstring_master_table.csv")
+
+puc_center_master_table_dt <- vroom("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_five_files_for_each_table_dump_output_cleaned/puc_center_master_table.csv")
+
+
+```
+
+# Copying the master table (above) and into a local postgres database (does not work)
+
+```{r eval=FALSE, include=FALSE}
+# using R-Postgres
+con_postgres <- dbConnect(drv = RPostgres::Postgres(),
+                 host = "localhost", 
+                 dbname = "postgres", 
+                 port = "5432", 
+                 user = "postgres",
+                 password = "aarshepicindia")
+
+
+
+dbListTables(con_postgres)
+dplyr::copy_to(con, puc_certificate_master_table_dt, "puc_certificate_master_table_dt")
+
+
+```
+
+
+# Copying the master table (above) into a local RSQLite database (does not work)
+
+```{r eval=FALSE, include=FALSE}
+con_sqlite <- dbConnect(RSQLite::SQLite(), ":memory:")
+dbListTables(con_sqlite)
+dbWriteTable(con_sqlite, "mtcars", mtcars)
+dbListFields(con_sqlite, "mtcars")
+
+dbWriteTable(con_sqlite, "puc_certificate_master_table", puc_certificate_master_table_dt)
+
+```
+
+# directly writing cleaned partitioned files to a remote sqlite database
+
+```{r eval=FALSE, include=FALSE}
+#> v3
+
+# setting up a sqlite connection
+con_sqlite <- dbConnect(RSQLite::SQLite(), ":memory:")
+
+# keyword: certificate
+combine_partitioned_files_v3_rd(con = con_sqlite, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "certificate", "puc_certificate_master_table")
+
+
+# keyword: mas
+combine_partitioned_files_v3_rd(con = con_sqlite, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "mas", "puc_mas_master_table")
+
+# keyword: new
+combine_partitioned_files_v3_rd(con = con_sqlite, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "new", "puc_new_master_table")
+
+# keyword: certstring
+combine_partitioned_files_v3_rd(con = con_sqlite, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "certstring", "puc_certstring_master_table")
+
+# keyword: center
+combine_partitioned_files_v3_rd(con = con_sqlite, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "center", "puc_center_master_table")
+
+
+dbListFields(con_sqlite, "puc_certificate_master_table")
+
+tbl_certificate <- tbl(con_sqlite, "puc_certificate_master_table")
+
+```
+
+
+# directly writing cleaned partitioned files to a local postgres database
+
+```{r eval=FALSE, include=FALSE}
+
+# setting up a postgres connection
+con_postgres <- DBI::dbConnect(drv = RPostgres::Postgres(),
+                 host = "localhost", 
+                 dbname = "postgres", 
+                 port = "5432", 
+                 user = "postgres",
+                 password = "aarshepicindia")
+
+# keyword: certificate
+combine_partitioned_files_v3_rd(con = con_postgres, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "certificate", "puc_certstring_master_table")
+
+
+# keyword: certstring
+combine_partitioned_files_v3_rd(con = con_postgres, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "certstring", "puc_certstring_master_table")
+
+# keyword: mas
+combine_partitioned_files_v3_rd(con = con_postgres, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "mas", "puc_mas_master_table")
+
+# keyword: new
+combine_partitioned_files_v3_rd(con = con_postgres, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "new", "puc_new_master_table")
+
+# keyword: center
+combine_partitioned_files_v3_rd(con = con_postgres, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "center", "puc_center_master_table")
+
+dbListTables(con_postgres)
+
+dbListFields(con_postgres, "puc_certificate_master_table")
+
+puc_certificate_master_table_ref <- tbl(con_postgres, "puc_certificate_master_table")
+foo <- puc_certificate_master_table_ref %>%
+  select(t_1_certificate_id_I: t_1_certificate_vehicle_machine_reading) %>%
+  collect()
+
+  ggplot(mapping = aes(x = t_1_certificate_uid_I)) + 
+  geom_histogram()
+
+```
+
+
+# Analyze cleaned master tables using postgres
+
+```{r}
+#> setting up a postgres connection
+con_postgres <- DBI::dbConnect(drv = RPostgres::Postgres(),
+                 host = "localhost", 
+                 dbname = "postgres", 
+                 port = "5432", 
+                 user = "postgres",
+                 password = "aarshepicindia")
+
+#> read data by reference (using postgres) into R
+puc_certificate_master_pg_table <- tbl(con_postgres, "puc_certificate_master_table")
+puc_certstring_master_pg_table <- tbl(con_postgres, "puc_certstring_master_table")
+puc_mas_master_pg_table <- tbl(con_postgres, "puc_mas_master_table")
+puc_new_master_pg_table <- tbl(con_postgres, "puc_new_master_table")
+puc_center_master_pg_table <- tbl(con_postgres, "puc_center_master_table")
+```
+
+
+```{r eval=FALSE, include=FALSE}
+#> Figure out column wise duplicates in all master tables.
+
+# Table 1: certificate, column wise duplicates
+find_duplicates_in_remote_df_cols(puc_certificate_master_pg_table, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/col_wise_duplicates_in_five_master_tables/t_1_certificate_duplicates")
+
+# Table 2: certstring, column wise duplicates
+find_duplicates_in_remote_df_cols(puc_certstring_master_pg_table, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/col_wise_duplicates_in_five_master_tables/t_2_certstring_duplicates")
+
+# Table 3: mas, column wise duplicates
+find_duplicates_in_remote_df_cols(puc_mas_master_pg_table, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/col_wise_duplicates_in_five_master_tables/t_3_mas_duplicates")
+
+# Table 4: new, column wise duplicates
+find_duplicates_in_remote_df_cols(puc_new_master_pg_table, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/col_wise_duplicates_in_five_master_tables/t_4_new_duplicates")
+
+# Table 5: center, column wise duplicates
+find_duplicates_in_remote_df_cols(puc_center_master_pg_table, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/col_wise_duplicates_in_five_master_tables/t_5_center_duplicates")
+
+```
+
+```{r}
+# Figure column wise unique values
+
+# Table 1: certificate, column wise unique values (the list gets too big in this table
+# and we get the following message: Error, cannot allocate a vector of size 200 Mb. This
+# happens only for this table. I will write a better version of this function that 
+# gets around this problem. Until then, export one column at a time, using the code
+# in the function definition.)
+find_uniq_or_dup_vals_in_remote_df_cols(puc_certificate_master_pg_table, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/col_wise_unique_vals_in_five_master_tables/t_1_certificate_unique_values", "unique")
+
+# Table 2: certstring, column wise unique values
+find_uniq_or_dup_vals_in_remote_df_cols(puc_certstring_master_pg_table, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/col_wise_unique_vals_in_five_master_tables/t_2_certstring_unique_values", "unique")
+
+# Table 3: mas, column wise unique values
+find_uniq_or_dup_vals_in_remote_df_cols(puc_mas_master_pg_table, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/col_wise_unique_vals_in_five_master_tables/t_3_mas_unique_values", "unique")
+
+# Table 4: new, column wise unique values
+find_uniq_or_dup_vals_in_remote_df_cols(puc_new_master_pg_table, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/col_wise_unique_vals_in_five_master_tables/t_4_new_unique_values", "unique")
+
+# Table 5: center, column wise unique values
+find_uniq_or_dup_vals_in_remote_df_cols(puc_center_master_pg_table, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/col_wise_unique_vals_in_five_master_tables/t_5_center_unique_values", "unique")
+
+```
+
+
+
+
+
+# Make column names shorter and add column labels
+
+```{r eval=FALSE, include=FALSE}
+
+# create five colnames character vectors for the colnames for the five tables
+
+# certificate > cert; vehicle > veh; number > num; machine_reading > m_r; certstring > certstr; timestamp > ts
+
+t_1_new_colnames <- c("t_1_cert_id_I",	"t_1_cert_veh_pucc_num",	"t_1_cert_uid_I",	"t_1_cert_veh_num",	"t_1_cert_veh_m_r",	"t_1_cert_veh_m_r_notdiesel_g1",	"t_1_cert_veh_m_r_notdiesel_g2",	"t_1_cert_veh_m_r_notdiesel_g3",	"t_1_cert_veh_m_r_notdiesel_g4",	"t_1_cert_veh_m_r_notdiesel_g5",	"t_1_cert_veh_m_r_notdiesel_g6",	"t_1_cert_veh_m_r_notdiesel_g7",	"t_1_cert_veh_test_result",	"t_1_cert_veh_fuel_type",	"t_1_cert_veh_ts",	"t_1_cert_veh_ts_date_only",	"t_1_cert_veh_ts_time_only",	"t_1_cert_veh_pucc_num_petrol_diesel_code",	"t_1_cert_veh_num_state_code")
+
+t_2_new_colnames <- c("t_2_certstr_uid_I",	"t_2_certstr_veh_cert_num_I",	"t_2_certstr_veh_num",	"t_2_certstr_veh_status",	"t_2_certstr_cert_id_I",	"t_2_certstr_veh_num_state_code")
+
+t_3_new_colnames <- c("t_3_mas_id_I",	"t_3_mas_veh_pucc_num",	"t_3_mas_veh_num",	"t_3_mas_veh_make",	"t_3_mas_veh_model",	"t_3_mas_veh_category",	"t_3_mas_veh_manufacturing",	"t_3_mas_veh_fuel_type",	"t_3_mas_veh_engine_stroke",	"t_3_mas_veh_emission_norms",	"t_3_mas_veh_owner_name",	"t_3_mas_veh_owner_address",	"t_3_mas_ts",	"t_3_mas_ts_date_only",	"t_3_mas_ts_time_only",	"t_3_mas_veh_pucc_num_petrol_diesel_code",	"t_3_mas_veh_num_state_code")
+
+t_4_new_colnames <- c("t_4_new_veh_pucc_num",	"t_4_new_veh_test_date",	"t_4_new_veh_test_time",	"t_4_new_veh_pucc_valid_upto",	"t_4_new_veh_pucc_num_petrol_diesel_code")
+
+# there is an additional time only variable which is the last column, drop this in cleaning.
+t_5_new_colnames <- c("t_5_center_id_I",	"t_5_center_name",	"t_5_center_address",	"t_5_center_pin",	"t_5_center_mobile",	"t_5_center_zone",	"t_5_center_diesel_code",	"t_5_center_petrol_code",	"t_5_center_ts",	"t_5_center_ts_date_only",	"t_5_center_ts_time_only",	"t_5_center_total_fail",	"t_5_center_total_pass",	"t_5_center_total_pucc",	"t_5_center_two_wheeler_cancel_count",	"t_5_center_two_wheeler_fail_count",	"t_5_center_two_wheeler_pass_count",	"t_5_center_ts_time_only")
+
+
+# Apply the rename_cols_pucc_data_dump function to all partitioned files
+
+```
+
+
+
+
+
+
