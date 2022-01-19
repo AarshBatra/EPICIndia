@@ -61,6 +61,7 @@ library(RSQLite)
 ```
 
 
+
 # Explore 1 raw sample file from each of the 5 tables, to determine broad cleaning steps, listing clarifying questions.
 
 ```{r eval=FALSE, include=FALSE}
@@ -282,10 +283,6 @@ find_unique_values_by_col(sample_df_list[[2]])
 
 ```{r eval=FALSE, include=FALSE}
 
-
-
-
-
 #> Convert all character columns to lower case
 sample_df_list[[2]] <- convert_character_col_case(sample_df_list[[2]], "lower")
 
@@ -318,7 +315,6 @@ find_unique_values_by_col(sample_df_list[[3]])
 ## Explore Table 4
 
 ```{r eval=FALSE, include=FALSE}
-
 
 #> nrows
 nrow(sample_df_list[[4]])
@@ -380,6 +376,7 @@ for(i in 1:length(input_partitioned_files_list)){
 # Combine all partitioned cleaning files of a given table into a single master dataframe. At the end of this process there will be five master files for five tables.
 
 ```{r eval=FALSE, include=FALSE}
+
 #> v1
 # df_certificate <- combine_partitioned_files("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "certificate")
 
@@ -466,7 +463,6 @@ con_sqlite <- dbConnect(RSQLite::SQLite(), ":memory:")
 # keyword: certificate
 combine_partitioned_files_v3_rd(con = con_sqlite, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "certificate", "puc_certificate_master_table")
 
-
 # keyword: mas
 combine_partitioned_files_v3_rd(con = con_sqlite, "./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/master_files_for_each_table_dump_output_cleaned", "mas", "puc_mas_master_table")
 
@@ -490,7 +486,6 @@ tbl_certificate <- tbl(con_sqlite, "puc_certificate_master_table")
 # directly writing cleaned partitioned files to a local postgres database
 
 ```{r eval=FALSE, include=FALSE}
-
 # setting up a postgres connection
 con_postgres <- DBI::dbConnect(drv = RPostgres::Postgres(),
                  host = "localhost", 
@@ -621,9 +616,4 @@ t_5_new_colnames <- c("t_5_center_id_I",	"t_5_center_name",	"t_5_center_address"
 # Apply the rename_cols_pucc_data_dump function to all partitioned files
 
 ```
-
-
-
-
-
 

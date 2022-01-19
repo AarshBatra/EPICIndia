@@ -269,7 +269,6 @@ clean_partitioned_pucc_data_dump_file <- function(df, input_file_name, clean_out
                 "t_5_center_two_wheeler_fail_count",
                 "t_5_center_two_wheeler_pass_count"))
 
-
     print("Step: 3/4 completed.")
 
     #> write cleaned files to output folder
@@ -398,8 +397,6 @@ find_uniq_or_dup_vals_in_remote_df_cols <- function(df, output_folder_df_col_wis
 }
 
 
-
-
 #' get unique values for all columns for a given data frame
 #'
 #' For a given data frame, find the unique values for each column. Return
@@ -495,7 +492,6 @@ replace_col_values <- function(df, fuel_type_col_name, from_reg_exps, to_reg_exp
   return(df)
 }
 
-
 #' rename columns for pucc data dump tables
 #'
 #' This function renames the columns of all given csv files (which should belong to
@@ -545,6 +541,4 @@ rename_cols_pucc_data_dump <- function(rel_path_input_folder, rel_path_output_fo
 
 
 }
-
-
 
