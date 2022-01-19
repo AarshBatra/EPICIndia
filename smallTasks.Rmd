@@ -596,3 +596,24 @@ View(select(filter(scto_master_df_arr_by_grp, uid_central_area == "anandvihar_ed
             `Center Name`, uid_central_area, everything()))
 
 ```
+
+
+# Checking for NA's in column wise unique values (for each of the 5 master tables) list for those columns of each table, that are too big to be opened in Excel.
+
+```{r}
+
+current_file_path <- c("./output/puccRawDataDumpDataCleaningRmdScriptOutputFiles/col_wise_unique_vals_in_five_master_tables/t_4_new_unique_values/t_4_new_vehicle_pucc_valid_upto.csv")
+
+current_file <- read_csv(current_file_path)
+
+# checks
+sum(is.na(current_file$t_4_new_vehicle_pucc_valid_upto), na.rm = TRUE)
+sum(is.null(current_file$t_4_new_vehicle_pucc_valid_upto), na.rm = TRUE)
+sum(is.nan(current_file$t_4_new_vehicle_pucc_valid_upto), na.rm = TRUE)
+sum(current_file$t_4_new_vehicle_pucc_valid_upto == "", na.rm = TRUE)
+sum(current_file$t_4_new_vehicle_pucc_valid_upto == " ", na.rm = TRUE)
+sum(current_file$t_4_new_vehicle_pucc_valid_upto == "-", na.rm = TRUE)
+sum(current_file$t_4_new_vehicle_pucc_valid_upto == "--", na.rm = TRUE)
+
+```
+
